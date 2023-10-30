@@ -1,0 +1,589 @@
+[debug] [2023-10-30T11:45:19.211Z] ----------------------------------------------------------------------
+[debug] [2023-10-30T11:45:19.212Z] Command:       /Users/wupinghsing/.nvm/versions/node/v16.16.0/bin/node /Users/wupinghsing/.nvm/versions/node/v16.16.0/bin/firebase emulators:start
+[debug] [2023-10-30T11:45:19.212Z] CLI Version:   12.7.0
+[debug] [2023-10-30T11:45:19.213Z] Platform:      darwin
+[debug] [2023-10-30T11:45:19.213Z] Node Version:  v16.16.0
+[debug] [2023-10-30T11:45:19.214Z] Time:          Mon Oct 30 2023 19:45:19 GMT+0800 (台北標準時間)
+[debug] [2023-10-30T11:45:19.215Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-10-30T11:45:19.271Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-10-30T11:45:19.272Z] > authorizing via signed-in user (info@moonshine.tw)
+[debug] [2023-10-30T11:45:19.420Z] openjdk version "17.0.5" 2022-10-18 LTS
+
+[debug] [2023-10-30T11:45:19.420Z] OpenJDK Runtime Environment Corretto-17.0.5.8.1 (build 17.0.5+8-LTS)
+OpenJDK 64-Bit Server VM Corretto-17.0.5.8.1 (build 17.0.5+8-LTS, mixed mode, sharing)
+
+[debug] [2023-10-30T11:45:19.423Z] Parsed Java major version: 17
+[info] i  emulators: Starting emulators: auth, functions, firestore, hosting {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth, functions, firestore, hosting"}}
+[debug] [2023-10-30T11:45:20.106Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-10-30T11:45:20.106Z] [auth] Authentication Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-10-30T11:45:20.106Z] [firestore] Firestore Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-10-30T11:45:20.106Z] [firestore.websocket] websocket server for firestore only supports listening on one address (127.0.0.1). Not listening on ::1
+[warn] ⚠  hosting: Hosting Emulator unable to start on port 5000, starting on 5002 instead. {"metadata":{"emulator":{"name":"hosting"},"message":"Hosting Emulator unable to start on port 5000, starting on 5002 instead."}}
+[debug] [2023-10-30T11:45:20.106Z] [hosting] Hosting Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-10-30T11:45:20.106Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"auth":[{"address":"127.0.0.1","family":"IPv4","port":9099}],"firestore":[{"address":"127.0.0.1","family":"IPv4","port":8080}],"firestore.websocket":[{"address":"127.0.0.1","family":"IPv4","port":9150}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5002}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2023-10-30T11:45:20.111Z] [hub] writing locator at /var/folders/dk/yq4hvl816vjbw2wqdm47jst40000gn/T/hub-web-asusai.json
+[debug] [2023-10-30T11:45:20.275Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-10-30T11:45:20.275Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-10-30T11:45:20.275Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"auth":[{"address":"127.0.0.1","family":"IPv4","port":9099}],"firestore":[{"address":"127.0.0.1","family":"IPv4","port":8080}],"firestore.websocket":[{"address":"127.0.0.1","family":"IPv4","port":9150}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5002}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] ⚠  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: database, pubsub, storage {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mdatabase, pubsub, storage\u001b[22m"}}
+[debug] [2023-10-30T11:45:20.277Z] defaultcredentials: writing to file /Users/wupinghsing/.config/firebase/info_moonshine_tw_application_default_credentials.json
+[debug] [2023-10-30T11:45:20.279Z] Setting GAC to /Users/wupinghsing/.config/firebase/info_moonshine_tw_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to /Users/wupinghsing/.config/firebase/info_moonshine_tw_application_default_credentials.json"}}
+[debug] [2023-10-30T11:45:20.279Z] > refreshing access token with scopes: []
+[debug] [2023-10-30T11:45:20.280Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-10-30T11:45:20.280Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-10-30T11:45:20.362Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2023-10-30T11:45:20.362Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-10-30T11:45:20.378Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/web-asusai/adminSdkConfig [none]
+[debug] [2023-10-30T11:45:20.656Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/web-asusai/adminSdkConfig 200
+[debug] [2023-10-30T11:45:20.656Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/web-asusai/adminSdkConfig {"projectId":"web-asusai","storageBucket":"web-asusai.appspot.com"}
+[warn] ⚠  firestore: Cloud Firestore Emulator does not support multiple databases yet. {"metadata":{"emulator":{"name":"firestore"},"message":"Cloud Firestore Emulator does not support multiple databases yet."}}
+[warn] ⚠  firestore: Did not find a Cloud Firestore rules file specified in a firebase.json config file. {"metadata":{"emulator":{"name":"firestore"},"message":"Did not find a Cloud Firestore rules file specified in a firebase.json config file."}}
+[warn] ⚠  firestore: The emulator will default to allowing all reads and writes. Learn more about this option: https://firebase.google.com/docs/emulator-suite/install_and_configure#security_rules_configuration. {"metadata":{"emulator":{"name":"firestore"},"message":"The emulator will default to allowing all reads and writes. Learn more about this option: https://firebase.google.com/docs/emulator-suite/install_and_configure#security_rules_configuration."}}
+[info] i  firestore: downloading cloud-firestore-emulator-v1.18.2.jar... {"metadata":{"emulator":{"name":"firestore"},"message":"downloading cloud-firestore-emulator-v1.18.2.jar..."}}
+[debug] [2023-10-30T11:45:20.689Z] >>> [apiv2][query] GET https://storage.googleapis.com/firebase-preview-drop/emulator/cloud-firestore-emulator-v1.18.2.jar 
+[debug] [2023-10-30T11:45:20.905Z] <<< [apiv2][status] GET https://storage.googleapis.com/firebase-preview-drop/emulator/cloud-firestore-emulator-v1.18.2.jar 200
+[debug] [2023-10-30T11:45:20.906Z] <<< [apiv2][body] GET https://storage.googleapis.com/firebase-preview-drop/emulator/cloud-firestore-emulator-v1.18.2.jar [stream]
+[info] i  firestore: Removing outdated emulator files: cloud-firestore-emulator-v1.14.4.jar {"metadata":{"emulator":{"name":"firestore"},"message":"Removing outdated emulator files: cloud-firestore-emulator-v1.14.4.jar"}}
+[debug] [2023-10-30T11:45:27.091Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2023-10-30T11:45:27.091Z] Ignoring unsupported arg: single_project_mode_error {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: single_project_mode_error"}}
+[debug] [2023-10-30T11:45:27.091Z] Starting Firestore Emulator with command {"binary":"java","args":["-Dgoogle.cloud_firestore.debug_log_level=FINE","-Duser.language=en","-jar","/Users/wupinghsing/.cache/firebase/emulators/cloud-firestore-emulator-v1.18.2.jar","--host","127.0.0.1","--port",8080,"--websocket_port",9150,"--project_id","web-asusai","--single_project_mode",true,"--functions_emulator","127.0.0.1:5001"],"optionalArgs":["port","webchannel_port","host","rules","websocket_port","functions_emulator","seed_from_export","project_id","single_project_mode"],"joinArgs":false} {"metadata":{"emulator":{"name":"firestore"},"message":"Starting Firestore Emulator with command {\"binary\":\"java\",\"args\":[\"-Dgoogle.cloud_firestore.debug_log_level=FINE\",\"-Duser.language=en\",\"-jar\",\"/Users/wupinghsing/.cache/firebase/emulators/cloud-firestore-emulator-v1.18.2.jar\",\"--host\",\"127.0.0.1\",\"--port\",8080,\"--websocket_port\",9150,\"--project_id\",\"web-asusai\",\"--single_project_mode\",true,\"--functions_emulator\",\"127.0.0.1:5001\"],\"optionalArgs\":[\"port\",\"webchannel_port\",\"host\",\"rules\",\"websocket_port\",\"functions_emulator\",\"seed_from_export\",\"project_id\",\"single_project_mode\"],\"joinArgs\":false}"}}
+[info] i  firestore: Firestore Emulator logging to firestore-debug.log {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator logging to \u001b[1mfirestore-debug.log\u001b[22m"}}
+[debug] [2023-10-30T11:45:27.621Z] Oct 30, 2023 7:45:27 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer start
+INFO: Started WebSocket server on ws://127.0.0.1:9150
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:45:27 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer start\nINFO: Started WebSocket server on ws://127.0.0.1:9150\n"}}
+[debug] [2023-10-30T11:45:27.633Z] API endpoint: http://127.0.0.1:8080
+If you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run:
+
+   export FIRESTORE_EMULATOR_HOST=127.0.0.1:8080
+
+Dev App Server is now running.
+
+ {"metadata":{"emulator":{"name":"firestore"},"message":"API endpoint: http://127.0.0.1:8080\nIf you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run:\n\n   export FIRESTORE_EMULATOR_HOST=127.0.0.1:8080\n\nDev App Server is now running.\n\n"}}
+[info] ✔  firestore: Firestore Emulator UI websocket is running on 9150. {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator UI websocket is running on 9150."}}
+[debug] [2023-10-30T11:45:30.932Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/web-asusai/sites 
+[debug] [2023-10-30T11:45:31.362Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/web-asusai/sites 200
+[debug] [2023-10-30T11:45:31.364Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/web-asusai/sites {"sites":[{"name":"projects/web-asusai/sites/web-asusai","defaultUrl":"https://web-asusai.web.app","appId":"1:52634677908:web:ea55d021682b9215e4fa81","type":"DEFAULT_SITE"}]}
+[debug] [2023-10-30T11:45:31.364Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/web-asusai/webApps/1:52634677908:web:ea55d021682b9215e4fa81/config [none]
+[debug] [2023-10-30T11:45:32.275Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/web-asusai/webApps/1:52634677908:web:ea55d021682b9215e4fa81/config 200
+[debug] [2023-10-30T11:45:32.275Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/web-asusai/webApps/1:52634677908:web:ea55d021682b9215e4fa81/config {"projectId":"web-asusai","appId":"1:52634677908:web:ea55d021682b9215e4fa81","storageBucket":"web-asusai.appspot.com","apiKey":"AIzaSyC9HEpUEL1gn8nqiPYlijsD4nFVyr4Q6jo","authDomain":"web-asusai.firebaseapp.com","messagingSenderId":"52634677908","measurementId":"G-KZTKZC3VL2"}
+[debug] [2023-10-30T11:45:32.291Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/web-asusai [none]
+[debug] [2023-10-30T11:45:32.634Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/web-asusai 200
+[debug] [2023-10-30T11:45:32.634Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/web-asusai {"projectId":"web-asusai","projectNumber":"52634677908","displayName":"web-asusai","name":"projects/web-asusai","resources":{"hostingSite":"web-asusai"},"state":"ACTIVE","etag":"1_ba0b832e-d995-43a7-a133-3d53c838c379"}
+[info] i  hosting[web-asusai]: Serving hosting files from: build {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mbuild\u001b[22m"}}
+[info] ✔  hosting[web-asusai]: Local server: http://127.0.0.1:5002 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://127.0.0.1:5002\u001b[22m\u001b[24m"}}
+[info] i  ui: downloading ui-v1.11.7.zip... {"metadata":{"emulator":{"name":"ui"},"message":"downloading ui-v1.11.7.zip..."}}
+[debug] [2023-10-30T11:45:32.769Z] >>> [apiv2][query] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.11.7.zip 
+[debug] [2023-10-30T11:45:32.958Z] <<< [apiv2][status] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.11.7.zip 200
+[debug] [2023-10-30T11:45:32.958Z] <<< [apiv2][body] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.11.7.zip [stream]
+[debug] [2023-10-30T11:45:33.290Z] Data is 3064105
+[debug] [2023-10-30T11:45:33.290Z] [unzip] Entry: client/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2023-10-30T11:45:33.290Z] [unzip] Processing entry: client/
+[debug] [2023-10-30T11:45:33.290Z] [unzip] mkdir: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/
+[debug] [2023-10-30T11:45:33.297Z] [unzip] Entry: client/favicon.ico (compressed_size=2497 bytes, uncompressed_size=7406 bytes)
+[debug] [2023-10-30T11:45:33.297Z] [unzip] Processing entry: client/favicon.ico
+[debug] [2023-10-30T11:45:33.297Z] [unzip] else mkdir: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client
+[debug] [2023-10-30T11:45:33.297Z] [unzip] deflating: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/favicon.ico
+[debug] [2023-10-30T11:45:33.300Z] [unzip] Entry: client/apple-touch-icon.png (compressed_size=7231 bytes, uncompressed_size=7367 bytes)
+[debug] [2023-10-30T11:45:33.300Z] [unzip] Processing entry: client/apple-touch-icon.png
+[debug] [2023-10-30T11:45:33.300Z] [unzip] else mkdir: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client
+[debug] [2023-10-30T11:45:33.301Z] [unzip] deflating: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/apple-touch-icon.png
+[debug] [2023-10-30T11:45:33.301Z] [unzip] Entry: client/android-chrome-512x512.png (compressed_size=16987 bytes, uncompressed_size=18186 bytes)
+[debug] [2023-10-30T11:45:33.301Z] [unzip] Processing entry: client/android-chrome-512x512.png
+[debug] [2023-10-30T11:45:33.301Z] [unzip] else mkdir: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client
+[debug] [2023-10-30T11:45:33.301Z] [unzip] deflating: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/android-chrome-512x512.png
+[debug] [2023-10-30T11:45:33.302Z] [unzip] Entry: client/assets/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2023-10-30T11:45:33.303Z] [unzip] Processing entry: client/assets/
+[debug] [2023-10-30T11:45:33.303Z] [unzip] mkdir: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/assets/
+[debug] [2023-10-30T11:45:33.303Z] [unzip] Entry: client/assets/extensions/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2023-10-30T11:45:33.303Z] [unzip] Processing entry: client/assets/extensions/
+[debug] [2023-10-30T11:45:33.303Z] [unzip] mkdir: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/assets/extensions/
+[debug] [2023-10-30T11:45:33.303Z] [unzip] Entry: client/assets/extensions/default-extension.png (compressed_size=1646 bytes, uncompressed_size=1657 bytes)
+[debug] [2023-10-30T11:45:33.303Z] [unzip] Processing entry: client/assets/extensions/default-extension.png
+[debug] [2023-10-30T11:45:33.303Z] [unzip] else mkdir: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/assets/extensions
+[debug] [2023-10-30T11:45:33.303Z] [unzip] deflating: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/assets/extensions/default-extension.png
+[debug] [2023-10-30T11:45:33.304Z] [unzip] Entry: client/assets/index.58ca09f7.css (compressed_size=37601 bytes, uncompressed_size=321252 bytes)
+[debug] [2023-10-30T11:45:33.304Z] [unzip] Processing entry: client/assets/index.58ca09f7.css
+[debug] [2023-10-30T11:45:33.304Z] [unzip] else mkdir: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/assets
+[debug] [2023-10-30T11:45:33.304Z] [unzip] deflating: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/assets/index.58ca09f7.css
+[debug] [2023-10-30T11:45:33.306Z] [unzip] Entry: client/assets/index.c2583d42.js (compressed_size=526232 bytes, uncompressed_size=1860152 bytes)
+[debug] [2023-10-30T11:45:33.306Z] [unzip] Processing entry: client/assets/index.c2583d42.js
+[debug] [2023-10-30T11:45:33.306Z] [unzip] else mkdir: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/assets
+[debug] [2023-10-30T11:45:33.307Z] [unzip] deflating: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/assets/index.c2583d42.js
+[debug] [2023-10-30T11:45:33.319Z] [unzip] Entry: client/assets/provider-icons/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2023-10-30T11:45:33.319Z] [unzip] Processing entry: client/assets/provider-icons/
+[debug] [2023-10-30T11:45:33.319Z] [unzip] mkdir: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/assets/provider-icons/
+[debug] [2023-10-30T11:45:33.320Z] [unzip] Entry: client/assets/provider-icons/auth_service_oidc.svg (compressed_size=414 bytes, uncompressed_size=858 bytes)
+[debug] [2023-10-30T11:45:33.320Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_oidc.svg
+[debug] [2023-10-30T11:45:33.320Z] [unzip] else mkdir: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/assets/provider-icons
+[debug] [2023-10-30T11:45:33.320Z] [unzip] deflating: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/assets/provider-icons/auth_service_oidc.svg
+[debug] [2023-10-30T11:45:33.320Z] [unzip] Entry: client/assets/provider-icons/auth_service_yahoo.svg (compressed_size=577 bytes, uncompressed_size=1182 bytes)
+[debug] [2023-10-30T11:45:33.320Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_yahoo.svg
+[debug] [2023-10-30T11:45:33.320Z] [unzip] else mkdir: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/assets/provider-icons
+[debug] [2023-10-30T11:45:33.320Z] [unzip] deflating: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/assets/provider-icons/auth_service_yahoo.svg
+[debug] [2023-10-30T11:45:33.321Z] [unzip] Entry: client/assets/provider-icons/auth_service_phone.svg (compressed_size=261 bytes, uncompressed_size=414 bytes)
+[debug] [2023-10-30T11:45:33.321Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_phone.svg
+[debug] [2023-10-30T11:45:33.321Z] [unzip] else mkdir: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/assets/provider-icons
+[debug] [2023-10-30T11:45:33.321Z] [unzip] deflating: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/assets/provider-icons/auth_service_phone.svg
+[debug] [2023-10-30T11:45:33.322Z] [unzip] Entry: client/assets/provider-icons/auth_service_saml.svg (compressed_size=575 bytes, uncompressed_size=1226 bytes)
+[debug] [2023-10-30T11:45:33.322Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_saml.svg
+[debug] [2023-10-30T11:45:33.322Z] [unzip] else mkdir: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/assets/provider-icons
+[debug] [2023-10-30T11:45:33.322Z] [unzip] deflating: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/assets/provider-icons/auth_service_saml.svg
+[debug] [2023-10-30T11:45:33.322Z] [unzip] Entry: client/assets/provider-icons/auth_service_mslive.svg (compressed_size=203 bytes, uncompressed_size=378 bytes)
+[debug] [2023-10-30T11:45:33.322Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_mslive.svg
+[debug] [2023-10-30T11:45:33.322Z] [unzip] else mkdir: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/assets/provider-icons
+[debug] [2023-10-30T11:45:33.322Z] [unzip] deflating: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/assets/provider-icons/auth_service_mslive.svg
+[debug] [2023-10-30T11:45:33.323Z] [unzip] Entry: client/assets/provider-icons/auth_service_facebook.svg (compressed_size=289 bytes, uncompressed_size=457 bytes)
+[debug] [2023-10-30T11:45:33.323Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_facebook.svg
+[debug] [2023-10-30T11:45:33.323Z] [unzip] else mkdir: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/assets/provider-icons
+[debug] [2023-10-30T11:45:33.323Z] [unzip] deflating: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/assets/provider-icons/auth_service_facebook.svg
+[debug] [2023-10-30T11:45:33.323Z] [unzip] Entry: client/assets/provider-icons/auth_service_play_games.svg (compressed_size=565 bytes, uncompressed_size=1173 bytes)
+[debug] [2023-10-30T11:45:33.323Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_play_games.svg
+[debug] [2023-10-30T11:45:33.323Z] [unzip] else mkdir: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/assets/provider-icons
+[debug] [2023-10-30T11:45:33.323Z] [unzip] deflating: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/assets/provider-icons/auth_service_play_games.svg
+[debug] [2023-10-30T11:45:33.323Z] [unzip] Entry: client/assets/provider-icons/auth_service_github.svg (compressed_size=466 bytes, uncompressed_size=838 bytes)
+[debug] [2023-10-30T11:45:33.323Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_github.svg
+[debug] [2023-10-30T11:45:33.323Z] [unzip] else mkdir: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/assets/provider-icons
+[debug] [2023-10-30T11:45:33.324Z] [unzip] deflating: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/assets/provider-icons/auth_service_github.svg
+[debug] [2023-10-30T11:45:33.324Z] [unzip] Entry: client/assets/provider-icons/auth_service_apple.svg (compressed_size=230 bytes, uncompressed_size=334 bytes)
+[debug] [2023-10-30T11:45:33.324Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_apple.svg
+[debug] [2023-10-30T11:45:33.324Z] [unzip] else mkdir: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/assets/provider-icons
+[debug] [2023-10-30T11:45:33.324Z] [unzip] deflating: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/assets/provider-icons/auth_service_apple.svg
+[debug] [2023-10-30T11:45:33.324Z] [unzip] Entry: client/assets/provider-icons/auth_service_google.svg (compressed_size=409 bytes, uncompressed_size=720 bytes)
+[debug] [2023-10-30T11:45:33.324Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_google.svg
+[debug] [2023-10-30T11:45:33.324Z] [unzip] else mkdir: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/assets/provider-icons
+[debug] [2023-10-30T11:45:33.324Z] [unzip] deflating: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/assets/provider-icons/auth_service_google.svg
+[debug] [2023-10-30T11:45:33.324Z] [unzip] Entry: client/assets/provider-icons/auth_service_email.svg (compressed_size=228 bytes, uncompressed_size=326 bytes)
+[debug] [2023-10-30T11:45:33.324Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_email.svg
+[debug] [2023-10-30T11:45:33.324Z] [unzip] else mkdir: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/assets/provider-icons
+[debug] [2023-10-30T11:45:33.324Z] [unzip] deflating: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/assets/provider-icons/auth_service_email.svg
+[debug] [2023-10-30T11:45:33.325Z] [unzip] Entry: client/assets/provider-icons/auth_service_twitter.svg (compressed_size=444 bytes, uncompressed_size=751 bytes)
+[debug] [2023-10-30T11:45:33.325Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_twitter.svg
+[debug] [2023-10-30T11:45:33.325Z] [unzip] else mkdir: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/assets/provider-icons
+[debug] [2023-10-30T11:45:33.325Z] [unzip] deflating: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/assets/provider-icons/auth_service_twitter.svg
+[debug] [2023-10-30T11:45:33.325Z] [unzip] Entry: client/assets/provider-icons/auth_service_game_center.svg (compressed_size=991 bytes, uncompressed_size=3921 bytes)
+[debug] [2023-10-30T11:45:33.325Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_game_center.svg
+[debug] [2023-10-30T11:45:33.325Z] [unzip] else mkdir: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/assets/provider-icons
+[debug] [2023-10-30T11:45:33.325Z] [unzip] deflating: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/assets/provider-icons/auth_service_game_center.svg
+[debug] [2023-10-30T11:45:33.325Z] [unzip] Entry: client/assets/index.c2583d42.js.map (compressed_size=1778557 bytes, uncompressed_size=7961927 bytes)
+[debug] [2023-10-30T11:45:33.325Z] [unzip] Processing entry: client/assets/index.c2583d42.js.map
+[debug] [2023-10-30T11:45:33.325Z] [unzip] else mkdir: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/assets
+[debug] [2023-10-30T11:45:33.325Z] [unzip] deflating: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/assets/index.c2583d42.js.map
+[debug] [2023-10-30T11:45:33.354Z] [unzip] Entry: client/assets/img/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2023-10-30T11:45:33.354Z] [unzip] Processing entry: client/assets/img/
+[debug] [2023-10-30T11:45:33.354Z] [unzip] mkdir: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/assets/img/
+[debug] [2023-10-30T11:45:33.354Z] [unzip] Entry: client/assets/img/database.png (compressed_size=29449 bytes, uncompressed_size=29988 bytes)
+[debug] [2023-10-30T11:45:33.354Z] [unzip] Processing entry: client/assets/img/database.png
+[debug] [2023-10-30T11:45:33.354Z] [unzip] else mkdir: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/assets/img
+[debug] [2023-10-30T11:45:33.354Z] [unzip] deflating: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/assets/img/database.png
+[debug] [2023-10-30T11:45:33.354Z] [unzip] Entry: client/safari-pinned-tab.svg (compressed_size=838 bytes, uncompressed_size=1504 bytes)
+[debug] [2023-10-30T11:45:33.354Z] [unzip] Processing entry: client/safari-pinned-tab.svg
+[debug] [2023-10-30T11:45:33.354Z] [unzip] else mkdir: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client
+[debug] [2023-10-30T11:45:33.354Z] [unzip] deflating: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/safari-pinned-tab.svg
+[debug] [2023-10-30T11:45:33.355Z] [unzip] Entry: client/mstile-150x150.png (compressed_size=5406 bytes, uncompressed_size=5723 bytes)
+[debug] [2023-10-30T11:45:33.355Z] [unzip] Processing entry: client/mstile-150x150.png
+[debug] [2023-10-30T11:45:33.355Z] [unzip] else mkdir: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client
+[debug] [2023-10-30T11:45:33.355Z] [unzip] deflating: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/mstile-150x150.png
+[debug] [2023-10-30T11:45:33.355Z] [unzip] Entry: client/browserconfig.xml (compressed_size=491 bytes, uncompressed_size=822 bytes)
+[debug] [2023-10-30T11:45:33.355Z] [unzip] Processing entry: client/browserconfig.xml
+[debug] [2023-10-30T11:45:33.355Z] [unzip] else mkdir: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client
+[debug] [2023-10-30T11:45:33.355Z] [unzip] deflating: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/browserconfig.xml
+[debug] [2023-10-30T11:45:33.356Z] [unzip] Entry: client/robots.txt (compressed_size=26 bytes, uncompressed_size=26 bytes)
+[debug] [2023-10-30T11:45:33.356Z] [unzip] Processing entry: client/robots.txt
+[debug] [2023-10-30T11:45:33.356Z] [unzip] else mkdir: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client
+[debug] [2023-10-30T11:45:33.356Z] [unzip] Writing file: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/robots.txt
+[debug] [2023-10-30T11:45:33.356Z] [unzip] Entry: client/index.html (compressed_size=1363 bytes, uncompressed_size=3064 bytes)
+[debug] [2023-10-30T11:45:33.356Z] [unzip] Processing entry: client/index.html
+[debug] [2023-10-30T11:45:33.356Z] [unzip] else mkdir: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client
+[debug] [2023-10-30T11:45:33.356Z] [unzip] deflating: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/index.html
+[debug] [2023-10-30T11:45:33.356Z] [unzip] Entry: client/favicon-16x16.png (compressed_size=757 bytes, uncompressed_size=777 bytes)
+[debug] [2023-10-30T11:45:33.356Z] [unzip] Processing entry: client/favicon-16x16.png
+[debug] [2023-10-30T11:45:33.356Z] [unzip] else mkdir: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client
+[debug] [2023-10-30T11:45:33.356Z] [unzip] deflating: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/favicon-16x16.png
+[debug] [2023-10-30T11:45:33.357Z] [unzip] Entry: client/manifest.json (compressed_size=246 bytes, uncompressed_size=551 bytes)
+[debug] [2023-10-30T11:45:33.357Z] [unzip] Processing entry: client/manifest.json
+[debug] [2023-10-30T11:45:33.357Z] [unzip] else mkdir: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client
+[debug] [2023-10-30T11:45:33.357Z] [unzip] deflating: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/manifest.json
+[debug] [2023-10-30T11:45:33.357Z] [unzip] Entry: client/favicon-32x32.png (compressed_size=1175 bytes, uncompressed_size=1175 bytes)
+[debug] [2023-10-30T11:45:33.357Z] [unzip] Processing entry: client/favicon-32x32.png
+[debug] [2023-10-30T11:45:33.357Z] [unzip] else mkdir: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client
+[debug] [2023-10-30T11:45:33.357Z] [unzip] Writing file: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/favicon-32x32.png
+[debug] [2023-10-30T11:45:33.357Z] [unzip] Entry: client/android-chrome-192x192.png (compressed_size=7602 bytes, uncompressed_size=7834 bytes)
+[debug] [2023-10-30T11:45:33.357Z] [unzip] Processing entry: client/android-chrome-192x192.png
+[debug] [2023-10-30T11:45:33.357Z] [unzip] else mkdir: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client
+[debug] [2023-10-30T11:45:33.357Z] [unzip] deflating: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/client/android-chrome-192x192.png
+[debug] [2023-10-30T11:45:33.357Z] [unzip] Entry: server/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2023-10-30T11:45:33.357Z] [unzip] Processing entry: server/
+[debug] [2023-10-30T11:45:33.357Z] [unzip] mkdir: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/server/
+[debug] [2023-10-30T11:45:33.357Z] [unzip] Entry: server/server.js (compressed_size=343746 bytes, uncompressed_size=1346374 bytes)
+[debug] [2023-10-30T11:45:33.357Z] [unzip] Processing entry: server/server.js
+[debug] [2023-10-30T11:45:33.357Z] [unzip] else mkdir: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/server
+[debug] [2023-10-30T11:45:33.357Z] [unzip] deflating: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/server/server.js
+[debug] [2023-10-30T11:45:33.363Z] [unzip] Entry: server/server.js.map (compressed_size=289157 bytes, uncompressed_size=1325651 bytes)
+[debug] [2023-10-30T11:45:33.363Z] [unzip] Processing entry: server/server.js.map
+[debug] [2023-10-30T11:45:33.363Z] [unzip] else mkdir: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/server
+[debug] [2023-10-30T11:45:33.363Z] [unzip] deflating: /Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/server/server.js.map
+[debug] [2023-10-30T11:45:33.368Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2023-10-30T11:45:33.368Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2023-10-30T11:45:33.368Z] Starting Emulator UI with command {"binary":"node","args":["/Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/server/server.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"/Users/wupinghsing/.cache/firebase/emulators/ui-v1.11.7/server/server.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2023-10-30T11:45:33.446Z] Web / API server started at 127.0.0.1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at 127.0.0.1:4000\n"}}
+[debug] [2023-10-30T11:45:33.446Z] Web / API server started at ::1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at ::1:4000\n"}}
+[info] i  functions: Watching "/Volumes/外接1TBSSD/git/react-app/asusai-website/functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"/Volumes/外接1TBSSD/git/react-app/asusai-website/functions\" for Cloud Functions..."}}
+[debug] [2023-10-30T11:45:33.632Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] ⚠  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2023-10-30T11:45:34.000Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2023-10-30T11:45:34.001Z] Building nodejs source
+[debug] [2023-10-30T11:45:34.001Z] Failed to find version of module node: reached end of search path /Volumes/外接1TBSSD/git/react-app/asusai-website/functions/node_modules
+[info] ✔  functions: Using node@16 from host. 
+[debug] [2023-10-30T11:45:34.003Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-10-30T11:45:34.007Z] Found firebase-functions binary at '/Volumes/外接1TBSSD/git/react-app/asusai-website/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8684
+
+[debug] [2023-10-30T11:45:34.455Z] Got response from /__/functions.yaml {"endpoints":{"addUser":{"platform":"gcfv1","labels":{},"callableTrigger":{},"entryPoint":"addUser"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[info] shutdown requested via /__/quitquitquit
+
+[info] ✔  functions: Loaded functions definitions from source: addUser. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: addUser."}}
+[info] ✔  functions[us-central1-addUser]: http function initialized (http://127.0.0.1:5001/web-asusai/us-central1/addUser). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://127.0.0.1:5001/web-asusai/us-central1/addUser)."}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌────────────────┬────────────────┬─────────────────────────────────┐
+│ Emulator       │ Host:Port      │ View in Emulator UI             │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Authentication │ 127.0.0.1:9099 │ http://127.0.0.1:4000/auth      │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Functions      │ 127.0.0.1:5001 │ http://127.0.0.1:4000/functions │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Firestore      │ 127.0.0.1:8080 │ http://127.0.0.1:4000/firestore │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Hosting        │ 127.0.0.1:5002 │ n/a                             │
+└────────────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub running at 127.0.0.1:4400
+  Other reserved ports: 4500, 9150
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2023-10-30T11:45:49.494Z] Oct 30, 2023 7:45:49 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler initChannel
+INFO: Connected to new websocket client
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:45:49 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler initChannel\nINFO: Connected to new websocket client\n"}}
+[debug] [2023-10-30T11:45:49.546Z] Oct 30, 2023 7:45:49 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:45:49 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:45:49.629Z] Oct 30, 2023 7:45:49 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:45:49 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:45:59.447Z] [work-queue] {"queuedWork":["/web-asusai/us-central1/addUser-2023-10-30T11:45:59.446Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2023-10-30T11:45:59.448Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/web-asusai/us-central1/addUser-2023-10-30T11:45:59.446Z"],"workRunningCount":1}
+[debug] [2023-10-30T11:45:59.449Z] Accepted request OPTIONS /web-asusai/us-central1/addUser --> us-central1-addUser
+[debug] [2023-10-30T11:45:59.457Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2023-10-30T11:45:59.458Z] [functions] Got req.url=/web-asusai/us-central1/addUser, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/web-asusai/us-central1/addUser, mapping to path=/"}}
+[debug] [2023-10-30T11:45:59.483Z] [worker-pool] addWorker(us-central1-addUser) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(us-central1-addUser)"}}
+[debug] [2023-10-30T11:45:59.485Z] [worker-pool] Adding worker with key us-central1-addUser, total=1 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key us-central1-addUser, total=1"}}
+[debug] [2023-10-30T11:45:59.935Z] Oct 30, 2023 7:45:59 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:45:59 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:46:00.111Z] [runtime-status] [56104] Resolved module firebase-admin {"declared":true,"installed":true,"version":"10.3.0","resolution":"/Volumes/外接1TBSSD/git/react-app/asusai-website/functions/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"[runtime-status] [56104] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"10.3.0\",\"resolution\":\"/Volumes/外接1TBSSD/git/react-app/asusai-website/functions/node_modules/firebase-admin/lib/index.js\"}"}}
+[debug] [2023-10-30T11:46:00.113Z] [runtime-status] [56104] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.24.1","resolution":"/Volumes/外接1TBSSD/git/react-app/asusai-website/functions/node_modules/firebase-functions/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"[runtime-status] [56104] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.24.1\",\"resolution\":\"/Volumes/外接1TBSSD/git/react-app/asusai-website/functions/node_modules/firebase-functions/lib/index.js\"}"}}
+[debug] [2023-10-30T11:46:00.113Z] [runtime-status] [56104] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"[runtime-status] [56104] Outgoing network have been stubbed. [{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"net\",\"status\":\"mocked\"}]"}}
+[debug] [2023-10-30T11:46:00.113Z] [runtime-status] [56104] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.24.1","resolution":"/Volumes/外接1TBSSD/git/react-app/asusai-website/functions/node_modules/firebase-functions/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"[runtime-status] [56104] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.24.1\",\"resolution\":\"/Volumes/外接1TBSSD/git/react-app/asusai-website/functions/node_modules/firebase-functions/lib/index.js\"}"}}
+[debug] [2023-10-30T11:46:00.163Z] [runtime-status] [56104] Checked functions.config() {"config":{}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"[runtime-status] [56104] Checked functions.config() {\"config\":{}}"}}
+[debug] [2023-10-30T11:46:00.163Z] [runtime-status] [56104] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"3.24.1","resolution":"/Volumes/外接1TBSSD/git/react-app/asusai-website/functions/node_modules/firebase-functions/lib/index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"[runtime-status] [56104] firebase-functions has been stubbed. {\"functionsResolution\":{\"declared\":true,\"installed\":true,\"version\":\"3.24.1\",\"resolution\":\"/Volumes/外接1TBSSD/git/react-app/asusai-website/functions/node_modules/firebase-functions/lib/index.js\"}}"}}
+[debug] [2023-10-30T11:46:00.163Z] [runtime-status] [56104] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.24.1","resolution":"/Volumes/外接1TBSSD/git/react-app/asusai-website/functions/node_modules/firebase-functions/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"[runtime-status] [56104] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.24.1\",\"resolution\":\"/Volumes/外接1TBSSD/git/react-app/asusai-website/functions/node_modules/firebase-functions/lib/index.js\"}"}}
+[debug] [2023-10-30T11:46:00.164Z] [runtime-status] [56104] Resolved module firebase-admin {"declared":true,"installed":true,"version":"10.3.0","resolution":"/Volumes/外接1TBSSD/git/react-app/asusai-website/functions/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"[runtime-status] [56104] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"10.3.0\",\"resolution\":\"/Volumes/外接1TBSSD/git/react-app/asusai-website/functions/node_modules/firebase-admin/lib/index.js\"}"}}
+[debug] [2023-10-30T11:46:00.165Z] [runtime-status] [56104] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.24.1","resolution":"/Volumes/外接1TBSSD/git/react-app/asusai-website/functions/node_modules/firebase-functions/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"[runtime-status] [56104] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.24.1\",\"resolution\":\"/Volumes/外接1TBSSD/git/react-app/asusai-website/functions/node_modules/firebase-functions/lib/index.js\"}"}}
+[debug] [2023-10-30T11:46:00.165Z] [runtime-status] [56104] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"10.3.0","resolution":"/Volumes/外接1TBSSD/git/react-app/asusai-website/functions/node_modules/firebase-admin/lib/index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"[runtime-status] [56104] firebase-admin has been stubbed. {\"adminResolution\":{\"declared\":true,\"installed\":true,\"version\":\"10.3.0\",\"resolution\":\"/Volumes/外接1TBSSD/git/react-app/asusai-website/functions/node_modules/firebase-admin/lib/index.js\"}}"}}
+[debug] [2023-10-30T11:46:00.193Z] [runtime-status] [56104] initializeApp(DEFAULT) {"storageBucket":"web-asusai.appspot.com","projectId":"web-asusai"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"[runtime-status] [56104] initializeApp(DEFAULT) {\"storageBucket\":\"web-asusai.appspot.com\",\"projectId\":\"web-asusai\"}"}}
+[debug] [2023-10-30T11:46:00.199Z] [runtime-status] [56104] Functions runtime initialized. {"cwd":"/Volumes/外接1TBSSD/git/react-app/asusai-website/functions","node_version":"16.16.0"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"[runtime-status] [56104] Functions runtime initialized. {\"cwd\":\"/Volumes/外接1TBSSD/git/react-app/asusai-website/functions\",\"node_version\":\"16.16.0\"}"}}
+[debug] [2023-10-30T11:46:00.199Z] [runtime-status] [56104] Listening to port: /var/folders/dk/yq4hvl816vjbw2wqdm47jst40000gn/T/fire_emu_183c7fb816d4f089.sock {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"[runtime-status] [56104] Listening to port: /var/folders/dk/yq4hvl816vjbw2wqdm47jst40000gn/T/fire_emu_183c7fb816d4f089.sock"}}
+[debug] [2023-10-30T11:46:00.303Z] [worker-us-central1-addUser-3f32c2d7-a51a-4435-b7a5-cabd6b79e142]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"[worker-us-central1-addUser-3f32c2d7-a51a-4435-b7a5-cabd6b79e142]: IDLE"}}
+[debug] [2023-10-30T11:46:00.303Z] [worker-pool] submitRequest(triggerId=us-central1-addUser) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-addUser)"}}
+[info] i  functions: Beginning execution of "us-central1-addUser" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"Beginning execution of \"us-central1-addUser\""}}
+[debug] [2023-10-30T11:46:00.303Z] [worker-us-central1-addUser-3f32c2d7-a51a-4435-b7a5-cabd6b79e142]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"[worker-us-central1-addUser-3f32c2d7-a51a-4435-b7a5-cabd6b79e142]: BUSY"}}
+[debug] [2023-10-30T11:46:00.307Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-addUser" in 3.950625ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"Finished \"us-central1-addUser\" in 3.950625ms"}}
+[debug] [2023-10-30T11:46:00.307Z] [worker-us-central1-addUser-3f32c2d7-a51a-4435-b7a5-cabd6b79e142]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"[worker-us-central1-addUser-3f32c2d7-a51a-4435-b7a5-cabd6b79e142]: IDLE"}}
+[debug] [2023-10-30T11:46:00.307Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2023-10-30T11:46:00.308Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2023-10-30T11:46:00.308Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2023-10-30T11:46:00.313Z] [work-queue] {"queuedWork":["/web-asusai/us-central1/addUser-2023-10-30T11:46:00.313Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2023-10-30T11:46:00.313Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/web-asusai/us-central1/addUser-2023-10-30T11:46:00.313Z"],"workRunningCount":1}
+[debug] [2023-10-30T11:46:00.313Z] Accepted request POST /web-asusai/us-central1/addUser --> us-central1-addUser
+[debug] [2023-10-30T11:46:00.314Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2023-10-30T11:46:00.314Z] [functions] Got req.url=/web-asusai/us-central1/addUser, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/web-asusai/us-central1/addUser, mapping to path=/"}}
+[debug] [2023-10-30T11:46:00.315Z] [worker-pool] submitRequest(triggerId=us-central1-addUser) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-addUser)"}}
+[info] i  functions: Beginning execution of "us-central1-addUser" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"Beginning execution of \"us-central1-addUser\""}}
+[debug] [2023-10-30T11:46:00.315Z] [worker-us-central1-addUser-3f32c2d7-a51a-4435-b7a5-cabd6b79e142]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"[worker-us-central1-addUser-3f32c2d7-a51a-4435-b7a5-cabd6b79e142]: BUSY"}}
+[info] >  {"verifications":{"app":"MISSING","auth":"MISSING"},"logging.googleapis.com/labels":{"firebase-log-type":"callable-request-verification"},"severity":"INFO","message":"Callable request verification passed"} {"user":{"verifications":{"app":"MISSING","auth":"MISSING"},"logging.googleapis.com/labels":{"firebase-log-type":"callable-request-verification"},"severity":"INFO","message":"Callable request verification passed"},"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"\u001b[90m> \u001b[39m {\"verifications\":{\"app\":\"MISSING\",\"auth\":\"MISSING\"},\"logging.googleapis.com/labels\":{\"firebase-log-type\":\"callable-request-verification\"},\"severity\":\"INFO\",\"message\":\"Callable request verification passed\"}"}}
+[debug] [2023-10-30T11:46:00.324Z] [runtime-status] [56104] No callable functions auth found {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"[runtime-status] [56104] No callable functions auth found"}}
+[debug] [2023-10-30T11:46:00.788Z] Oct 30, 2023 7:46:00 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:46:00 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:46:00.845Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-addUser" in 530.027625ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"Finished \"us-central1-addUser\" in 530.027625ms"}}
+[debug] [2023-10-30T11:46:00.845Z] [worker-us-central1-addUser-3f32c2d7-a51a-4435-b7a5-cabd6b79e142]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"[worker-us-central1-addUser-3f32c2d7-a51a-4435-b7a5-cabd6b79e142]: IDLE"}}
+[debug] [2023-10-30T11:46:00.845Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2023-10-30T11:46:00.845Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2023-10-30T11:46:00.845Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2023-10-30T11:46:03.954Z] Oct 30, 2023 7:46:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:46:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:46:04.007Z] Oct 30, 2023 7:46:04 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:46:04 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:46:04.139Z] Oct 30, 2023 7:46:04 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:46:04 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:46:04.188Z] Oct 30, 2023 7:46:04 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:46:04 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:46:09.975Z] Oct 30, 2023 7:46:09 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:46:09 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:46:14.184Z] Oct 30, 2023 7:46:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:46:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:46:20.018Z] Oct 30, 2023 7:46:20 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:46:20 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:46:21.258Z] Oct 30, 2023 7:46:21 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:46:21 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:46:24.221Z] Oct 30, 2023 7:46:24 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:46:24 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:46:24.229Z] Oct 30, 2023 7:46:24 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:46:24 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:46:37.642Z] Oct 30, 2023 7:46:37 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler initChannel
+INFO: Connected to new websocket client
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:46:37 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler initChannel\nINFO: Connected to new websocket client\n"}}
+[debug] [2023-10-30T11:47:04.249Z] Oct 30, 2023 7:47:04 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:47:04 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:48:04.291Z] Oct 30, 2023 7:48:04 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:48:04 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:49:04.358Z] Oct 30, 2023 7:49:04 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:49:04 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:50:04.393Z] Oct 30, 2023 7:50:04 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:50:04 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:51:04.422Z] Oct 30, 2023 7:51:04 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:51:04 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:51:51.406Z] Functions emulator received unknown request at path //us-central1/addUser
+[debug] [2023-10-30T11:52:04.446Z] Oct 30, 2023 7:52:04 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:52:04 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:52:09.920Z] [work-queue] {"queuedWork":["/web-asusai/us-central1/addUser-2023-10-30T11:52:09.919Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2023-10-30T11:52:09.920Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/web-asusai/us-central1/addUser-2023-10-30T11:52:09.919Z"],"workRunningCount":1}
+[debug] [2023-10-30T11:52:09.920Z] Accepted request OPTIONS /web-asusai/us-central1/addUser --> us-central1-addUser
+[debug] [2023-10-30T11:52:09.926Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2023-10-30T11:52:09.926Z] [functions] Got req.url=/web-asusai/us-central1/addUser, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/web-asusai/us-central1/addUser, mapping to path=/"}}
+[debug] [2023-10-30T11:52:09.927Z] [worker-pool] submitRequest(triggerId=us-central1-addUser) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-addUser)"}}
+[info] i  functions: Beginning execution of "us-central1-addUser" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"Beginning execution of \"us-central1-addUser\""}}
+[debug] [2023-10-30T11:52:09.929Z] [worker-us-central1-addUser-3f32c2d7-a51a-4435-b7a5-cabd6b79e142]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"[worker-us-central1-addUser-3f32c2d7-a51a-4435-b7a5-cabd6b79e142]: BUSY"}}
+[debug] [2023-10-30T11:52:09.943Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-addUser" in 15.026916ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"Finished \"us-central1-addUser\" in 15.026916ms"}}
+[debug] [2023-10-30T11:52:09.944Z] [worker-us-central1-addUser-3f32c2d7-a51a-4435-b7a5-cabd6b79e142]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"[worker-us-central1-addUser-3f32c2d7-a51a-4435-b7a5-cabd6b79e142]: IDLE"}}
+[debug] [2023-10-30T11:52:09.944Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2023-10-30T11:52:09.944Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2023-10-30T11:52:09.945Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2023-10-30T11:52:09.948Z] [work-queue] {"queuedWork":["/web-asusai/us-central1/addUser-2023-10-30T11:52:09.948Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2023-10-30T11:52:09.948Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/web-asusai/us-central1/addUser-2023-10-30T11:52:09.948Z"],"workRunningCount":1}
+[debug] [2023-10-30T11:52:09.948Z] Accepted request POST /web-asusai/us-central1/addUser --> us-central1-addUser
+[debug] [2023-10-30T11:52:09.949Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2023-10-30T11:52:09.949Z] [functions] Got req.url=/web-asusai/us-central1/addUser, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/web-asusai/us-central1/addUser, mapping to path=/"}}
+[debug] [2023-10-30T11:52:09.949Z] [worker-pool] submitRequest(triggerId=us-central1-addUser) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-addUser)"}}
+[info] i  functions: Beginning execution of "us-central1-addUser" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"Beginning execution of \"us-central1-addUser\""}}
+[debug] [2023-10-30T11:52:09.949Z] [worker-us-central1-addUser-3f32c2d7-a51a-4435-b7a5-cabd6b79e142]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"[worker-us-central1-addUser-3f32c2d7-a51a-4435-b7a5-cabd6b79e142]: BUSY"}}
+[info] >  {"verifications":{"app":"MISSING","auth":"MISSING"},"logging.googleapis.com/labels":{"firebase-log-type":"callable-request-verification"},"severity":"INFO","message":"Callable request verification passed"} {"user":{"verifications":{"app":"MISSING","auth":"MISSING"},"logging.googleapis.com/labels":{"firebase-log-type":"callable-request-verification"},"severity":"INFO","message":"Callable request verification passed"},"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"\u001b[90m> \u001b[39m {\"verifications\":{\"app\":\"MISSING\",\"auth\":\"MISSING\"},\"logging.googleapis.com/labels\":{\"firebase-log-type\":\"callable-request-verification\"},\"severity\":\"INFO\",\"message\":\"Callable request verification passed\"}"}}
+[debug] [2023-10-30T11:52:09.952Z] [runtime-status] [56104] No callable functions auth found {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"[runtime-status] [56104] No callable functions auth found"}}
+[debug] [2023-10-30T11:52:09.992Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-addUser" in 43.468333ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"Finished \"us-central1-addUser\" in 43.468333ms"}}
+[debug] [2023-10-30T11:52:09.993Z] [worker-us-central1-addUser-3f32c2d7-a51a-4435-b7a5-cabd6b79e142]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"[worker-us-central1-addUser-3f32c2d7-a51a-4435-b7a5-cabd6b79e142]: IDLE"}}
+[debug] [2023-10-30T11:52:09.993Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2023-10-30T11:52:09.993Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2023-10-30T11:52:09.993Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2023-10-30T11:52:28.253Z] Oct 30, 2023 7:52:28 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler initChannel
+INFO: Connected to new websocket client
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:52:28 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler initChannel\nINFO: Connected to new websocket client\n"}}
+[debug] [2023-10-30T11:52:28.326Z] Oct 30, 2023 7:52:28 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:52:28 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:52:28.377Z] Oct 30, 2023 7:52:28 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:52:28 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:52:28.396Z] Oct 30, 2023 7:52:28 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:52:28 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:52:28.441Z] Oct 30, 2023 7:52:28 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:52:28 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:52:30.416Z] Oct 30, 2023 7:52:30 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:52:30 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:52:34.235Z] [work-queue] {"queuedWork":["/web-asusai/us-central1/addUser-2023-10-30T11:52:34.235Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2023-10-30T11:52:34.236Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/web-asusai/us-central1/addUser-2023-10-30T11:52:34.235Z"],"workRunningCount":1}
+[debug] [2023-10-30T11:52:34.236Z] Accepted request OPTIONS /web-asusai/us-central1/addUser --> us-central1-addUser
+[debug] [2023-10-30T11:52:34.240Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2023-10-30T11:52:34.240Z] [functions] Got req.url=/web-asusai/us-central1/addUser, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/web-asusai/us-central1/addUser, mapping to path=/"}}
+[debug] [2023-10-30T11:52:34.241Z] [worker-pool] submitRequest(triggerId=us-central1-addUser) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-addUser)"}}
+[info] i  functions: Beginning execution of "us-central1-addUser" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"Beginning execution of \"us-central1-addUser\""}}
+[debug] [2023-10-30T11:52:34.242Z] [worker-us-central1-addUser-3f32c2d7-a51a-4435-b7a5-cabd6b79e142]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"[worker-us-central1-addUser-3f32c2d7-a51a-4435-b7a5-cabd6b79e142]: BUSY"}}
+[debug] [2023-10-30T11:52:34.247Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-addUser" in 5.150791ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"Finished \"us-central1-addUser\" in 5.150791ms"}}
+[debug] [2023-10-30T11:52:34.248Z] [worker-us-central1-addUser-3f32c2d7-a51a-4435-b7a5-cabd6b79e142]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"[worker-us-central1-addUser-3f32c2d7-a51a-4435-b7a5-cabd6b79e142]: IDLE"}}
+[debug] [2023-10-30T11:52:34.249Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2023-10-30T11:52:34.249Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2023-10-30T11:52:34.249Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2023-10-30T11:52:34.253Z] [work-queue] {"queuedWork":["/web-asusai/us-central1/addUser-2023-10-30T11:52:34.253Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2023-10-30T11:52:34.254Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/web-asusai/us-central1/addUser-2023-10-30T11:52:34.253Z"],"workRunningCount":1}
+[debug] [2023-10-30T11:52:34.254Z] Accepted request POST /web-asusai/us-central1/addUser --> us-central1-addUser
+[debug] [2023-10-30T11:52:34.256Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2023-10-30T11:52:34.256Z] [functions] Got req.url=/web-asusai/us-central1/addUser, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/web-asusai/us-central1/addUser, mapping to path=/"}}
+[debug] [2023-10-30T11:52:34.257Z] [worker-pool] submitRequest(triggerId=us-central1-addUser) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-addUser)"}}
+[info] i  functions: Beginning execution of "us-central1-addUser" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"Beginning execution of \"us-central1-addUser\""}}
+[debug] [2023-10-30T11:52:34.257Z] [worker-us-central1-addUser-3f32c2d7-a51a-4435-b7a5-cabd6b79e142]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"[worker-us-central1-addUser-3f32c2d7-a51a-4435-b7a5-cabd6b79e142]: BUSY"}}
+[info] >  {"verifications":{"app":"MISSING","auth":"MISSING"},"logging.googleapis.com/labels":{"firebase-log-type":"callable-request-verification"},"severity":"INFO","message":"Callable request verification passed"} {"user":{"verifications":{"app":"MISSING","auth":"MISSING"},"logging.googleapis.com/labels":{"firebase-log-type":"callable-request-verification"},"severity":"INFO","message":"Callable request verification passed"},"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"\u001b[90m> \u001b[39m {\"verifications\":{\"app\":\"MISSING\",\"auth\":\"MISSING\"},\"logging.googleapis.com/labels\":{\"firebase-log-type\":\"callable-request-verification\"},\"severity\":\"INFO\",\"message\":\"Callable request verification passed\"}"}}
+[debug] [2023-10-30T11:52:34.264Z] [runtime-status] [56104] No callable functions auth found {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"[runtime-status] [56104] No callable functions auth found"}}
+[debug] [2023-10-30T11:52:34.279Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-addUser" in 21.910792ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"Finished \"us-central1-addUser\" in 21.910792ms"}}
+[debug] [2023-10-30T11:52:34.279Z] [worker-us-central1-addUser-3f32c2d7-a51a-4435-b7a5-cabd6b79e142]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"[worker-us-central1-addUser-3f32c2d7-a51a-4435-b7a5-cabd6b79e142]: IDLE"}}
+[debug] [2023-10-30T11:52:34.279Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2023-10-30T11:52:34.280Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-addUser"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2023-10-30T11:52:34.280Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2023-10-30T11:52:36.735Z] Oct 30, 2023 7:52:36 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:52:36 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:52:36.737Z] Oct 30, 2023 7:52:36 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Oct 30, 2023 7:52:36 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:52:36 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\nOct 30, 2023 7:52:36 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:52:37.152Z] Oct 30, 2023 7:52:37 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:52:37 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:52:47.972Z] Oct 30, 2023 7:52:47 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:52:47 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:52:48.349Z] Oct 30, 2023 7:52:48 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:52:48 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:52:57.993Z] Oct 30, 2023 7:52:57 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:52:57 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:52:58.366Z] Oct 30, 2023 7:52:58 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:52:58 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:53:04.297Z] Oct 30, 2023 7:53:04 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:53:04 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:53:08.023Z] Oct 30, 2023 7:53:08 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:53:08 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:53:08.390Z] Oct 30, 2023 7:53:08 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:53:08 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:53:18.049Z] Oct 30, 2023 7:53:18 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:53:18 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:53:18.412Z] Oct 30, 2023 7:53:18 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:53:18 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:53:28.072Z] Oct 30, 2023 7:53:28 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:53:28 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:53:28.437Z] Oct 30, 2023 7:53:28 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:53:28 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:53:37.191Z] Oct 30, 2023 7:53:37 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:53:37 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:53:38.092Z] Oct 30, 2023 7:53:38 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:53:38 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:53:48.124Z] Oct 30, 2023 7:53:48 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:53:48 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:53:58.169Z] Oct 30, 2023 7:53:58 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:53:58 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:54:04.323Z] Oct 30, 2023 7:54:04 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:54:04 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:54:08.202Z] Oct 30, 2023 7:54:08 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:54:08 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:54:18.240Z] Oct 30, 2023 7:54:18 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:54:18 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:54:28.272Z] Oct 30, 2023 7:54:28 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:54:28 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:54:37.223Z] Oct 30, 2023 7:54:37 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:54:37 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:54:38.305Z] Oct 30, 2023 7:54:38 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:54:38 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:54:48.345Z] Oct 30, 2023 7:54:48 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:54:48 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:54:58.394Z] Oct 30, 2023 7:54:58 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:54:58 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:55:04.357Z] Oct 30, 2023 7:55:04 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:55:04 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:55:08.221Z] Oct 30, 2023 7:55:08 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Oct 30, 2023 7:55:08 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:55:08 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\nOct 30, 2023 7:55:08 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:55:08.221Z] Oct 30, 2023 7:55:08 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:55:08 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:55:37.272Z] Oct 30, 2023 7:55:37 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:55:37 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:55:44.415Z] Oct 30, 2023 7:55:44 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Oct 30, 2023 7:55:44 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Oct 30, 2023 7:55:44 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:55:44 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\nOct 30, 2023 7:55:44 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\nOct 30, 2023 7:55:44 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-10-30T11:56:04.424Z] Oct 30, 2023 7:56:04 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 30, 2023 7:56:04 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
