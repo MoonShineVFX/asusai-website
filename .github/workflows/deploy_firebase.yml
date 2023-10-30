@@ -1,0 +1,33 @@
+name: Build and Deploy to Firebase
+on: [push]
+jobs:
+  buildAndDeploy:
+    name: Build
+    runs-on: ubuntu-latest
+    env:
+      CI: false
+      REACT_APP_FIREBASE_KEY: ${{ secrets.FIREBASE_KEY }}
+      REACT_APP_FIREBASE_DOMAIN: ${{ secrets.FIREBASE_DOMAIN }}
+      REACT_APP_FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
+      REACT_APP_FIREBASE_STORAGE_BUCKET: ${{ secrets.FIREBASE_STORAGE_BUCKET }}
+      REACT_APP_FIREBASE_SENDER_ID: ${{ secrets.FIREBASE_SENDER_ID }}
+      REACT_APP_FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
+      REACT_APP_FIREBASE_MEASUREMENT_ID: ${{ secrets.FIREBASE_MEASUREMENT_ID }}
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'yarn'
+      - name: Install and build
+        run: |
+          yarn install --frozen-lockfile
+          yarn build
+      - name: Deploy to Firebase
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
