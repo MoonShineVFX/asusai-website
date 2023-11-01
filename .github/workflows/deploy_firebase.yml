@@ -25,6 +25,14 @@ jobs:
         run: |
           yarn install --frozen-lockfile
           yarn build
+      - name: Install (Functions)
+        working-directory: functions
+        run: |
+          yarn install --frozen-lockfile
+      - name: Copy index.html
+        run: |
+          mkdir -p functions/source
+          cp build/index.html functions/source/index.html
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
