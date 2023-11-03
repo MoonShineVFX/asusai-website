@@ -1,7 +1,13 @@
 import { useState } from "react";
 import { functions } from "./firebase";
 import { httpsCallable } from "firebase/functions";
-
+import { ImageProvider } from "./Helper/ImageContext";
+import { BrowserRouter , Routes, Route} from 'react-router-dom';
+import CameraLayout from "./Layouts/CameraLayout";
+import Home from './Page/Camera/FrontPage'
+import ModelSelect from './Page/Camera/ModelSelect'
+import Camera from './Page/Camera/ReadyToTake'
+import Result from './Page/Camera/ModelSelect'
 function App() {
   const [name, setName] = useState(""); // State to hold the input value
   const [response, setResponse] = useState("");
@@ -25,22 +31,20 @@ function App() {
     }
   };
   return (
-    <div className="App">
-     <div>1123</div>
-     <div className="user-input-section">
-          <input
-            type="text"
-            placeholder="Enter name..."
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <button onClick={handleAddUser} disabled={!name.trim()}>
-            Add User
-          </button>
-        </div>
-
-        <h2>{response}</h2>
-    </div>
+    <ImageProvider>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<CameraLayout />} >
+          <Route path="" element={<Home />} />
+          <Route path="Camera" element={<Camera />} />
+          <Route path="templates" element={<ModelSelect />} />
+          <Route path="result" element={<Result />} />
+      
+        </Route>
+      </Routes>
+ 
+    </BrowserRouter>
+    </ImageProvider>
   );
 }
 
