@@ -57,7 +57,6 @@ function ReadyToTake({handleBackClick}) {
   const onFilechange = ( e ) => {
     /*Selected files data can be collected here.*/
     const file = e.target.files[0];
-
     //顯示預覽圖 
     if (file) {
       const reader = new FileReader();
@@ -76,8 +75,24 @@ function ReadyToTake({handleBackClick}) {
     setCameraOpen(false)
     inputFileRef.current.click();
   }
+  const testFetchPost = (photo)=>{
+    const formData = new FormData();
+    formData.append('source_image', photo); 
+    formData.append("command_type", "1");
 
-
+    fetch('https://faceswap.rd-02f.workers.dev/images', {
+      method: 'POST',
+      body: formData,
+      redirect: 'follow'
+    })
+    .then(response => response.json())
+    .then(responseData => {
+      console.log(responseData)
+    })
+    .catch(error => {
+      console.error(error);
+    });
+  }
   //flow Camera shot
   const handleClick = async (photo)=>{
     // setShowFlashImage(true);
@@ -366,6 +381,8 @@ function ReadyToTake({handleBackClick}) {
           </Suspense>
 
         )}
+        {/* <Button color="white" onClick={testFetchPost}>測試運算上傳圖片</Button> */}
+
       </div>
 
 

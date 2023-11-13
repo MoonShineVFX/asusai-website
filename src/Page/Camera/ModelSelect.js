@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect, Suspense } from 'react'
 import Result from './Result';
 import { useImage } from '../../Helper/ImageContext';
 import { Link } from "react-router-dom";
-import { Button,Checkbox,Typography } from "@material-tailwind/react";
+import { Button,Checkbox,Typography,Spinner } from "@material-tailwind/react";
 import { FaArrowLeft,FaCameraRetro } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 // Import Swiper React components
@@ -16,10 +16,12 @@ import 'swiper/css/navigation';
 // import required modules
 import { EffectCoverflow, Pagination,Navigation } from 'swiper/modules';
 const bannerData = [
-  {url:"https://moonshine.b-cdn.net/msweb/asusaicamera/templates/01.jpeg" ,title:'1',id:'1'},
-  {url:"https://moonshine.b-cdn.net/msweb/asusaicamera/templates/02.jpeg" ,title:'2',id:'2'},
-  {url:"https://moonshine.b-cdn.net/msweb/asusaicamera/templates/03.jpeg" ,title:'3',id:'3'},
-  {url:"https://moonshine.b-cdn.net/msweb/asusaicamera/templates/04.jpeg" ,title:'4',id:'4'},
+  {url:"https://moonshine.b-cdn.net/msweb/asusaicamera/templates/1.png" ,title:'1',id:'1'},
+  {url:"https://moonshine.b-cdn.net/msweb/asusaicamera/templates/2.png" ,title:'2',id:'2'},
+  {url:"https://moonshine.b-cdn.net/msweb/asusaicamera/templates/3.png" ,title:'3',id:'3'},
+  {url:"https://moonshine.b-cdn.net/msweb/asusaicamera/templates/4.png" ,title:'4',id:'4'},
+  {url:"https://moonshine.b-cdn.net/msweb/asusaicamera/templates/5.png" ,title:'5',id:'5'},
+  {url:"https://moonshine.b-cdn.net/msweb/asusaicamera/templates/6.png" ,title:'6',id:'6'},
 
  ]
 
@@ -28,7 +30,12 @@ function ModelSelect() {
   const [swiper, setSwiper] = useState(null);
   const [currentId , setCurrentId] = useState('')
   const [msg,setMsg] = useState('')
+  
+  const [isRender , setIsRender] = useState(false)
+  const [renderedData, setRenderedData] = useState({})
+  const [renderedResult, setRenderedResult] = useState({})
   const [startRender , setStartRender] = useState(false)
+
   const handleOpen = () => setStartRender(!startRender);
   const handleImageClick = (index) =>{
     swiper.slideTo(index)
@@ -43,14 +50,16 @@ function ModelSelect() {
       setMsg('錯誤：必須選擇一個模組。')
       return
     }
-      setMsg('')
+      setMsg('開始上傳並演算')
+      setIsRender(true)
     // setStartRender(true)
     //fetch API 上傳運算
     //POST https://faceswap.rd-02f.workers.dev/images 上傳圖片
     //GET https://faceswap.rd-02f.workers.dev/images/<id> 取得圖片
+    var file = dataURLtoFile(beforeImage,'image.jpg')
     const formData = new FormData();
-    formData.append('source_image', beforeImage); 
-    formData.append("command_type", "1");
+    formData.append('source_image', file); 
+    formData.append("command_type", currentId);
 
     fetch('https://faceswap.rd-02f.workers.dev/images', {
       method: 'POST',
@@ -60,12 +69,56 @@ function ModelSelect() {
     .then(response => response.json())
     .then(responseData => {
       console.log(responseData)
+      setRenderedData(responseData)
+      setIsRender(false)
+      setTimeout(() => {
+        getResulImage(responseData.id)
+      }, 500);
+
+
     })
     .catch(error => {
       console.error(error);
     });
 
 
+  }
+  const getResulImage = (id) =>{
+    // let reid = id
+    fetch('https://faceswap.rd-02f.workers.dev/images/'+id, {
+      method: 'GET',
+    })
+    .then(response => response.json())
+    .then(responseData => {
+      console.log(responseData)
+     
+
+      setTimeout(() => {
+        if(responseData.finished === 0){
+          getResulImage(id)
+        }
+        if(responseData.finished ===1){
+          setRenderedResult(responseData)
+          return
+        }
+      }, 1000);
+
+    })
+    .catch(error => {
+      console.error(error);
+    });
+
+  }
+  function dataURLtoFile(dataurl, filename) {
+    var arr = dataurl.split(','),
+        mime = arr[0].match(/:(.*?);/)[1],
+        bstr = atob(arr[arr.length - 1]), 
+        n = bstr.length, 
+        u8arr = new Uint8Array(n);
+    while(n--){
+        u8arr[n] = bstr.charCodeAt(n);
+    }
+    return new File([u8arr], filename, {type:mime});
   }
   
   return (
@@ -122,7 +175,7 @@ function ModelSelect() {
                 return(
                   <SwiperSlide key={'tf'+index}>
                     <img 
-                      src={item.url} 
+                      src={item.url+'?width=500'} 
                       alt="slide" 
                       className={`hover:brightness-105 rounded-md transition-all ${currentId === item.id ? 'border-4 border-amber-500 ' : ''}`}
                       onClick={()=>{
@@ -143,6 +196,14 @@ function ModelSelect() {
         {msg&&(
           <div className='text-amber-500'>{msg}</div>
         )}
+        {isRender && <Spinner/>  }
+        {Object.keys(renderedResult).length > 0 && (
+          <div>
+            1
+            <img src={renderedResult.generations[0].img} alt="" />
+          </div>
+        )}
+        
       </div>
       <Result open={startRender} handleOpen={handleOpen}/>
       
