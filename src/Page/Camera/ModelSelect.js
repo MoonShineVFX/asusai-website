@@ -44,12 +44,14 @@ function ModelSelect() {
       return
     }
       setMsg('')
-      // setStartRender(true)
-    const formData = new FormData();
-    formData.append('image', beforeImage); 
+    // setStartRender(true)
     //fetch API 上傳運算
     //POST https://faceswap.rd-02f.workers.dev/images 上傳圖片
     //GET https://faceswap.rd-02f.workers.dev/images/<id> 取得圖片
+    const formData = new FormData();
+    formData.append('source_image', beforeImage); 
+    formData.append("command_type", "1");
+
     fetch('https://faceswap.rd-02f.workers.dev/images', {
       method: 'POST',
       body: formData,
