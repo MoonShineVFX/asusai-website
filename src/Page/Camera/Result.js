@@ -14,7 +14,6 @@ function Result({open ,handleOpen}) {
       <Dialog open={open} handler={handleOpen}>
         <DialogHeader>.</DialogHeader>
         <DialogBody>
-          <Spinner />
           可以改成黑底 然後算圖的效果
           下方放qrocde
         </DialogBody>
@@ -25,10 +24,10 @@ function Result({open ,handleOpen}) {
             onClick={handleOpen}
             className="mr-1"
           >
-            <span>Cancel</span>
+            <span>關閉</span>
           </Button>
           <Button variant="gradient" color="green" onClick={handleOpen}>
-            <span>Confirm</span>
+            <span>再選一次模組</span>
           </Button>
         </DialogFooter>
       </Dialog>

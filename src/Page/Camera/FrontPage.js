@@ -40,22 +40,18 @@ function FrontPage({handleClick}) {
         </Link>
 
         <div>
-          <Checkbox
-            label={
-              <Typography color="white" className="flex font-medium">
-                我了解並同意
-                <Typography
-                  as="a"
-                  href="#"
-                  color="blue"
-                  className="font-medium transition-colors hover:text-blue-700"
-                >
-                  &nbsp;使用者條款與隱私權政策
-                </Typography>
-                .
-              </Typography>
-            }
-          />
+          <Typography color="white" className="flex font-medium">
+            當您使用本網頁時代表您了解並同意
+            <Typography
+              as="a"
+              href="#"
+              color="blue"
+              className="font-medium transition-colors hover:text-blue-700"
+            >
+              &nbsp;使用者條款與隱私權政策
+            </Typography>
+            .
+          </Typography>
         </div>
 
       </div>

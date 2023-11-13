@@ -58,6 +58,7 @@ function ReadyToTake({handleBackClick}) {
     /*Selected files data can be collected here.*/
     const file = e.target.files[0];
 
+    //顯示預覽圖 
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
@@ -94,7 +95,18 @@ function ReadyToTake({handleBackClick}) {
     formData.append('token', token); 
     console.log(compressFiles)
     setSelectedImage(compressFiles);
-    setBeforeImage(compressFiles)
+
+    //顯示預覽圖
+    if (compressFiles) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        // 读取文件并更新选定的图像
+        setImage(reader.result);
+        setBeforeImage(reader.result)
+      };
+      reader.readAsDataURL(compressFiles);
+    }
+
   }
 
 
@@ -304,9 +316,9 @@ function ReadyToTake({handleBackClick}) {
     <div className="flex flex-col justify-center items-center gap-5 ">
       <Typography variant="h2">拍攝照片</Typography>
       {isCameraOpen ? 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-4">
           <div className=" relative  w-[560px] aspect-[13/9] bg-gray-500 ">
-            <Camera ref={camera} aspectRatio={13/9} />
+            <Camera ref={camera}  />
           </div>
 
           <button 
@@ -315,7 +327,7 @@ function ReadyToTake({handleBackClick}) {
               if (camera.current) {
                 const photo = camera.current.takePhoto();
                 // console.log(photo);
-                setImage(photo);
+                // setImage(photo);
                 handleClick(photo)
                 startCountdown()
               }
