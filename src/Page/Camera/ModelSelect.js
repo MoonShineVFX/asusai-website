@@ -44,7 +44,7 @@ function ModelSelect() {
       return
     }
       setMsg('')
-      setStartRender(true)
+      // setStartRender(true)
     const formData = new FormData();
     formData.append('image', beforeImage); 
     //fetch API 上傳運算
