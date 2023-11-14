@@ -3,8 +3,10 @@ import Result from './Result';
 import { useImage } from '../../Helper/ImageContext';
 import { Link } from "react-router-dom";
 import { Button,Checkbox,Typography,Spinner } from "@material-tailwind/react";
-import { FaArrowLeft,FaCameraRetro } from "react-icons/fa";
+import { FaArrowLeft,FaCameraRetro,FaCheck } from "react-icons/fa";
+import { GiCheckMark } from "react-icons/gi";
 import { motion, AnimatePresence } from "framer-motion";
+
 // Import Swiper React components
 import { Swiper, SwiperSlide,useSwiper } from 'swiper/react';
 
@@ -16,12 +18,12 @@ import 'swiper/css/navigation';
 // import required modules
 import { EffectCoverflow, Pagination,Navigation } from 'swiper/modules';
 const bannerData = [
-  {url:"https://moonshine.b-cdn.net/msweb/asusaicamera/templates/1.png" ,title:'1',id:'1'},
-  {url:"https://moonshine.b-cdn.net/msweb/asusaicamera/templates/2.png" ,title:'2',id:'2'},
-  {url:"https://moonshine.b-cdn.net/msweb/asusaicamera/templates/3.png" ,title:'3',id:'3'},
-  {url:"https://moonshine.b-cdn.net/msweb/asusaicamera/templates/4.png" ,title:'4',id:'4'},
-  {url:"https://moonshine.b-cdn.net/msweb/asusaicamera/templates/5.png" ,title:'5',id:'5'},
-  {url:"https://moonshine.b-cdn.net/msweb/asusaicamera/templates/6.png" ,title:'6',id:'6'},
+  {url:"https://moonshine.b-cdn.net/msweb/asusaicamera/templates/1.jpg" ,title:'MODULE 1', subtitle:"Introduction to module one",id:'1'},
+  {url:"https://moonshine.b-cdn.net/msweb/asusaicamera/templates/2.jpg" ,title:'MODULE 2', subtitle:"Introduction to module two",id:'2'},
+  {url:"https://moonshine.b-cdn.net/msweb/asusaicamera/templates/3.jpg" ,title:'MODULE 3', subtitle:"Introduction to module three",id:'3'},
+  {url:"https://moonshine.b-cdn.net/msweb/asusaicamera/templates/4.jpg" ,title:'MODULE 4', subtitle:"Introduction to module four",id:'4'},
+  {url:"https://moonshine.b-cdn.net/msweb/asusaicamera/templates/5.jpg" ,title:'MODULE 5', subtitle:"Introduction to module five",id:'5'},
+  {url:"https://moonshine.b-cdn.net/msweb/asusaicamera/templates/6.jpg" ,title:'MODULE 6', subtitle:"Introduction to module six",id:'6'},
 
  ]
 
@@ -34,9 +36,9 @@ function ModelSelect() {
   const [isRender , setIsRender] = useState(false)
   const [renderedData, setRenderedData] = useState({})
   const [renderedResult, setRenderedResult] = useState({})
-  const [startRender , setStartRender] = useState(false)
+  const [showRender , setShowRender] = useState(false)
 
-  const handleOpen = () => setStartRender(!startRender);
+  const handleOpen = () => setShowRender(!showRender);
   const handleImageClick = (index) =>{
     swiper.slideTo(index)
   }
@@ -50,7 +52,7 @@ function ModelSelect() {
       setMsg('錯誤：必須選擇一個模組。')
       return
     }
-      setMsg('開始上傳並演算')
+      setMsg('正在上傳圖片..')
       setIsRender(true)
     // setStartRender(true)
     //fetch API 上傳運算
@@ -70,7 +72,8 @@ function ModelSelect() {
     .then(responseData => {
       console.log(responseData)
       setRenderedData(responseData)
-      setIsRender(false)
+      setIsRender(true)
+      setMsg('Ai演算中，請等待結果。')
       setTimeout(() => {
         getResulImage(responseData.id)
       }, 500);
@@ -99,6 +102,9 @@ function ModelSelect() {
         }
         if(responseData.finished ===1){
           setRenderedResult(responseData)
+          setShowRender(true)
+          setIsRender(false)
+          setMsg('')
           return
         }
       }, 1000);
@@ -122,10 +128,10 @@ function ModelSelect() {
   }
   
   return (
-    <div className="min-h-[100svh] ">
+    <div className="flex flex-col justify-between items-center ">
       
-      <Link to='/camera' className=" absolute top-5 left-5 " >
-        <Button variant="gradient" className="flex items-center gap-3">
+      <Link to='/camera' className=" absolute top-5 left-0 z-30 " >
+        <Button variant="text" className="flex items-center gap-3 text-white p-0 py-3 hover:text-red-500">
           <FaArrowLeft size={15} />
           Back
         </Button>
@@ -137,8 +143,8 @@ function ModelSelect() {
             initial={{ opacity: 0 , translateY:-50}}
             animate={{ opacity: 1 , translateY:10}}
             exit={{ opacity: 0 , translateY:-50 }}
-            className="w-[160px] aspect-video flex flex-col mx-auto fixed top-5 right-5">
-            <div className="text-sm">Before圖如下：</div> 
+            className="w-[160px] aspect-video flex flex-col mx-auto fixed top-5 right-10">
+            <div className="text-sm">你的圖片：</div> 
             <div className="w-full h-full  ">
               <img src={beforeImage} alt="Selected"  className="max-w-full w-full h-auto border-2 border-white rounded-md object-contain " />
 
@@ -149,9 +155,7 @@ function ModelSelect() {
         :
         <div className="w-[160px] aspect-video flex flex-col mx-auto fixed top-5 right-5">沒有第一張圖片，請加入圖片</div>
       }
-      <div className="flex flex-col justify-center items-center gap-5 ">
-        <Typography variant="h2">選擇模組</Typography>
-        <div className='w-8/12'>
+        <div className='w-[80%] mx-auto relative'>
           <Swiper
             onSwiper={setSwiper}
             effect={'coverflow'}
@@ -166,7 +170,10 @@ function ModelSelect() {
               slideShadows: true,
             }}
             pagination={false}
-            navigation={true}
+            navigation={{
+              nextEl: " .slidenext2",
+              prevEl: " .slideprev2"
+            }}
             modules={[EffectCoverflow, Pagination,Navigation]}
             className="mySwiper"
           >
@@ -174,15 +181,30 @@ function ModelSelect() {
               bannerData?.map((item,index)=>{
                 return(
                   <SwiperSlide key={'tf'+index}>
-                    <img 
-                      src={item.url+'?width=500'} 
-                      alt="slide" 
-                      className={`hover:brightness-105 rounded-md transition-all ${currentId === item.id ? 'border-4 border-amber-500 ' : ''}`}
-                      onClick={()=>{
-                        setCurrentId(item.id)
-                        handleImageClick(index)
-                      }}
-                    />
+                    <div className=' relative'>
+                      <div className=' relative'>
+                        <img 
+                          src={item.url+'?width=500'} 
+                          alt="slide" 
+                          className={`hover:brightness-105 rounded-md transition-all ${currentId === item.id ? 'border-4 border-amber-500/0 ' : ''}`}
+                          onClick={()=>{
+                            setCurrentId(item.id)
+                            handleImageClick(index)
+                          }}
+                        />
+                        <img src={process.env.PUBLIC_URL+'/images/image_border.png'} alt="" className=' absolute top-0 -left-5 z-10 pointer-events-none' />
+                        {
+                          currentId === item.id && <div className='absolute top-0 right-0 text-[#AD86E5]'><GiCheckMark size={34}  className=' ' /></div>
+                        }
+                      </div>
+
+                      <div className=' absolute -bottom-4 -left-8 z-20'>
+                        <div className='text-2xl text-red-500'>{item.title}</div>
+                        <div className='text-white/50'>{item.subtitle}</div>
+                      </div>
+
+                    </div>
+
                   </SwiperSlide>
                 )
               })
@@ -190,22 +212,25 @@ function ModelSelect() {
 
 
           </Swiper>
+          <div className='w-[110%] mx-auto gap-10 justify-between hidden  md:flex absolute top-[40%] -left-[4%] '>
+            <img src={process.env.PUBLIC_URL+'/images/arrow_left.png'} alt=""  className="slideprev2 " />
+            <img src={process.env.PUBLIC_URL+'/images/arrow_right.png'} alt=""  className="slidenext2 " />
+
+          </div>
     
         </div>
-        <Button color="white" onClick={onBtnClick}>開始演算</Button>
+        <div className=" relative mt-4" onClick={onBtnClick}>
+          <div className='sample-heading-3 w-full h-full absolute top-0 z-10   opacity-0 hover:opacity-100 cursor-pointer  '></div>
+          <div className='bg-gradient-to-b from-[#FF0050] to-[#000] px-10 py-2 border  border-white/30 flex items-center gap-2' >開始演算</div>
+        </div>
         {msg&&(
-          <div className='text-amber-500'>{msg}</div>
+          <div className='text-amber-500 mt-3'>{msg}</div>
         )}
         {isRender && <Spinner/>  }
-        {Object.keys(renderedResult).length > 0 && (
-          <div>
-            1
-            <img src={renderedResult.generations[0].img} alt="" />
-          </div>
-        )}
+
         
-      </div>
-      <Result open={startRender} handleOpen={handleOpen}/>
+      
+      <Result open={showRender} handleOpen={handleOpen} renderedResult={renderedResult}/>
       
     </div>
   )

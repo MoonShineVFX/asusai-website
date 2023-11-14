@@ -11,3 +11,32 @@
 }
 
 
+.framed {
+  border-image-source: url("https://moonshine.b-cdn.net/msweb/asusaicamera/images/page_border14.png");
+  border-image-slice: 93 92 87 92;
+  border-image-repeat: stretch;
+
+  border-style: inset;
+  border-width: 60px 55px;
+
+  display: grid;
+  row-gap: 2rem;
+
+
+  resize: both;
+  overflow: auto;
+
+  /* box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.3), 0 0 6px 0 rgba(0, 0, 0, 0.18); */
+}
+
+
+.sample-heading-3 {
+  font-size: 1em;
+  padding: 1em;
+  border-style: solid;
+  border-width: 1px;
+  border-image-source: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns=%22http:%2F%2Fwww.w3.org%2F2000%2Fsvg%22 viewBox=%220 0 40 40%22%3E%3Crect x=%220.5%22 y=%220.5%22 width=%2239%22 height=%2239%22 fill=%22transparent%22 stroke=%22%23fff%22 stroke-width=%221%22 %2F%3E%3C%2Fsvg%3E");
+  border-image-slice: 50%;
+  border-image-width: 12px;
+}
+

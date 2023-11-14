@@ -3,7 +3,7 @@ import {useImage} from '../../Helper/ImageContext'
 import { Link } from "react-router-dom";
 import {Camera} from "react-camera-pro";
 import styled from 'styled-components';
-import { FaArrowLeft,FaCameraRetro } from "react-icons/fa";
+import { FaArrowLeft,FaCameraRetro,FaCamera,FaUpload,FaArrowAltCircleRight } from "react-icons/fa";
 import { MdCameraswitch, MdPhotoCamera,MdMobileScreenShare, MdClose,MdDownload,MdRefresh,MdReply,MdEast,MdKeyboardReturn } from "react-icons/md";
 import { motion, AnimatePresence } from "framer-motion";
 import Resizer from "react-image-file-resizer";
@@ -317,76 +317,134 @@ function ReadyToTake({handleBackClick}) {
 
   const [src, { blur }] = useProgressiveImg(process.env.PUBLIC_URL+'/images/camera_page/tiny.jpeg', ResultImage);
   return (
-    <div className="min-h-[100svh] ">
-      <div className="absolute top-0 left-0 z-50 ">
-        <p>目前螢幕方向：{isLandscape ? "橫式" : "直式"}</p>
-      </div>
-      <Link to='/' className=" absolute top-5 left-5 " >
-        <Button variant="gradient" className="flex items-center gap-3">
+    <div className='flex flex-col justify-between items-center'>
+
+      <Link to='/' className=" absolute top-5 left-0 z-30 " >
+        <Button variant="text" className="flex items-center gap-3 text-white p-0 py-3 hover:text-red-500">
           <FaArrowLeft size={15} />
-          Back
+          Back 
         </Button>
 
       </Link>
-    <div className="flex flex-col justify-center items-center gap-5 ">
-      <Typography variant="h2">拍攝照片</Typography>
+
       {isCameraOpen ? 
-        <div className="flex items-center gap-4">
-          <div className=" relative  w-[560px] aspect-[13/9] bg-gray-500 ">
+        <div className="flex items-center gap-4 relative">
+
+          <div className=" relative  w-[560px] aspect-[13/10] bg-gray-500 ">
+            <div className="  top-0 z-10 absolute">
+              <img src={process.env.PUBLIC_URL+'/images/headframe.png'} alt="" />
+            </div>
             <Camera ref={camera}  />
           </div>
 
-          <button 
-            className="flex items-center gap-3  rounded-full bg-white p-5 shadow-lg shadow-gray-300/50"
-            onClick={() => {
-              if (camera.current) {
-                const photo = camera.current.takePhoto();
-                // console.log(photo);
-                // setImage(photo);
-                handleClick(photo)
-                startCountdown()
-              }
-            }} 
-          > <MdPhotoCamera color="black" size={24}/>  </button>
+          <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 z-10 flex items-center  gap-3 ">
+            <button 
+              className="flex items-center  rounded-full bg-white p-5 shadow-lg shadow-gray-300/50  "
+              onClick={() => {
+                if (camera.current) {
+                  const photo = camera.current.takePhoto();
+                  // console.log(photo);
+                  // setImage(photo);
+                  handleClick(photo)
+                  startCountdown()
+                }
+              }} 
+            > 
+              <MdPhotoCamera color="black" size={24}/>  
+            </button>
+            {image && (
+              <Suspense fallback={<p>Loading</p>}>
+                <motion.div 
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1}}
+                  exit={{ opacity: 0 }}
+                  className="w-16">
+                  <div className="pt-[100%] relative ">
+                    <img src={image} alt="Selected"  className="absolute aspect-square top-0 left-0 object-cover w-full h-full rounded-full border-2 border-white  " />
+
+                  </div>
+                  {/* 在这里可以进行图像上传或其他操作 */}
+                </motion.div>
+              </Suspense>
+            )}
+            
+          </div>
+
         </div>
       :
-        <div className=" relative  w-[560px] aspect-[13/9] border border-gray-500 rounded-md flex flex-col justify-center items-center ">
-            <FaCameraRetro size={40} className=" rotate-12 text-gray-200" />
-            <div className="text-sm flex flex-col  justify-center items-center mt-6">
-              <div>在這邊你可以選擇開啟相機拍攝自己或者</div>
-              <div>從電腦上傳一張下相片</div> 
-            </div>
+      <motion.div className=' relative w-4/5 mx-auto flex aspect-[1413/580] '>
+          <motion.img 
+            initial={{ opacity: 0, x:  0 }}
+            animate={{ opacity: 1 , x: 0}}
+            exit={{ opacity: 0,x:0 }}
+            transition={{ duration: 1.5 }}
 
-        </div>
+            src={process.env.PUBLIC_URL+'/images/person_left.png'} alt="p01" className='max-w-full w-[24vw] absolute  top-0 left-[15%] ' />
+          <motion.img
+            initial={{ opacity: 0, x:0 }}
+            animate={{ opacity: 1 , x:0}}
+            exit={{ opacity: 0,x:0 }} 
+            transition={{ duration: 1.5 }}
+            src={process.env.PUBLIC_URL+'/images/person_right.png'} alt="p01" className='max-w-full w-[24vw] absolute top-0 right-[15%] ' />
+          {image && (
+            <Suspense fallback={<p>Loading</p>}>
+              <motion.div 
+                initial={{ opacity: 0,  y:-80,  x:'-50%'}}
+                animate={{ opacity: 1,y:40, x:'-50%' }}
+                exit={{ opacity: 0,y:-80,  x:'-50%' }}
+                className="w-[180px] aspect-video flex flex-col  absolute top-0 left-1/2 ">
+                  <img src={image} alt="Selected"  className="max-w-full w-full h-auto border-2 border-white rounded-md object-contain " />
+                  <div className="text-center text-xs text-white/70 mt-2">你的圖片</div>
+
+              </motion.div>
+            </Suspense>
+          )}
+        </motion.div>
       }
 
-      <div>
-      <div className="flex flex-col gap-2">
-        <Button color="white" onClick={toggleCamera}>開啟相機後拍照</Button>
-        <input
-          type="file"
-          accept="image/*"
-          onChange={onFilechange}
-          style={{ display: 'none' }}
-          ref={inputFileRef}
+        <div className="flex items-center gap-10 mt-10">
+          <div className="flex flex-col gap-6">
+            <div className=" relative" onClick={toggleCamera}>
+              <div className='sample-heading-3 w-full h-full absolute top-0 z-10   opacity-0 hover:opacity-100 cursor-pointer  '></div>
+              <div className='bg-gradient-to-b from-[#444] to-[#111] px-10 py-2 border  border-white/30 flex items-center gap-2 ' ><FaCamera />Take a photo</div>
+            </div>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={onFilechange}
+              style={{ display: 'none' }}
+              ref={inputFileRef}
 
-        />
-        <Button color="white" onClick={onBtnClick}>上傳圖片</Button>
-
-        {image && (
-          <Suspense fallback={<p>Loading</p>}>
-            <Link to={'/templates'}>
-              <Button color="white">下一步選擇主題</Button>
-            </Link>
-          </Suspense>
-
-        )}
-        {/* <Button color="white" onClick={testFetchPost}>測試運算上傳圖片</Button> */}
-
-      </div>
+            />
+            <div className=" relative" onClick={onBtnClick}>
+              <div className='sample-heading-3 w-full h-full absolute top-0 z-10   opacity-0 hover:opacity-100 cursor-pointer  '></div>
+              <div className='bg-gradient-to-b from-[#444] to-[#111] px-10 py-2 border  border-white/30 flex items-center gap-2' ><FaUpload />Upload a picture</div>
+            </div>
 
 
-      </div>
+
+          </div>
+            {image && (
+              <Suspense fallback={<p>Loading</p>}>
+                <motion.div
+                  initial={{ opacity: 0}}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                >
+                  <div className="text-sm text-white/70 mb-1">圖片已準備好</div>
+                  <Link to={'/templates'} className=" relative">
+                    <div className='sample-heading-3 w-full h-full absolute top-0 z-10   opacity-0 hover:opacity-100 cursor-pointer  '></div>
+                    <div className='bg-gradient-to-b from-[#FF0050] to-[#000] px-10 py-2 border  border-white/30 flex items-center gap-2' >下一步選擇主題 <FaArrowAltCircleRight /></div>
+                  </Link>
+                </motion.div>
+              </Suspense>
+
+            )}
+        </div>
+
+
+
+      
       {showFlashImage && (
           <div className=" absolute top-0 w-full h-full z-50 bg-white overflow-hidden">
             <img
@@ -397,23 +455,7 @@ function ReadyToTake({handleBackClick}) {
             />
           </div>
         )}
-      {image && (
-        <Suspense fallback={<p>Loading</p>}>
-          <motion.div 
-            initial={{ opacity: 0 , translateY:-50}}
-            animate={{ opacity: 1 , translateY:10}}
-            exit={{ opacity: 0 , translateY:-50 }}
-            className="w-[160px] aspect-video flex flex-col mx-auto fixed top-5 right-5">
-            <div className="text-sm">Before圖如下：</div> 
-            <div className="w-full h-full  ">
-              <img src={image} alt="Selected"  className="max-w-full w-full h-auto border-2 border-white rounded-md object-contain " />
 
-            </div>
-            {/* 在这里可以进行图像上传或其他操作 */}
-          </motion.div>
-        </Suspense>
-      )}
-    </div>
     
     </div>
   )

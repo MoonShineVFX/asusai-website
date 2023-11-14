@@ -4,6 +4,7 @@ import { httpsCallable } from "firebase/functions";
 import { ImageProvider } from "./Helper/ImageContext";
 import { BrowserRouter , Routes, Route} from 'react-router-dom';
 import CameraLayout from "./Layouts/CameraLayout";
+import RenderLayout from "./Layouts/RenderLayout";
 import Home from './Page/Camera/FrontPage'
 import ModelSelect from './Page/Camera/ModelSelect'
 import Camera from './Page/Camera/ReadyToTake'
@@ -37,9 +38,11 @@ function App() {
         <Route path="/" element={<CameraLayout />} >
           <Route path="" element={<Home />} />
           <Route path="Camera" element={<Camera />} />
-          <Route path="templates" element={<ModelSelect />} />
           <Route path="result" element={<Result />} />
       
+        </Route>
+        <Route path="/templates" element={<RenderLayout />} >
+          <Route path="" element={<ModelSelect />} />
         </Route>
       </Routes>
  
