@@ -11,7 +11,7 @@ import useProgressiveImg from "../../Helper/useProgressiveImg";
 
 
 import { Button,Checkbox,Typography } from "@material-tailwind/react";
-
+import CustomAlert from "../../Helper/CustomAlert";
 
 const ResultImagePreview = styled.div`
   width: 300px;
@@ -42,6 +42,7 @@ function ReadyToTake({handleBackClick}) {
   const countdownRef = useRef(countdown);
   const [isLandscape, setIsLandscape] = useState(false);
   const { setBeforeImage } = useImage();
+  const [notification, setNotification] = useState(null);
   const [testMsg, setTestMsg] = useState({
     getNumberOfCameras:""
   });
@@ -57,13 +58,31 @@ function ReadyToTake({handleBackClick}) {
   const onFilechange = ( e ) => {
     /*Selected files data can be collected here.*/
     const file = e.target.files[0];
-    //顯示預覽圖 
+    if (!file.type.startsWith('image/')) {
+      setNotification('Please upload an image file.');
+      return;
+    }
+    if (file.size > 1024 * 1024) {
+      setNotification('File size should be less than 1MB.');
+      return;
+    }
+
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
         // 读取文件并更新选定的图像
-        setImage(reader.result);
-        setBeforeImage(reader.result)
+        const tempImage = new Image();
+        tempImage.src = reader.result;
+        tempImage.onload = () => {
+          // 检查图片尺寸
+          if (tempImage.width > 1920 || tempImage.height > 1920) {
+            setNotification('Image dimensions should be 1920x1920 or smaller.');
+          } else {
+            // 更新选中的图像
+            setImage(reader.result);
+            setBeforeImage(reader.result);
+          }
+        };
       };
       reader.readAsDataURL(file);
     }
@@ -319,7 +338,9 @@ function ReadyToTake({handleBackClick}) {
   return (
     <div className='flex flex-col justify-between items-center'>
 
-
+      {notification && (
+        <CustomAlert message={notification} onClose={() => setNotification(null)} />
+      )}
       {isCameraOpen ? 
         <div className="flex items-center gap-4 relative">
 

@@ -30,7 +30,7 @@ const bannerData = [
 function ModelSelect() {
   const { beforeImage } = useImage();
   const [swiper, setSwiper] = useState(null);
-  const [currentId , setCurrentId] = useState('')
+  const [currentId , setCurrentId] = useState('1')
   console.log(currentId)
   const [msg,setMsg] = useState('')
   
@@ -53,6 +53,7 @@ function ModelSelect() {
       setMsg('錯誤：必須選擇一個模組。')
       return
     }
+      setMsg(null)
       setMsg('正在上傳圖片..')
       setIsRender(true)
     // setStartRender(true)
@@ -72,10 +73,16 @@ function ModelSelect() {
     .then(response => response.json())
     .then(responseData => {
       console.log(responseData)
+      if(responseData.message){
+        setMsg('發生錯誤，請重新上傳圖片。')
+        return
+      }
       setRenderedData(responseData)
       setIsRender(true)
-      setMsg('Ai演算中，請等待結果。')
+      setMsg(null)
+      
       setTimeout(() => {
+        setMsg('Ai演算中，請等待結果。')
         getResulImage(responseData.id)
       }, 500);
 
@@ -248,9 +255,13 @@ function ModelSelect() {
             <div className='w-[400px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 '>
               <img src={process.env.PUBLIC_URL+'/images/loading.png'} alt="" className='animate-spin'/>
             </div>
-            <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 w-full text-center '>
+            <div className='absolute bottom-1/4 left-1/2 -translate-x-1/2  z-40 w-full text-center '>
               {msg&&(
-                <div className='text-white/50 '>{msg}</div>
+                <motion.div 
+                  initial={{ opacity: 0,y:10 }}
+                  animate={{ opacity: 1,y:0}}
+                  exit={{ opacity: 0,y:10}}
+                  className='text-white/80 '>{msg}</motion.div>
               )}
             </div>
 
