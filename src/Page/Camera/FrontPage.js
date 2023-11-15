@@ -32,7 +32,7 @@ function FrontPage({handleClick}) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-          >See what a version of your AI ASUS role！</motion.div>
+          >Check out your AI version of ASUS role</motion.div>
 
           <Link 
             to={'/camera'} 

@@ -1,5 +1,7 @@
 import React,{useState} from 'react'
-import { Outlet} from 'react-router-dom';
+import { Outlet,useLocation,Link} from 'react-router-dom';
+import { FaArrowLeft } from "react-icons/fa";
+import { Button } from "@material-tailwind/react";
 function RenderLayout() {
   return (
     <div 
@@ -18,7 +20,15 @@ function RenderLayout() {
           className='max-w-full flex h-screen py-5 right-4 absolute '/>
               <div className='w-full aspect-[1413/672]  bg-blue-gray- px-32 pt-10'>
         <div className='flex justify-between h-10'>
-          <img src={process.env.PUBLIC_URL+'/images/step2.png'} alt="" className='max-w-screen '/>
+          <div>
+            <Link to='/camera' className=" " >
+              <Button variant="text" className="flex items-center gap-3 text-white p-0 py-3 hover:text-red-500">
+                <FaArrowLeft size={15} />
+                Back 
+              </Button>
+            </Link>
+            <img src={process.env.PUBLIC_URL+'/images/step2.png'} alt="" className='max-w-full w-2/4 '/> 
+          </div>
           <img src={process.env.PUBLIC_URL+'/images/header_right.png'} alt="" className='max-w-screen ' />
         </div>
         <div className='mt-6 relative py-1'>

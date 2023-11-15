@@ -319,13 +319,6 @@ function ReadyToTake({handleBackClick}) {
   return (
     <div className='flex flex-col justify-between items-center'>
 
-      <Link to='/' className=" absolute top-5 left-0 z-30 " >
-        <Button variant="text" className="flex items-center gap-3 text-white p-0 py-3 hover:text-red-500">
-          <FaArrowLeft size={15} />
-          Back 
-        </Button>
-
-      </Link>
 
       {isCameraOpen ? 
         <div className="flex items-center gap-4 relative">

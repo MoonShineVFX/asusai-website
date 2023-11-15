@@ -130,13 +130,7 @@ function ModelSelect() {
   return (
     <div className="flex flex-col justify-between items-center ">
       
-      <Link to='/camera' className=" absolute top-5 left-0 z-30 " >
-        <Button variant="text" className="flex items-center gap-3 text-white p-0 py-3 hover:text-red-500">
-          <FaArrowLeft size={15} />
-          Back
-        </Button>
 
-      </Link>
       {beforeImage?
         <Suspense fallback={<p>Loading</p>}>
           <motion.div 
@@ -223,10 +217,35 @@ function ModelSelect() {
           <div className='sample-heading-3 w-full h-full absolute top-0 z-10   opacity-0 hover:opacity-100 cursor-pointer  '></div>
           <div className='bg-gradient-to-b from-[#FF0050] to-[#000] px-10 py-2 border  border-white/30 flex items-center gap-2' >開始演算</div>
         </div>
-        {msg&&(
-          <div className='text-amber-500 mt-3'>{msg}</div>
-        )}
-        {isRender && <Spinner/>  }
+
+        {isRender && 
+          <div className='fixed  inset-0 w-full h-screen bg-black/50 z-30 backdrop-blur-sm'>
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1}}
+            exit={{ opacity: 0 }}
+            className=' absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2'
+          >
+            <div className='w-[400px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 '>
+              <img src={process.env.PUBLIC_URL+'/images/loading.png'} alt="" className='animate-spin'/>
+            </div>
+            <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 w-full text-center '>
+              {msg&&(
+                <div className='text-white/50 '>{msg}</div>
+              )}
+            </div>
+
+            <div className='w-[350px] '>
+              <div className='pt-[100%] relative border border-red-500 rounded-full'>
+                <img src={beforeImage} alt="Selected"  className=" brightness-[0.2] absolute aspect-square top-0 left-0 object-cover w-full h-full rounded-full  " />
+
+              </div>
+            </div>
+
+          </motion.div>
+        
+          </div>
+        }
 
         
       
