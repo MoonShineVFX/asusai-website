@@ -31,6 +31,7 @@ function ModelSelect() {
   const { beforeImage } = useImage();
   const [swiper, setSwiper] = useState(null);
   const [currentId , setCurrentId] = useState('')
+  console.log(currentId)
   const [msg,setMsg] = useState('')
   
   const [isRender , setIsRender] = useState(false)
@@ -128,7 +129,7 @@ function ModelSelect() {
   }
   
   return (
-    <div className="flex flex-col justify-between items-center ">
+    <div className="flex flex-col justify-between items-center py-20 ">
       
 
       {beforeImage?
@@ -147,7 +148,7 @@ function ModelSelect() {
           </motion.div>
         </Suspense>
         :
-        <div className="w-[160px] aspect-video flex flex-col mx-auto fixed top-5 right-5">沒有第一張圖片，請加入圖片</div>
+        <div className="w-[160px] aspect-video flex flex-col mx-auto fixed top-5 right-5">Error</div>
       }
         <div className='w-[80%] mx-auto relative'>
           <Swiper
@@ -175,27 +176,27 @@ function ModelSelect() {
               bannerData?.map((item,index)=>{
                 return(
                   <SwiperSlide key={'tf'+index}>
-                    <div className=' relative'>
-                      <div className=' relative'>
+                    <div className=' relative '>
+                      <div className=' relative w-full'>
                         <img 
                           src={item.url+'?width=400'} 
                           alt="slide" 
-                          className={`max-w-full hover:brightness-105 rounded-md transition-all ${currentId === item.id ? 'border-4 border-amber-500/0 ' : ''}`}
+                          className={` max-w-full hover:brightness-105 rounded-md transition-all ${currentId === item.id ? 'border-4 border-amber-500/0 ' : ''}`}
                           onClick={()=>{
                             setCurrentId(item.id)
                             handleImageClick(index)
                           }}
                         />
-                        <div className='w-4/5 absolute top-0 -left-5 z-10 pointer-events-none'>
+                        <div className='w-[94%] absolute top-2 -left-5 z-10 pointer-events-none'>
                           <img src={process.env.PUBLIC_URL+'/images/image_border.png'} alt="" className='max-w-full w-full ' />
 
                         </div>
-                        {/* {
+                        {
                           currentId === item.id && <div className='absolute top-0 right-0 text-[#AD86E5]'><GiCheckMark size={34}  className=' ' /></div>
-                        } */}
+                        }
                       </div>
 
-                      <div className=' absolute -bottom-5 -left-10 z-20 bg-gradient-to-r p-2 from-black/70 '>
+                      <div className=' absolute -bottom-5 -left-10 z-20 bg-gradient-to-r p-2 from-black/90 via-black/70 '>
                         <div className='text-2xl text-red-500'>{item.title}</div>
                         <div className='text-white/50'>{item.subtitle}</div>
                       </div>
@@ -210,24 +211,31 @@ function ModelSelect() {
 
           </Swiper>
           <div className='w-[110%] mx-auto gap-10 justify-between hidden  md:flex absolute top-[40%] -left-[4%] '>
-            <img src={process.env.PUBLIC_URL+'/images/arrow_left.png'} alt=""  className="slideprev2 " 
+            <img src={process.env.PUBLIC_URL+'/images/arrow_left.png'} alt=""  className="slideprev2 cursor-pointer " 
               onClick={()=>{
-                setCurrentId(swiper.activeIndex+1)
+                setCurrentId(String(swiper.activeIndex+1))
               }} 
             />
-            <img src={process.env.PUBLIC_URL+'/images/arrow_right.png'} alt=""  className="slidenext2 " 
+            <img src={process.env.PUBLIC_URL+'/images/arrow_right.png'} alt=""  className="slidenext2 cursor-pointer " 
               onClick={()=>{
-                setCurrentId(swiper.activeIndex+1)
+                setCurrentId(String(swiper.activeIndex+1))
               }} 
             />
-
           </div>
     
         </div>
-        <div className=" relative mt-4" onClick={onBtnClick}>
-          <div className='sample-heading-3 w-full h-full absolute top-0 z-10   opacity-0 hover:opacity-100 cursor-pointer  '></div>
-          <div className='bg-gradient-to-b from-[#FF0050] to-[#000] px-10 py-2 border  border-white/30 flex items-center gap-2' >開始演算</div>
-        </div>
+        {beforeImage? 
+          <div className=" relative mt-4 cursor-pointer" onClick={onBtnClick}>
+            <div className='sample-heading-3 w-full h-full absolute top-0 z-10   animate-[fadeIn_0.3s_ease-in-out_infinite] hover:animate-none   '></div>
+            <div className='bg-gradient-to-b bg-[#FF0050] to-[#000] px-10 py-2 border  border-white/30 flex items-center gap-2 ' >開始演算</div>
+          </div>
+          :
+          <div className=" relative mt-4 cursor-default" onClick={onBtnClick}>
+            <div className='bg-gradient-to-b bg-[#888] to-[#000] px-10 py-2 border  border-white/30 flex items-center gap-2 ' >未找到可運算的圖片</div>
+            <div className='text-sm font-normal text-white/60 text-center mt-3'>請重新拍照或上傳圖片。</div>
+          </div>
+        }
+
 
         {isRender && 
           <div className='fixed  inset-0 w-full h-screen bg-black/50 z-30 backdrop-blur-sm'>
@@ -235,7 +243,7 @@ function ModelSelect() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1}}
             exit={{ opacity: 0 }}
-            className=' absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2'
+            className=' absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2'
           >
             <div className='w-[400px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 '>
               <img src={process.env.PUBLIC_URL+'/images/loading.png'} alt="" className='animate-spin'/>

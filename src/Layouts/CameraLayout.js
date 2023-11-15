@@ -30,27 +30,27 @@ function CameraLayout() {
         {location.pathname === '/camera' ? 
           <div>
             <Link to='/' className=" " >
-              <Button variant="text" className="flex items-center gap-3 text-white p-0 py-3 hover:text-red-500">
+              <Button variant="text" className="flex items-center gap-3 text-white p-0 mb-2 hover:text-red-500 text-base">
                 <FaArrowLeft size={15} />
                 Back 
               </Button>
             </Link>
-            <img src={process.env.PUBLIC_URL+'/images/step1.png'} alt="" className='max-w-full w-2/4 '/> 
+            <img src={process.env.PUBLIC_URL+'/images/step1.png'} alt="" className='max-w-full w-[80%] '/> 
           </div>
            
           :
           <img src={process.env.PUBLIC_URL+'/images/header_left.png'} alt="" className='max-w-screen '/>
         }
           
-          <img src={process.env.PUBLIC_URL+'/images/header_right.png'} alt="" className='max-w-screen ' />
+          <img src="https://moonshine.b-cdn.net/msweb/asusaicamera/images/header_right.gif" alt="" className='max-w-screen ' />
         </div>
         <div 
           className='framed flex flex-col w-full mx-auto  items-center   bg-no-repeat bg-contain bg-top mt-10 py-1 relative'
         >
-          <img src={process.env.PUBLIC_URL+'/images/page_fui01.png'} alt="p01" className='max-w-full absolute top-0 left-0 z-10  ' /> 
+          <img src="https://moonshine.b-cdn.net/msweb/asusaicamera/images/page_fui01_gif.gif" alt="p01" className='max-w-full absolute top-0 left-0 z-10  ' /> 
             
           
-          <img src={process.env.PUBLIC_URL+'/images/page_fui02.png'} alt="p01" className='max-w-full absolute bottom-0 left-0  ' />
+          <img src="https://moonshine.b-cdn.net/msweb/asusaicamera/images/page_fui02_gif.gif" alt="p01" className='max-w-full absolute bottom-0 left-0  ' />
           <Outlet />
 
           

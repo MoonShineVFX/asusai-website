@@ -400,9 +400,9 @@ function ReadyToTake({handleBackClick}) {
 
         <div className="flex items-center gap-10 mt-10">
           <div className="flex flex-col gap-6">
-            <div className=" relative" onClick={toggleCamera}>
-              <div className='sample-heading-3 w-full h-full absolute top-0 z-10   opacity-0 hover:opacity-100 cursor-pointer  '></div>
-              <div className='bg-gradient-to-b from-[#444] to-[#111] px-10 py-2 border  border-white/30 flex items-center gap-2 ' ><FaCamera />Take a photo</div>
+            <div className=" relative cursor-pointer " onClick={toggleCamera}>
+              <div className='sample-heading-3 w-full h-full absolute top-0 z-10   opacity-0 hover:opacity-100  '></div>
+              <div className='bg-gradient-to-b from-[#444] to-[#111] px-10 py-2 border  border-white/30 flex justify-center items-center gap-2 ' ><FaCamera />{isCameraOpen? 'Turn off camera' : 'Take a picture'}</div>
             </div>
             <input
               type="file"
@@ -414,7 +414,7 @@ function ReadyToTake({handleBackClick}) {
             />
             <div className=" relative" onClick={onBtnClick}>
               <div className='sample-heading-3 w-full h-full absolute top-0 z-10   opacity-0 hover:opacity-100 cursor-pointer  '></div>
-              <div className='bg-gradient-to-b from-[#444] to-[#111] px-10 py-2 border  border-white/30 flex items-center gap-2' ><FaUpload />Upload a picture</div>
+              <div className='bg-gradient-to-b from-[#444] to-[#111] px-10 py-2 border  border-white/30 flex justify-center items-center gap-2' ><FaUpload />Upload a picture</div>
             </div>
 
 
@@ -429,8 +429,8 @@ function ReadyToTake({handleBackClick}) {
                 >
                   <div className="text-sm text-white/70 mb-1">圖片已準備好</div>
                   <Link to={'/templates'} className=" relative">
-                    <div className='sample-heading-3 w-full h-full absolute top-0 z-10   opacity-0 hover:opacity-100 cursor-pointer  '></div>
-                    <div className='bg-gradient-to-b from-[#FF0050] to-[#000] px-10 py-2 border  border-white/30 flex items-center gap-2' >下一步選擇主題 <FaArrowAltCircleRight /></div>
+                    <div className='sample-heading-3 w-full h-full absolute top-0 z-10   animate-[fadeIn_0.3s_ease-in-out_infinite] hover:animate-none cursor-pointer  '></div>
+                    <div className='bg-gradient-to-b bg-[#FF0050] to-[#000] px-10 py-2 border  border-white/30 flex items-center gap-2' >下一步選擇主題 <FaArrowAltCircleRight /></div>
                   </Link>
                 </motion.div>
               </Suspense>

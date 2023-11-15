@@ -32,7 +32,7 @@ function FrontPage({handleClick}) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-          >Check out your AI version of ASUS role！</motion.div>
+          >Create your gamer card！</motion.div>
 
           <Link 
             to={'/camera'} 
@@ -41,7 +41,7 @@ function FrontPage({handleClick}) {
             onMouseLeave={() => setHovered(false)}
           >
             <div className='sample-heading-3 w-full h-full absolute top-0 z-10 animate-[fadeIn_0.3s_ease-in-out_infinite] hover:animate-none  '></div>
-            <div className='bg-gradient-to-b from-[#FF0050] to-black px-10 py-2  border-white/30' >START</div>
+            <div className='bg-gradient-to-b bg-[#FF0050] to-black px-10 py-2 font-bold  border-white/30' >START</div>
           </Link>
 
           
@@ -63,7 +63,7 @@ function FrontPage({handleClick}) {
         
 
         
-    
+
   
           
 
