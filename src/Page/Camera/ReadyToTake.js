@@ -323,7 +323,10 @@ function ReadyToTake({handleBackClick}) {
       {isCameraOpen ? 
         <div className="flex items-center gap-4 relative">
 
-          <div className=" relative  w-[560px] aspect-[13/10] bg-gray-500 ">
+          <div 
+            className=" relative  w-[560px] aspect-[13/10] bg-gray-500 "
+            style={{clipPath: 'polygon(10% 0%, 90% 0%, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0% 90%, 0% 10%)'}}
+          >
             <div className="  top-0 z-10 absolute">
               <img src={process.env.PUBLIC_URL+'/images/headframe.png'} alt="" />
             </div>

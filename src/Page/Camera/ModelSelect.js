@@ -157,9 +157,9 @@ function ModelSelect() {
             centeredSlides={true}
             slidesPerView={3}
             coverflowEffect={{
-              rotate: 50,
-              stretch: 0,
-              depth: 100,
+              rotate: 0,
+              stretch: 20,
+              depth: 500,
               modifier: 1,
               slideShadows: true,
             }}
@@ -178,21 +178,24 @@ function ModelSelect() {
                     <div className=' relative'>
                       <div className=' relative'>
                         <img 
-                          src={item.url+'?width=500'} 
+                          src={item.url+'?width=400'} 
                           alt="slide" 
-                          className={`hover:brightness-105 rounded-md transition-all ${currentId === item.id ? 'border-4 border-amber-500/0 ' : ''}`}
+                          className={`max-w-full hover:brightness-105 rounded-md transition-all ${currentId === item.id ? 'border-4 border-amber-500/0 ' : ''}`}
                           onClick={()=>{
                             setCurrentId(item.id)
                             handleImageClick(index)
                           }}
                         />
-                        <img src={process.env.PUBLIC_URL+'/images/image_border.png'} alt="" className=' absolute top-0 -left-5 z-10 pointer-events-none' />
+                        <div className='w-4/5 absolute top-0 -left-5 z-10 pointer-events-none'>
+                          <img src={process.env.PUBLIC_URL+'/images/image_border.png'} alt="" className='max-w-full w-full ' />
+
+                        </div>
                         {
                           currentId === item.id && <div className='absolute top-0 right-0 text-[#AD86E5]'><GiCheckMark size={34}  className=' ' /></div>
                         }
                       </div>
 
-                      <div className=' absolute -bottom-4 -left-8 z-20'>
+                      <div className=' absolute -bottom-5 -left-10 z-20 bg-gradient-to-r p-2 from-black/70 '>
                         <div className='text-2xl text-red-500'>{item.title}</div>
                         <div className='text-white/50'>{item.subtitle}</div>
                       </div>

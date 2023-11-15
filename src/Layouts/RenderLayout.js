@@ -19,7 +19,7 @@ function RenderLayout() {
           alt="" 
           className='max-w-full flex h-screen py-5 right-4 absolute '/>
               <div className='w-full aspect-[1413/672]  bg-blue-gray- px-32 pt-10'>
-        <div className='flex justify-between h-10'>
+        <div className='flex justify-between items-start h-10'>
           <div>
             <Link to='/camera' className=" " >
               <Button variant="text" className="flex items-center gap-3 text-white p-0 py-3 hover:text-red-500">
