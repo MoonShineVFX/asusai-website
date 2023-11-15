@@ -190,9 +190,9 @@ function ModelSelect() {
                           <img src={process.env.PUBLIC_URL+'/images/image_border.png'} alt="" className='max-w-full w-full ' />
 
                         </div>
-                        {
+                        {/* {
                           currentId === item.id && <div className='absolute top-0 right-0 text-[#AD86E5]'><GiCheckMark size={34}  className=' ' /></div>
-                        }
+                        } */}
                       </div>
 
                       <div className=' absolute -bottom-5 -left-10 z-20 bg-gradient-to-r p-2 from-black/70 '>
@@ -210,8 +210,16 @@ function ModelSelect() {
 
           </Swiper>
           <div className='w-[110%] mx-auto gap-10 justify-between hidden  md:flex absolute top-[40%] -left-[4%] '>
-            <img src={process.env.PUBLIC_URL+'/images/arrow_left.png'} alt=""  className="slideprev2 " />
-            <img src={process.env.PUBLIC_URL+'/images/arrow_right.png'} alt=""  className="slidenext2 " />
+            <img src={process.env.PUBLIC_URL+'/images/arrow_left.png'} alt=""  className="slideprev2 " 
+              onClick={()=>{
+                setCurrentId(swiper.activeIndex+1)
+              }} 
+            />
+            <img src={process.env.PUBLIC_URL+'/images/arrow_right.png'} alt=""  className="slidenext2 " 
+              onClick={()=>{
+                setCurrentId(swiper.activeIndex+1)
+              }} 
+            />
 
           </div>
     
