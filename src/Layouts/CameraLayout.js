@@ -19,7 +19,7 @@ function CameraLayout() {
  
   return (
     <div 
-      className='min-h-[100vh] relative bg-black text-white bg-repeat bg-center bg-contain'
+      className='min-h-[100vh] h-screen md:h-auto relative bg-black text-white bg-repeat bg-center bg-contain'
       style={{
         backgroundImage: `url(${process.env.PUBLIC_URL +'/images/bg_border_2.png'})`,
       }}

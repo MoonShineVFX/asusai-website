@@ -12,7 +12,7 @@ const CustomAlert = ({ message, onClose }) => {
   return (
     <>
       {open && (
-        <Alert open={open} onClose={handleClose} className=" absolute top-0 w-1/2 z-10  ">
+        <Alert open={open} onClose={handleClose} className=" absolute top-0  w-3/4  md:w-1/2 z-10  ">
           <div className="flex items-center gap-2">
             <FaInfoCircle /> <div>{message}</div>
           </div>

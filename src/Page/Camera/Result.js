@@ -14,7 +14,7 @@ function Result({open ,handleOpen,renderedResult}) {
     <div>
       <Dialog open={open} size="lg" handler={handleOpen} className='bg-black/80 py-5'>
         <DialogBody>
-          <div className='flex flex-col md:flex-row justify-around items-center gap-10'>
+          <div className='flex flex-col md:flex-row justify-center items-center gap-0'>
             {Object.keys(renderedResult).length > 0 && (
               <div className='md:w-1/2'>
                 <Suspense fallback={<Spinner/>}>
@@ -23,10 +23,14 @@ function Result({open ,handleOpen,renderedResult}) {
                 
               </div>
             )}
+            <div className='3/12'>
+              <img src={process.env.PUBLIC_URL+'/images/redline.svg'} alt="" className='  w-full md:-translate-y-20 translate-y-0 ' />
+            </div>
+             
             <div className='md:w-1/3 flex md:flex-col md:gap-4'>
               {Object.keys(renderedResult).length > 0 &&
               <div 
-                className='p-5 mt-6 bg-contain bg-no-repeat w-1/2 md:w-10/12 mx-auto border border-red-500'
+                className='p-5 bg-contain bg-no-repeat w-full mx-auto border border-red-500 relative'
               >
                 <QRCode
                   size={200}
@@ -34,9 +38,10 @@ function Result({open ,handleOpen,renderedResult}) {
                   value={renderedResult.generations[0].img}
                   viewBox={`0 0 200 200`}
                 />
+               
               </div> }
               <div className='mt-8'>
-                <img src={process.env.PUBLIC_URL+'/images/scan_info.png'} alt="scan_info" className='max-w-full hidden' />
+                <img src={process.env.PUBLIC_URL+'/images/scan_info.png'} alt="scan_info" className='max-w-full hidden md:block' />
               </div>
               <div className='flex flex-col w-1/2 md:w-full'>
                 <div className=" relative mt-6 w-3/4 mx-auto" onClick={handleOpen}>
