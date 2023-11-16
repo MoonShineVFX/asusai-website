@@ -160,6 +160,9 @@ function ModelSelect() {
         <div className='w-[80%] mx-auto relative'>
           <Swiper
             onSwiper={setSwiper}
+            onSlideChange={() => {
+              setCurrentId(String(swiper.activeIndex+1))
+            }}
             effect={'coverflow'}
             grabCursor={true}
             centeredSlides={true}
@@ -190,7 +193,6 @@ function ModelSelect() {
                           alt="slide" 
                           className={` max-w-full hover:brightness-105 rounded-md transition-all ${currentId === item.id ? 'border-4 border-amber-500/0 ' : ''}`}
                           onClick={()=>{
-                            setCurrentId(item.id)
                             handleImageClick(index)
                           }}
                         />
@@ -219,14 +221,10 @@ function ModelSelect() {
           </Swiper>
           <div className='w-[110%] mx-auto gap-10 justify-between hidden  md:flex absolute top-[40%] -left-[4%] '>
             <img src={process.env.PUBLIC_URL+'/images/arrow_left.png'} alt=""  className="slideprev2 cursor-pointer " 
-              onClick={()=>{
-                setCurrentId(String(swiper.activeIndex+1))
-              }} 
+     
             />
             <img src={process.env.PUBLIC_URL+'/images/arrow_right.png'} alt=""  className="slidenext2 cursor-pointer " 
-              onClick={()=>{
-                setCurrentId(String(swiper.activeIndex+1))
-              }} 
+
             />
           </div>
     
