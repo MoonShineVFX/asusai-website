@@ -28,6 +28,17 @@ const bannerData = [
  ]
 
 function ModelSelect() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const handleResize = () => {
+    setIsMobile(window.innerWidth < 768);
+  };
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
   const { beforeImage } = useImage();
   const [swiper, setSwiper] = useState(null);
   const [currentId , setCurrentId] = useState('1')
@@ -136,7 +147,7 @@ function ModelSelect() {
   }
   
   return (
-    <div className="flex flex-col justify-between items-center py-20 ">
+    <div className="flex flex-col justify-between items-center py-10 w-full h-full">
       
 
       {beforeImage?
@@ -145,7 +156,7 @@ function ModelSelect() {
             initial={{ opacity: 0 , translateY:-50}}
             animate={{ opacity: 1 , translateY:10}}
             exit={{ opacity: 0 , translateY:-50 }}
-            className="w-[160px] aspect-video flex flex-col mx-auto fixed top-5 right-10">
+            className="w-[160px] aspect-video flex flex-col mx-auto fixed top-5 right-10 hidden">
             <div className="text-sm">你的圖片：</div> 
             <div className="w-full h-full  ">
               <img src={beforeImage} alt="Selected"  className="max-w-full w-full h-auto border-2 border-white rounded-md object-contain " />
@@ -157,7 +168,7 @@ function ModelSelect() {
         :
         <div className="w-[160px] aspect-video flex flex-col mx-auto fixed top-5 right-5">Error</div>
       }
-        <div className='w-[80%] mx-auto relative'>
+        <div className='w-full md:w-[80%] mx-auto relative'>
           <Swiper
             onSwiper={setSwiper}
             onSlideChange={() => {
@@ -166,11 +177,25 @@ function ModelSelect() {
             effect={'coverflow'}
             grabCursor={true}
             centeredSlides={true}
-            slidesPerView={3}
+            breakpoints={{
+              420: {
+                slidesPerView: 1.5,
+                spaceBetween:10
+              },
+              768: {
+                slidesPerView: 3,
+                spaceBetween:20
+              },
+              1024:{
+                slidesPerView: 3,
+                spaceBetween:20
+              }
+            }}
+            slidesPerView={1.4}
             coverflowEffect={{
-              rotate: 0,
-              stretch: 20,
-              depth: 500,
+              rotate: ` ${isMobile?  20 : 0}`,
+              stretch: ` ${isMobile?  10 : 20}`,
+              depth:` ${isMobile?  500 : 500}`,
               modifier: 1,
               slideShadows: true,
             }}

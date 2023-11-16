@@ -43,6 +43,7 @@ function ReadyToTake({handleBackClick}) {
   const [isLandscape, setIsLandscape] = useState(false);
   const { setBeforeImage } = useImage();
   const [notification, setNotification] = useState(null);
+  const allowedImageTypes = ['image/jpeg', 'image/jpg', 'image/png'];
   const [testMsg, setTestMsg] = useState({
     getNumberOfCameras:""
   });
@@ -58,8 +59,8 @@ function ReadyToTake({handleBackClick}) {
   const onFilechange = ( e ) => {
     /*Selected files data can be collected here.*/
     const file = e.target.files[0];
-    if (!file.type.startsWith('image/')) {
-      setNotification('Please upload an image file.');
+    if (!allowedImageTypes.includes(file.type)) {
+      setNotification('Only JPEG, JPG, and PNG image files are allowed.');
       return;
     }
     if (file.size > 1024 * 1024) {
@@ -336,20 +337,20 @@ function ReadyToTake({handleBackClick}) {
 
   const [src, { blur }] = useProgressiveImg(process.env.PUBLIC_URL+'/images/camera_page/tiny.jpeg', ResultImage);
   return (
-    <div className='flex flex-col justify-between items-center'>
+    <div className='flex flex-col w-full justify-between items-center h-full my-10'>
 
       {notification && (
         <CustomAlert message={notification} onClose={() => setNotification(null)} />
       )}
       {isCameraOpen ? 
-        <div className="flex items-center gap-4 relative">
+        <div className="flex  items-center gap-4 relative w-full">
 
           <div 
-            className=" relative  w-[560px] aspect-[13/10] bg-gray-500 "
+            className=" relative w-11/12 aspect-square  md:w-1/2 mx-auto md:aspect-[13/10] bg-gray-500 "
             style={{clipPath: 'polygon(10% 0%, 90% 0%, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0% 90%, 0% 10%)'}}
           >
-            <div className="  top-0 z-10 absolute">
-              <img src={process.env.PUBLIC_URL+'/images/headframe.png'} alt="" />
+            <div className="  top-0 z-10 absolute hidden md:block ">
+              <img src={process.env.PUBLIC_URL+'/images/headframe.png'} alt="" className="" />
             </div>
             <Camera ref={camera}  />
           </div>
@@ -389,20 +390,20 @@ function ReadyToTake({handleBackClick}) {
 
         </div>
       :
-      <motion.div className=' relative w-4/5 mx-auto flex aspect-[1413/580] '>
+      <motion.div className=' relative w-full md:w-4/5 mx-auto flex  aspect-[4/4] md:aspect-[1413/580] mt-10 md:mt-0'>
           <motion.img 
             initial={{ opacity: 0, x:  0 }}
             animate={{ opacity: 1 , x: 0}}
             exit={{ opacity: 0,x:0 }}
             transition={{ duration: 1.5 }}
 
-            src={process.env.PUBLIC_URL+'/images/person_left.png'} alt="p01" className='max-w-full w-[24vw] absolute  top-0 left-[15%] ' />
+            src={process.env.PUBLIC_URL+'/images/person_left.png'} alt="p01" className='max-w-full w-1/2 md:w-[24vw] absolute top-0 left-[5%] md:left-[15%]  ' />
           <motion.img
             initial={{ opacity: 0, x:0 }}
             animate={{ opacity: 1 , x:0}}
             exit={{ opacity: 0,x:0 }} 
             transition={{ duration: 1.5 }}
-            src={process.env.PUBLIC_URL+'/images/person_right.png'} alt="p01" className='max-w-full w-[24vw] absolute top-0 right-[15%] ' />
+            src={process.env.PUBLIC_URL+'/images/person_right.png'} alt="p01" className='max-w-full w-1/2 md:w-[24vw] absolute top-0  right-[5%] md:right-[15%]  ' />
           {image && (
             <Suspense fallback={<p>Loading</p>}>
               <motion.div 
@@ -419,7 +420,7 @@ function ReadyToTake({handleBackClick}) {
         </motion.div>
       }
 
-        <div className="flex items-center gap-10 mt-10">
+        <div className="flex flex-col md:flex-row items-center gap-10 mt-">
           <div className="flex flex-col gap-6">
             <div className=" relative cursor-pointer " onClick={toggleCamera}>
               <div className='sample-heading-3 w-full h-full absolute top-0 z-10   opacity-0 hover:opacity-100  '></div>
@@ -448,7 +449,7 @@ function ReadyToTake({handleBackClick}) {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                 >
-                  <div className="text-sm text-white/70 mb-1">圖片已準備好</div>
+                  <div className="text-sm text-white/70 mb-1 text-center">圖片已準備好</div>
                   <Link to={'/templates'} className=" relative">
                     <div className='sample-heading-3 w-full h-full absolute top-0 z-10   animate-[fadeIn_0.3s_ease-in-out_infinite] hover:animate-none cursor-pointer  '></div>
                     <div className='bg-gradient-to-b bg-[#FF0050] to-[#000] px-10 py-2 border  border-white/30 flex items-center gap-2' >下一步選擇主題 <FaArrowAltCircleRight /></div>
