@@ -9,16 +9,20 @@ import {
   Spinner
 } from "@material-tailwind/react";
 import QRCode from "react-qr-code";
-function Result({open ,handleOpen,renderedResult}) {
+function Result({open ,handleOpen,renderedResult,username}) {
   return (
     <div>
       <Dialog open={open} size="lg" handler={handleOpen} className='bg-black/80 py-5'>
         <DialogBody>
           <div className='flex flex-col md:flex-row justify-center items-center gap-0'>
             {Object.keys(renderedResult).length > 0 && (
-              <div className='md:w-1/2'>
+              <div className='md:w-1/2 relative'>
                 <Suspense fallback={<Spinner/>}>
                   <img src={renderedResult.generations[0].img} alt=""  className='border border-red-500'/>
+                  {
+                    username && 
+                    <div className=" absolute text-center bottom-0 left-1/2 -translate-x-1/2 bg-black/30 p-3 rounded-md  text-white/70 text-xs my-2">玩家名稱：{username}</div>
+                  }
                 </Suspense>
                 
               </div>

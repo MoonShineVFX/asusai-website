@@ -12,6 +12,7 @@ import useProgressiveImg from "../../Helper/useProgressiveImg";
 
 import { Button,Checkbox,Typography } from "@material-tailwind/react";
 import CustomAlert from "../../Helper/CustomAlert";
+import {getUsernameFromCookie} from '../../Helper/Helper'
 
 const ResultImagePreview = styled.div`
   width: 300px;
@@ -27,6 +28,7 @@ const ResultImagePreview = styled.div`
   }
 `;
 function ReadyToTake({handleBackClick}) {
+  const storedUsername = getUsernameFromCookie();
   const [isCameraOpen, setCameraOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   const [numberOfCameras, setNumberOfCameras] = useState(0);
@@ -333,12 +335,16 @@ function ReadyToTake({handleBackClick}) {
       mediaQuery.removeListener(handleOrientationChange);
     };
   }, []);
+  
 
 
   const [src, { blur }] = useProgressiveImg(process.env.PUBLIC_URL+'/images/camera_page/tiny.jpeg', ResultImage);
   return (
     <div className='flex flex-col w-full justify-between items-center h-full my-10'>
-
+      {
+        storedUsername && <div className=" absolute top-8 left-0 text-white/70 text-xs">玩家名稱：{storedUsername}</div>
+      }
+      
       {notification && (
         <CustomAlert message={notification} onClose={() => setNotification(null)} />
       )}

@@ -6,7 +6,7 @@ import { Button,Checkbox,Typography,Spinner } from "@material-tailwind/react";
 import { FaArrowLeft,FaCameraRetro,FaCheck } from "react-icons/fa";
 import { GiCheckMark } from "react-icons/gi";
 import { motion, AnimatePresence } from "framer-motion";
-
+import {getUsernameFromCookie} from '../../Helper/Helper'
 // Import Swiper React components
 import { Swiper, SwiperSlide,useSwiper } from 'swiper/react';
 
@@ -28,6 +28,7 @@ const bannerData = [
  ]
 
 function ModelSelect() {
+  const storedUsername = getUsernameFromCookie();
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const handleResize = () => {
     setIsMobile(window.innerWidth < 768);
@@ -75,6 +76,7 @@ function ModelSelect() {
     const formData = new FormData();
     formData.append('source_image', file); 
     formData.append("command_type", currentId);
+    formData.append("username", storedUsername ? storedUsername : ' ');
 
     fetch('https://faceswap.rd-02f.workers.dev/images', {
       method: 'POST',
@@ -149,7 +151,9 @@ function ModelSelect() {
   return (
     <div className="flex flex-col justify-between items-center py-10 w-full h-full">
       
-
+      {
+        storedUsername && <div className=" absolute top-8 left-0 text-white/70 text-xs">玩家名稱：{storedUsername}</div>
+      }
       {beforeImage?
         <Suspense fallback={<p>Loading</p>}>
           <motion.div 
@@ -278,6 +282,7 @@ function ModelSelect() {
             <div className='w-[400px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 '>
               <img src={process.env.PUBLIC_URL+'/images/loading.png'} alt="" className='animate-spin'/>
             </div>
+            
             <div className='absolute bottom-1/4 left-1/2 -translate-x-1/2  z-40 w-full text-center '>
               {msg&&(
                 <motion.div 
@@ -286,6 +291,10 @@ function ModelSelect() {
                   exit={{ opacity: 0,y:10}}
                   className='text-white/80 '>{msg}</motion.div>
               )}
+              {
+                storedUsername && 
+                <div className="  text-white/70 text-xs z-10">玩家名稱：{storedUsername}</div>
+              }
             </div>
 
             <div className='w-[350px] '>
@@ -302,7 +311,7 @@ function ModelSelect() {
 
         
       
-      <Result open={showRender} handleOpen={handleOpen} renderedResult={renderedResult}/>
+      <Result open={showRender} handleOpen={handleOpen} renderedResult={renderedResult} username={storedUsername}/>
       
     </div>
   )

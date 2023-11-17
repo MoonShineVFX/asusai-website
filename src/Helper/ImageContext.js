@@ -8,9 +8,9 @@ export function useImage() {
 
 export function ImageProvider({ children }) {
   const [beforeImage, setBeforeImage] = useState(null);
-
+  const [username, setUsername] = useState('');
   return (
-    <ImageContext.Provider value={{ beforeImage, setBeforeImage }}>
+    <ImageContext.Provider value={{ beforeImage, setBeforeImage, username, setUsername }}>
       {children}
     </ImageContext.Provider>
   );

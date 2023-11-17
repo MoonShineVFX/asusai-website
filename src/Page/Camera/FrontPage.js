@@ -1,13 +1,37 @@
 import React,{useEffect,useState} from 'react'
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
-import { Button,Checkbox,Typography } from "@material-tailwind/react";
+import { Button,Checkbox,Typography,Input } from "@material-tailwind/react";
+import {useImage} from '../../Helper/ImageContext'
+import { setUsernameToCookie } from '../../Helper/Helper';
+import CustomAlert from "../../Helper/CustomAlert";
 function FrontPage({handleClick}) {
+  const navigate = useNavigate();
+  const [notification, setNotification] = useState(null);
+  const { username, setUsername } = useImage();
   const [isHovered, setHovered] = useState(false)
+  const onChange = ({ target }) => setUsername(target.value);
+  const handleStart = ()=>{
+    if (username.trim() !== '') {
+      console.log(username);
+      setNotification(null)
+      setUsernameToCookie(username);
+      setTimeout(()=>{
+        navigate("/camera");
+      },800)
+    } else {
+      // 如果 username 是空白，可以在這裡處理錯誤或提醒使用者輸入有效的 username
+      setNotification('Please enter a name.');
+    }
+  }
+
 
   return (
         <div className='flex flex-col justify-between items-center h-full'>
+          {notification && (
+            <CustomAlert message={notification} onClose={() => setNotification(null)} />
+          )}
           <motion.div 
             className=' relative w-full md:w-4/5 mx-auto flex aspect-[4/4] md:aspect-[1413/580] mt-10 md:mt-0 '
            
@@ -29,22 +53,30 @@ function FrontPage({handleClick}) {
           <div className='mt-auto flex flex-col justify-center items-center'>
 
             <motion.div 
-              className='text-lg font-bold md:my-0 text-gray-200 '
+              className='text-lg font-bold md:my-2 text-gray-200 '
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >Create your gamer card！
             </motion.div>
 
-            <Link 
-              to={'/camera'} 
-              className=' relative mt-8'
-              onMouseEnter={() => setHovered(true)}
-              onMouseLeave={() => setHovered(false)}
-            >
-              <div className='sample-heading-3 w-full h-full absolute top-0 z-10 animate-[fadeIn_0.3s_ease-in-out_infinite] hover:animate-none  '></div>
-              <div className='bg-gradient-to-b bg-[#FF0050] to-black px-10 py-2 font-bold  border-white/30' >START</div>
-            </Link>
+            <div className='flex my-6 flex-col gap-2 md:flex-row md:gap-0 '>
+              <div className="w-72">
+                <Input type="text" color="white" label="請輸入玩家名稱" className=' rounded-none' onChange={onChange} />
+                
+              </div>
+              <div 
+                className=' relative rounded-r-lg cursor-pointer'
+                onClick={handleStart}
+                onMouseEnter={() => setHovered(true)}
+                onMouseLeave={() => setHovered(false)}
+              >
+                <div className='sample-heading-3 w-full h-full absolute top-0 z-10 animate-[fadeIn_0.3s_ease-in-out_infinite] hover:animate-none  '></div>
+                <div className='bg-gradient-to-b bg-[#FF0050] to-black text-center px-10 py-2 font-bold  border-white/30 ' >START</div>
+              </div>
+
+            </div>
+   
 
             
             <Typography color="white" className="flex text-xs my-10 md:mt-3 font-normal">
