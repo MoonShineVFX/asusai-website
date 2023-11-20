@@ -43,7 +43,7 @@ function ModelSelect() {
   const { beforeImage } = useImage();
   const [swiper, setSwiper] = useState(null);
   const [currentId , setCurrentId] = useState('1')
-  console.log(currentId)
+  // console.log(currentId)
   const [msg,setMsg] = useState('')
   
   const [isRender , setIsRender] = useState(false)
@@ -61,7 +61,7 @@ function ModelSelect() {
       return
     }
     if(!currentId){
-      console.log('no')
+      // console.log('no')
       setMsg('錯誤：必須選擇一個模組。')
       return
     }
@@ -114,7 +114,7 @@ function ModelSelect() {
     })
     .then(response => response.json())
     .then(responseData => {
-      console.log(responseData)
+      // console.log(responseData)
      
       setTimeout(() => {
         if(responseData.restarted>=5){
