@@ -85,7 +85,7 @@ function ModelSelect() {
     })
     .then(response => response.json())
     .then(responseData => {
-      console.log(responseData)
+      // console.log(responseData)
       if(responseData.message){
         setMsg('發生錯誤，請重新上傳圖片。')
         return
@@ -151,9 +151,10 @@ function ModelSelect() {
       body: formData,
       redirect: 'follow'
     })
-    .then(response => response.json())
-    .then(responseData => {
-      console.log(responseData)
+    .then(response => {
+      if(response.status === 200){
+        console.log('uploaded')
+      }
     })
     .catch(error => {
       console.error(error);
