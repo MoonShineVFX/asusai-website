@@ -418,19 +418,17 @@ function ReadyToTake({handleBackClick}) {
             <button 
               className="flex items-center  rounded-full bg-[#FF0050]   p-5 shadow-lg shadow-gray-300/40  "
               onClick={() => {
-                if (camera.current) {
+                if (camera.current.getNumberOfCameras() >0) {
                   const photo = camera.current.takePhoto();
+                  handleClick(photo)
                   // console.log(photo);
                   // setImage(photo);
-                  handleClick(photo)
-                  startCountdown()
+                  // startCountdown()
                 }
               }} 
             > 
               <MdPhotoCamera color="" size={24}/>  
             </button>
-
-            
           </div>
 
         </div>
