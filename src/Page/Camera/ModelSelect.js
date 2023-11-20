@@ -307,7 +307,7 @@ function ModelSelect() {
               <div className='pt-[100%] relative border border-red-500 rounded-full overflow-hidden'>
                 <img src={beforeImage} alt="Selected"  className=" brightness-[0.2] absolute aspect-square top-0 left-0 object-cover w-full h-full rounded-full  " />
                 <div className='absolute bottom-10 left-1/2 -translate-x-1/2  z-40 w-full text-center '>
-                  {msg&&(
+                  {msg && !msg.includes('錯誤') && (
                     <motion.div 
                       initial={{ opacity: 0,y:10 }}
                       animate={{ opacity: 1,y:0}}
@@ -315,15 +315,16 @@ function ModelSelect() {
                       className='text-white/80 '>{msg}</motion.div>
                   )}
                   {
-                    storedUsername && 
+                    storedUsername && msg && !msg.includes('錯誤') &&
                     <div className="  text-white/70 text-xs z-10">玩家名稱：{storedUsername}</div>
                   }
                   {
                     msg && msg.includes('錯誤') &&
-                      <Link to='/camera' className='mt-4'>
-                        <div className='p-2 bg-[#FF0050]/50'>回到上一步驟</div> 
-                        <div className='text-xs mt-1 text-white/70'>拍照或選擇照片</div>
-                      </Link>
+                      <div  className='mt-4 p-2 bg-[#FF0050]/70 flex flex-col items-center'>
+                        <div className='text-white '>{msg}</div>
+                        <div className='text-xs text-white/90 mt-2'>可能是不支援的格式</div>
+                        <Link to='/camera' className=' px-3  py-2 text-xs rounded-lg border-white/50 my-3 bg-black/20 hover:bg-black/40 '>回到上一步驟</Link> 
+                      </div>
                   }
 
                 </div>

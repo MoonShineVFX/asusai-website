@@ -36,7 +36,7 @@ function CameraLayout() {
           alt="" 
           className='max-w-full flex h-screen py-5 right-4 absolute '/>
         <div className='w-full md:aspect-[1413/672] flex flex-col h-full md:h-auto justify-between  px-10 md:px-32 pt-10'>
-          <div className='flex justify-between h-10  items-start'>
+          <div className='flex justify-between h-14  items-start'>
 
           {location.pathname === '/camera' ? 
             <div className='w-1/4'>
@@ -46,14 +46,14 @@ function CameraLayout() {
                   Back 
                 </Button>
               </Link>
-              <img src={process.env.PUBLIC_URL+'/images/step1.png'} alt="" className='max-w-full w-[60%] '/> 
+              <img src={process.env.PUBLIC_URL+'/images/step1.png'} alt="" className='max-w-full  h-full'/> 
             </div>
             
             :
-            <img src={process.env.PUBLIC_URL+'/images/header_left.png'} alt="" className='max-w-screen  w-1/3 md:w-auto'/>
+            <img src={process.env.PUBLIC_URL+'/images/header_left.png'} alt="" className='max-w-screen h-full'/>
           }
             
-            <img src="https://moonshine.b-cdn.net/msweb/asusaicamera/images/header_right.gif" alt="" className='max-w-screen w-1/3 md:w-auto' />
+            <img src="https://moonshine.b-cdn.net/msweb/asusaicamera/images/header_right.gif" alt="" className='max-w-screen h-full' />
           </div>
           <div 
             className={`${isMobile ? "h-full ":  "framed" } flex flex-col w-full mx-auto  items-center md:mt-10 py-1 relative`}

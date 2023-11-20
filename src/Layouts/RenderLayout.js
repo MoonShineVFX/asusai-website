@@ -28,7 +28,7 @@ function RenderLayout() {
                   Back 
                 </Button>
               </Link>
-              <img src={process.env.PUBLIC_URL+'/images/step2.png'} alt="" className='max-w-full md:w-[60%] '/> 
+              <img src={process.env.PUBLIC_URL+'/images/step2.png'} alt="" className='max-w-full h-full '/> 
             </div>
             <img src="https://moonshine.b-cdn.net/msweb/asusaicamera/images/header_right.gif" alt="" className='max-w-screen  w-1/3 md:w-auto' />
           </div>

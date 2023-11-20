@@ -382,7 +382,7 @@ function ReadyToTake({handleBackClick}) {
                     <img src={image} alt="Selected"  className="absolute top-0 left-0 object-cover w-full h-full rounded-md border-0 border-white  " />
                   </div>
                   <div className=" absolute -top-5 -right-5">
-                    <IconButton size="sm" className="rounded-full " color="white" onClick={()=>setImage(null)}>
+                    <IconButton size="sm" className="rounded-full bg-[#FF0050] "  onClick={()=>setImage(null)}>
                       <FaTimes size={16} />
                     </IconButton>
                   </div>     
@@ -399,7 +399,7 @@ function ReadyToTake({handleBackClick}) {
 
           <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 z-10 flex items-center  gap-3 ">
             <button 
-              className="flex items-center  rounded-full bg-white p-5 shadow-lg shadow-gray-300/50  "
+              className="flex items-center  rounded-full bg-[#FF0050]   p-5 shadow-lg shadow-gray-300/40  "
               onClick={() => {
                 if (camera.current) {
                   const photo = camera.current.takePhoto();
@@ -410,7 +410,7 @@ function ReadyToTake({handleBackClick}) {
                 }
               }} 
             > 
-              <MdPhotoCamera color="black" size={24}/>  
+              <MdPhotoCamera color="" size={24}/>  
             </button>
 
             
