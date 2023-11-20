@@ -3,14 +3,14 @@ import {useImage} from '../../Helper/ImageContext'
 import { Link } from "react-router-dom";
 import {Camera} from "react-camera-pro";
 import styled from 'styled-components';
-import { FaArrowLeft,FaCameraRetro,FaCamera,FaUpload,FaArrowAltCircleRight,FaTimes } from "react-icons/fa";
+import { FaArrowLeft,FaCameraRetro,FaCamera,FaUpload,FaArrowAltCircleRight,FaTimes,FaInfoCircle } from "react-icons/fa";
 import { MdCameraswitch, MdPhotoCamera,MdMobileScreenShare, MdClose,MdDownload,MdRefresh,MdReply,MdEast,MdKeyboardReturn } from "react-icons/md";
 import { motion, AnimatePresence } from "framer-motion";
 import Resizer from "react-image-file-resizer";
 import useProgressiveImg from "../../Helper/useProgressiveImg";
 
 
-import { Button,Checkbox,Typography,IconButton } from "@material-tailwind/react";
+import { Button,Checkbox,Typography,IconButton,Alert } from "@material-tailwind/react";
 import CustomAlert from "../../Helper/CustomAlert";
 import {getUsernameFromCookie} from '../../Helper/Helper'
 
@@ -46,6 +46,7 @@ function ReadyToTake({handleBackClick}) {
   const { setBeforeImage } = useImage();
   const [notification, setNotification] = useState(null);
   const allowedImageTypes = ['image/jpeg', 'image/jpg', 'image/png'];
+  const [ isCameraInfo,setIsCameraInfo] = useState(false)
   const [testMsg, setTestMsg] = useState({
     getNumberOfCameras:""
   });
@@ -335,6 +336,18 @@ function ReadyToTake({handleBackClick}) {
       mediaQuery.removeListener(handleOrientationChange);
     };
   }, []);
+  useEffect(()=>{
+    setIsCameraInfo(true)
+
+    const timeoutId = setTimeout(() => {
+      setIsCameraInfo(false);
+    }, 3500);
+
+    return () => {
+      // 在組件卸載時清除 timeout，避免潛在的記憶體洩漏
+      clearTimeout(timeoutId);
+    };
+  },[])
   
 
 
@@ -350,6 +363,13 @@ function ReadyToTake({handleBackClick}) {
       )}
       {isCameraOpen ? 
         <div className="flex  items-center gap-4 relative w-full">
+            
+          <Alert open={isCameraInfo} className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10 w-auto   ">
+            <div className="flex items-center gap-2">
+              <FaInfoCircle /> <div>眼睛正視相機鏡頭拍攝，無特殊表情且嘴巴合閉。</div>
+            </div>
+            
+          </Alert>
 
           <div 
             className=" relative w-11/12 aspect-square  md:w-1/2 mx-auto md:aspect-[13/10] bg-gray-500 "
@@ -371,8 +391,6 @@ function ReadyToTake({handleBackClick}) {
                 }}
               >  
            
-
-
                 <motion.div 
                   initial={{ opacity: 0,y:-10 }} 
                   animate={{ opacity: 1,y:0}}
@@ -396,7 +414,6 @@ function ReadyToTake({handleBackClick}) {
             
             <Camera ref={camera}  />
           </div>
-
           <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 z-10 flex items-center  gap-3 ">
             <button 
               className="flex items-center  rounded-full bg-[#FF0050]   p-5 shadow-lg shadow-gray-300/40  "
