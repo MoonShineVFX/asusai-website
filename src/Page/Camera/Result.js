@@ -44,8 +44,13 @@ function Result({open ,handleOpen,renderedResult,username}) {
                 />
                
               </div> }
-              <div className='mt-8'>
-                <img src={process.env.PUBLIC_URL+'/images/scan_info.png'} alt="scan_info" className='max-w-full hidden md:block' />
+              <div 
+                className='mt-8  bg-contain bg-center bg-no-repeat w-full px-10 py-6 text-sm text-center text-white font-normal'
+                style={{
+                  backgroundImage: `url(${process.env.PUBLIC_URL +'/images/scan_info.png'})`,
+                }}
+              >
+                掃描上方 QRCODE 即可下載屬於你的 AI 圖片！
               </div>
               <div className='flex flex-col w-1/2 md:w-full'>
                 <div className=" relative mt-6 w-3/4 mx-auto" onClick={handleOpen}>

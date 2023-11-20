@@ -3,14 +3,14 @@ import {useImage} from '../../Helper/ImageContext'
 import { Link } from "react-router-dom";
 import {Camera} from "react-camera-pro";
 import styled from 'styled-components';
-import { FaArrowLeft,FaCameraRetro,FaCamera,FaUpload,FaArrowAltCircleRight } from "react-icons/fa";
+import { FaArrowLeft,FaCameraRetro,FaCamera,FaUpload,FaArrowAltCircleRight,FaTimes } from "react-icons/fa";
 import { MdCameraswitch, MdPhotoCamera,MdMobileScreenShare, MdClose,MdDownload,MdRefresh,MdReply,MdEast,MdKeyboardReturn } from "react-icons/md";
 import { motion, AnimatePresence } from "framer-motion";
 import Resizer from "react-image-file-resizer";
 import useProgressiveImg from "../../Helper/useProgressiveImg";
 
 
-import { Button,Checkbox,Typography } from "@material-tailwind/react";
+import { Button,Checkbox,Typography,IconButton } from "@material-tailwind/react";
 import CustomAlert from "../../Helper/CustomAlert";
 import {getUsernameFromCookie} from '../../Helper/Helper'
 
@@ -29,7 +29,7 @@ const ResultImagePreview = styled.div`
 `;
 function ReadyToTake({handleBackClick}) {
   const storedUsername = getUsernameFromCookie();
-  const [isCameraOpen, setCameraOpen] = useState(false);
+  const [isCameraOpen, setCameraOpen] = useState(true);
   const [selectedImage, setSelectedImage] = useState(null);
   const [numberOfCameras, setNumberOfCameras] = useState(0);
   const [image, setImage] = useState(null);
@@ -94,7 +94,7 @@ function ReadyToTake({handleBackClick}) {
   const onBtnClick = () => {
     /*Collecting node-element and performing click*/
     setImage(null)
-    setCameraOpen(false)
+    // setCameraOpen(false)
     inputFileRef.current.click();
   }
   const testFetchPost = (photo)=>{
@@ -355,9 +355,45 @@ function ReadyToTake({handleBackClick}) {
             className=" relative w-11/12 aspect-square  md:w-1/2 mx-auto md:aspect-[13/10] bg-gray-500 "
             style={{clipPath: 'polygon(10% 0%, 90% 0%, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0% 90%, 0% 10%)'}}
           >
-            <div className="  top-0 z-10 absolute hidden md:block ">
-              <img src={process.env.PUBLIC_URL+'/images/headframe.png'} alt="" className="" />
-            </div>
+
+            {!image &&
+              <div className="  top-0 z-10 absolute hidden md:block ">
+                <img src={process.env.PUBLIC_URL+'/images/headframe_white.png'} alt="" className="" />
+              </div>
+            }
+
+           
+            {image && (
+              <div 
+                className="z-10 absolute bg-black/70 w-full h-full bg-cover bg-no-repeat bg-center flex justify-center items-center "
+                style={{
+                  backgroundImage: `url(${process.env.PUBLIC_URL +'/images/headframe_red.png'})`,
+                }}
+              >  
+           
+
+
+                <motion.div 
+                  initial={{ opacity: 0,y:-10 }} 
+                  animate={{ opacity: 1,y:0}}
+                  exit={{ opacity: 0,y:0 }}
+                  className="w-[250px] relative">
+                  <div className="pt-[80%] relative ">
+                    <img src={image} alt="Selected"  className="absolute top-0 left-0 object-cover w-full h-full rounded-md border-0 border-white  " />
+                  </div>
+                  <div className=" absolute -top-5 -right-5">
+                    <IconButton size="sm" className="rounded-full " color="white" onClick={()=>setImage(null)}>
+                      <FaTimes size={16} />
+                    </IconButton>
+                  </div>     
+
+                  {/* 在这里可以进行图像上传或其他操作 */}
+                </motion.div>
+   
+              </div>
+            )}
+
+            
             <Camera ref={camera}  />
           </div>
 
@@ -376,21 +412,7 @@ function ReadyToTake({handleBackClick}) {
             > 
               <MdPhotoCamera color="black" size={24}/>  
             </button>
-            {image && (
-              <Suspense fallback={<p>Loading</p>}>
-                <motion.div 
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1}}
-                  exit={{ opacity: 0 }}
-                  className="w-16">
-                  <div className="pt-[100%] relative ">
-                    <img src={image} alt="Selected"  className="absolute aspect-square top-0 left-0 object-cover w-full h-full rounded-full border-2 border-white  " />
 
-                  </div>
-                  {/* 在这里可以进行图像上传或其他操作 */}
-                </motion.div>
-              </Suspense>
-            )}
             
           </div>
 
@@ -428,7 +450,7 @@ function ReadyToTake({handleBackClick}) {
 
         <div className="flex flex-col md:flex-row items-center gap-10 mt-">
           <div className="flex flex-col gap-6">
-            <div className=" relative cursor-pointer " onClick={toggleCamera}>
+            <div className=" relative cursor-pointer hidden " onClick={toggleCamera}>
               <div className='sample-heading-3 w-full h-full absolute top-0 z-10   opacity-0 hover:opacity-100  '></div>
               <div className='bg-gradient-to-b from-[#444] to-[#111] px-10 py-2 border  border-white/30 flex justify-center items-center gap-2 ' ><FaCamera />{isCameraOpen? 'Turn off camera' : 'Take a picture'}</div>
             </div>
@@ -455,7 +477,7 @@ function ReadyToTake({handleBackClick}) {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                 >
-                  <div className="text-sm text-white/70 mb-1 text-center">圖片已準備好</div>
+                  <div className="text-sm text-white/70 mb-1 text-center hidden">圖片已準備好</div>
                   <Link to={'/templates'} className=" relative">
                     <div className='sample-heading-3 w-full h-full absolute top-0 z-10   animate-[fadeIn_0.3s_ease-in-out_infinite] hover:animate-none cursor-pointer  '></div>
                     <div className='bg-gradient-to-b bg-[#FF0050] to-[#000] px-10 py-2 border  border-white/30 flex items-center gap-2' >下一步選擇主題 <FaArrowAltCircleRight /></div>

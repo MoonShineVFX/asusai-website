@@ -62,7 +62,7 @@ function FrontPage({handleClick}) {
 
             <div className='flex my-6 flex-col gap-2 md:flex-row md:gap-0 '>
               <div className="w-72">
-                <Input type="text" color="white" label="請輸入玩家名稱" className=' rounded-none' onChange={onChange} />
+                <Input type="text" color="white" label="Player Name" className=' rounded-none' onChange={onChange} />
                 
               </div>
               <div 
@@ -79,7 +79,7 @@ function FrontPage({handleClick}) {
    
 
             
-            <Typography color="white" className="flex text-xs my-10 md:mt-3 font-normal">
+            <Typography color="white" className="flex text-xs my-10 md:mt-3 font-normal hidden">
               當您使用本功能時代表您了解並同意
               <Typography
                 as="a"

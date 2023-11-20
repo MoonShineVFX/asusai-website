@@ -116,7 +116,6 @@ function ModelSelect() {
     .then(responseData => {
       console.log(responseData)
      
-
       setTimeout(() => {
         if(responseData.finished === 0){
           getResulImage(id)
@@ -126,6 +125,7 @@ function ModelSelect() {
           setShowRender(true)
           setIsRender(false)
           setMsg('')
+          updatedData(id,responseData.generations[0].img)
           return
         }
       }, 1000);
@@ -135,6 +135,24 @@ function ModelSelect() {
       console.error(error);
     });
 
+  }
+  const updatedData = (id,url)=>{
+    const formData = new FormData();
+    formData.append('swap_image', url); 
+    formData.append("horde_id", id);
+
+    fetch('https://faceswap.rd-02f.workers.dev/swap_data', {
+      method: 'POST',
+      body: formData,
+      redirect: 'follow'
+    })
+    .then(response => response.json())
+    .then(responseData => {
+      console.log(responseData)
+    })
+    .catch(error => {
+      console.error(error);
+    });
   }
   function dataURLtoFile(dataurl, filename) {
     var arr = dataurl.split(','),
@@ -283,24 +301,32 @@ function ModelSelect() {
               <img src={process.env.PUBLIC_URL+'/images/loading.png'} alt="" className='animate-spin'/>
             </div>
             
-            <div className='absolute bottom-1/4 left-1/2 -translate-x-1/2  z-40 w-full text-center '>
-              {msg&&(
-                <motion.div 
-                  initial={{ opacity: 0,y:10 }}
-                  animate={{ opacity: 1,y:0}}
-                  exit={{ opacity: 0,y:10}}
-                  className='text-white/80 '>{msg}</motion.div>
-              )}
-              {
-                storedUsername && 
-                <div className="  text-white/70 text-xs z-10">玩家名稱：{storedUsername}</div>
-              }
-            </div>
+
 
             <div className='w-[350px] '>
-              <div className='pt-[100%] relative border border-red-500 rounded-full'>
+              <div className='pt-[100%] relative border border-red-500 rounded-full overflow-hidden'>
                 <img src={beforeImage} alt="Selected"  className=" brightness-[0.2] absolute aspect-square top-0 left-0 object-cover w-full h-full rounded-full  " />
+                <div className='absolute bottom-10 left-1/2 -translate-x-1/2  z-40 w-full text-center '>
+                  {msg&&(
+                    <motion.div 
+                      initial={{ opacity: 0,y:10 }}
+                      animate={{ opacity: 1,y:0}}
+                      exit={{ opacity: 0,y:10}}
+                      className='text-white/80 '>{msg}</motion.div>
+                  )}
+                  {
+                    storedUsername && 
+                    <div className="  text-white/70 text-xs z-10">玩家名稱：{storedUsername}</div>
+                  }
+                  {
+                    msg && msg.includes('錯誤') &&
+                      <Link to='/camera' className='mt-4'>
+                        <div className='p-2 bg-[#FF0050]/50'>回到上一步驟</div> 
+                        <div className='text-xs mt-1 text-white/70'>拍照或選擇照片</div>
+                      </Link>
+                  }
 
+                </div>
               </div>
             </div>
 

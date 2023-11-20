@@ -3,10 +3,17 @@
 @tailwind utilities;
 
 
+
+
 @layer base {
+  @font-face {
+    font-family: 'Cachet W05';
+    src: url('https://moonshine.b-cdn.net/msweb/asusaicamera/fonts/TradeGothicLTW05-Bold.woff2') format('woff2'),
+         url('https://moonshine.b-cdn.net/msweb/asusaicamera/fonts/TradeGothicLTW05-Bold.woff') format('woff');
+ }
   html {
     /* font-family: Montserrat, sans-serif; */
-    font-family: 'Mulish','Noto Sans TC', sans-serif;
+    font-family: 'Cachet-W05','Noto Sans TC', sans-serif;
   }
 }
 
