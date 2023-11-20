@@ -117,7 +117,7 @@ function ModelSelect() {
       console.log(responseData)
      
       setTimeout(() => {
-        if(responseData.restarted>=4){
+        if(responseData.restarted>=5){
           setMsg('逾時錯誤，請重新上傳圖片。')
           return
         }
