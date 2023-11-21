@@ -377,8 +377,8 @@ function ReadyToTake({handleBackClick}) {
           >
 
             {!image &&
-              <div className="  top-0 z-10 absolute hidden md:block ">
-                <img src={process.env.PUBLIC_URL+'/images/headframe_white.png'} alt="" className="" />
+              <div className="w-full h-full  top-0 z-10 absolute hidden md:block ">
+                <img src={process.env.PUBLIC_URL+'/images/headframe_white.png'} alt="" className=" object-cover" />
               </div>
             }
 
