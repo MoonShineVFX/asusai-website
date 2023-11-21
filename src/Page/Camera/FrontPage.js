@@ -53,7 +53,7 @@ function FrontPage({handleClick}) {
           <div className='mt-auto flex flex-col justify-center items-center'>
 
             <motion.div 
-              className='text-lg font-bold md:my-2 text-gray-200 '
+              className='text-2xl font-bold md:my-2 text-gray-200 '
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
