@@ -341,7 +341,7 @@ function ReadyToTake({handleBackClick}) {
 
     const timeoutId = setTimeout(() => {
       setIsCameraInfo(false);
-    }, 3500);
+    }, 10000);
 
     return () => {
       // 在組件卸載時清除 timeout，避免潛在的記憶體洩漏
@@ -366,7 +366,7 @@ function ReadyToTake({handleBackClick}) {
             
           <Alert open={isCameraInfo} className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10 w-auto   ">
             <div className="flex items-center gap-2">
-              <FaInfoCircle /> <div>眼睛正視相機鏡頭拍攝，無特殊表情且嘴巴合閉。</div>
+              <FaInfoCircle /> <div>請拿下眼鏡、帽子等配件，並將臉部對準參考線。</div>
             </div>
             
           </Alert>
