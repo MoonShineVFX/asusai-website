@@ -40,7 +40,7 @@ function CameraLayout() {
           <div className='flex justify-between md:h-14  items-start'>
 
           {location.pathname === '/camera' ? 
-            <div className='w-1/2 md:w-1/4  mt-20 md:mt-0'>
+            <div className='w-1/2 md:w-1/4  mt-16 md:mt-0'>
               <Link to='/' className=" " >
                 <Button variant="text" className="flex items-center gap-3 text-white p-0 mb-2 hover:text-red-500 text-base">
                   <FaArrowLeft size={15} />
@@ -51,7 +51,7 @@ function CameraLayout() {
             </div>
             
             :
-            <img src={process.env.PUBLIC_URL+'/images/header_left.png'} alt="" className='max-w-screen md:h-full w-1/2 md:w-auto mt-20 md:mt-0'/>
+            <img src={process.env.PUBLIC_URL+'/images/header_left.png'} alt="" className='max-w-screen md:h-full w-1/2 md:w-auto mt-16 md:mt-0'/>
           }
             
             <img src="https://moonshine.b-cdn.net/msweb/asusaicamera/images/header_right.gif" alt="" className='max-w-screen  md:h-full w-1/2 md:w-auto' />

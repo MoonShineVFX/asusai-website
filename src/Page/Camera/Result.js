@@ -21,7 +21,7 @@ function Result({open ,handleOpen,renderedResult,username}) {
                   <img src={renderedResult.generations[0].img} alt=""  className='border border-red-500'/>
                   {
                     username && 
-                    <div className=" absolute text-center bottom-0 left-1/2 -translate-x-1/2 bg-black/30 p-3 rounded-md  text-white/70 text-xs my-2">玩家名稱：{username}</div>
+                    <div className=" absolute text-center bottom-0 right-2  bg-black/30 p-3 rounded-md  text-white/70 text-xs my-2">玩家名稱：{username}</div>
                   }
                 </Suspense>
                 

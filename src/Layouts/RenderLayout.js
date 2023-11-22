@@ -23,7 +23,7 @@ function RenderLayout() {
           
         <div className='w-full  px-10 md:px-32 pt-10 flex flex-col '>
           <div className='flex justify-between items-start h-10'>
-            <div className='w-1/2 md:w-1/3 mt-10 md:mt-0'>
+            <div className='w-1/2 md:w-1/3 mt-8 md:mt-0'>
               <Link to='/camera' className=" " >
                 <Button variant="text" className="flex items-center gap-3 text-white text-base p-0 mb-2 hover:text-red-500">
                   <FaArrowLeft size={15} />
