@@ -461,7 +461,7 @@ function ReadyToTake({handleBackClick}) {
         </motion.div>
       }
 
-        <div className="flex flex-col md:flex-row items-center gap-10 mt-10 md:mt-0">
+        <div className="flex flex-col md:flex-row items-center gap-10 mt-10 md:mt-10">
           <div className="flex flex-col gap-6">
             <div className=" relative cursor-pointer hidden " onClick={toggleCamera}>
               <div className='sample-heading-3 w-full h-full absolute top-0 z-10   opacity-0 hover:opacity-100  '></div>
