@@ -410,7 +410,7 @@ function ReadyToTake({handleBackClick}) {
             )}
 
             
-            <Camera ref={camera}  />
+            <Camera ref={camera}  facingMode='environment'/>
           </div>
           <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 z-10 flex items-center  gap-3 ">
             <button 
