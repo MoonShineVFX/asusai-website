@@ -47,6 +47,17 @@ function ReadyToTake({handleBackClick}) {
   const [notification, setNotification] = useState(null);
   const allowedImageTypes = ['image/jpeg', 'image/jpg', 'image/png'];
   const [ isCameraInfo,setIsCameraInfo] = useState(false)
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const handleResize = () => {
+    setIsMobile(window.innerWidth < 768);
+  };
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
   const [testMsg, setTestMsg] = useState({
     getNumberOfCameras:""
   });
@@ -410,7 +421,7 @@ function ReadyToTake({handleBackClick}) {
             )}
 
             
-            <Camera ref={camera}  facingMode='environment'/>
+            <Camera ref={camera}  facingMode={isMobile ? 'user' : 'environment'} />
           </div>
           <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 z-10 flex items-center  gap-3 ">
             <button 
@@ -427,6 +438,22 @@ function ReadyToTake({handleBackClick}) {
             > 
               <MdPhotoCamera color="" size={24}/>  
             </button>
+            {isMobile&&
+              <button 
+                className="flex items-center  rounded-full bg-gray-800   p-5 shadow-lg shadow-gray-300/40  "
+                onClick={() => {
+                  if (camera.current.getNumberOfCameras() >0) {
+                    const photo = camera.current.switchCamera();
+                    // console.log(photo);
+                    // setImage(photo);
+                    // startCountdown()
+                  }
+                }} 
+              > 
+                <MdCameraswitch color="" size={24}/>  
+              </button>
+            }
+
           </div>
 
         </div>
