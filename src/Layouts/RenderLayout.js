@@ -2,7 +2,9 @@ import React,{useState} from 'react'
 import { Outlet,useLocation,Link} from 'react-router-dom';
 import { FaArrowLeft } from "react-icons/fa";
 import { Button } from "@material-tailwind/react";
+import {getUsernameFromCookie} from '../Helper/Helper'
 function RenderLayout() {
+  const storedUsername = getUsernameFromCookie();
   return (
     <div 
       className='min-h-[100vh] relative bg-black text-white bg-repeat bg-center bg-contain '
@@ -21,7 +23,7 @@ function RenderLayout() {
           
         <div className='w-full  px-10 md:px-32 pt-10 flex flex-col '>
           <div className='flex justify-between items-start h-10'>
-            <div className='w-1/3 md:w-1/3'>
+            <div className='w-1/2 md:w-1/3 mt-10 md:mt-0'>
               <Link to='/camera' className=" " >
                 <Button variant="text" className="flex items-center gap-3 text-white text-base p-0 mb-2 hover:text-red-500">
                   <FaArrowLeft size={15} />
@@ -30,9 +32,12 @@ function RenderLayout() {
               </Link>
               <img src={process.env.PUBLIC_URL+'/images/step2.png'} alt="" className='max-w-full h-full '/> 
             </div>
-            <img src="https://moonshine.b-cdn.net/msweb/asusaicamera/images/header_right.gif" alt="" className='max-w-screen  w-1/3 md:w-auto' />
+            <img src="https://moonshine.b-cdn.net/msweb/asusaicamera/images/header_right.gif" alt="" className='max-w-screen   md:h-full w-1/2 md:w-auto' />
           </div>
-          <div className='mt-6 relative py-1'>
+          <div className='mt-6 relative py-1 '>
+            {
+              storedUsername && <div className=" absolute top-8 left-0 text-white/70 text-xs">玩家名稱：{storedUsername}</div>
+            }
             <Outlet />
           </div>
 

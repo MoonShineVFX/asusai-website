@@ -353,10 +353,8 @@ function ReadyToTake({handleBackClick}) {
 
   const [src, { blur }] = useProgressiveImg(process.env.PUBLIC_URL+'/images/camera_page/tiny.jpeg', ResultImage);
   return (
-    <div className='flex flex-col w-full justify-between items-center h-full my-10'>
-      {
-        storedUsername && <div className=" absolute top-8 left-0 text-white/70 text-xs">玩家名稱：{storedUsername}</div>
-      }
+    <div className='flex flex-col w-full justify-between items-center gap-4  my-16 md:my-0'>
+
       
       {notification && (
         <CustomAlert message={notification} onClose={() => setNotification(null)} />
@@ -364,15 +362,15 @@ function ReadyToTake({handleBackClick}) {
       {isCameraOpen ? 
         <div className="flex  items-center gap-4 relative w-full">
             
-          <Alert open={isCameraInfo} className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10 w-auto   ">
-            <div className="flex items-center gap-2">
+          <Alert open={isCameraInfo} className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10 w-10/12  md:w-auto   ">
+            <div className="flex items-center gap-2 w-full">
               <FaInfoCircle /> <div>請拿下眼鏡、帽子等配件，並將臉部對準參考線。</div>
             </div>
             
           </Alert>
 
           <div 
-            className=" relative w-11/12 aspect-square  md:w-1/2 mx-auto md:aspect-[13/10] bg-gray-500 "
+            className=" relative w-full aspect-square  md:w-1/2 mx-auto md:aspect-[13/10] bg-gray-500 "
             style={{clipPath: 'polygon(10% 0%, 90% 0%, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0% 90%, 0% 10%)'}}
           >
 
@@ -463,7 +461,7 @@ function ReadyToTake({handleBackClick}) {
         </motion.div>
       }
 
-        <div className="flex flex-col md:flex-row items-center gap-10 mt-">
+        <div className="flex flex-col md:flex-row items-center gap-10 mt-10 md:mt-0">
           <div className="flex flex-col gap-6">
             <div className=" relative cursor-pointer hidden " onClick={toggleCamera}>
               <div className='sample-heading-3 w-full h-full absolute top-0 z-10   opacity-0 hover:opacity-100  '></div>

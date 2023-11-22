@@ -24,6 +24,8 @@ const bannerData = [
   {url:"https://moonshine.b-cdn.net/msweb/asusaicamera/templates/4.jpg" ,title:'MODULE 4', subtitle:"Introduction to module four",id:'4'},
   {url:"https://moonshine.b-cdn.net/msweb/asusaicamera/templates/5.jpg" ,title:'MODULE 5', subtitle:"Introduction to module five",id:'5'},
   {url:"https://moonshine.b-cdn.net/msweb/asusaicamera/templates/6.jpg" ,title:'MODULE 6', subtitle:"Introduction to module six",id:'6'},
+  {url:"https://moonshine.b-cdn.net/msweb/asusaicamera/templates/7.jpg" ,title:'MODULE 7', subtitle:"Introduction to module 7",id:'7'},
+  {url:"https://moonshine.b-cdn.net/msweb/asusaicamera/templates/8.jpg" ,title:'MODULE 8', subtitle:"Introduction to module 8",id:'8'},
 
  ]
 
@@ -83,7 +85,16 @@ function ModelSelect() {
       body: formData,
       redirect: 'follow'
     })
-    .then(response => response.json())
+    .then(response => {
+      console.log(response)
+      if(response.ok){
+
+        return response.json()
+      }else{
+        setMsg('發生錯誤，請重新上傳圖片。')
+      }
+     
+    })
     .then(responseData => {
       // console.log(responseData)
       if(responseData.message){
@@ -173,11 +184,9 @@ function ModelSelect() {
   }
   
   return (
-    <div className="flex flex-col justify-between items-center py-10 w-full h-full">
+    <div className="flex flex-col justify-between items-center my-16 md:my-10 w-full h-full">
       
-      {
-        storedUsername && <div className=" absolute top-8 left-0 text-white/70 text-xs">玩家名稱：{storedUsername}</div>
-      }
+
       {beforeImage?
         <Suspense fallback={<p>Loading</p>}>
           <motion.div 
@@ -196,7 +205,7 @@ function ModelSelect() {
         :
         <div className="w-[160px] aspect-video flex flex-col mx-auto fixed top-5 right-5">Error</div>
       }
-        <div className='w-full md:w-[80%] mx-auto relative'>
+        <div className='w-full md:w-[80%] mx-auto relative mt-16 md:mt-0'>
           <Swiper
             onSwiper={setSwiper}
             onSlideChange={() => {
@@ -242,14 +251,14 @@ function ModelSelect() {
                     <div className=' relative '>
                       <div className=' relative w-full'>
                         <img 
-                          src={item.url+'?width=400'} 
+                          src={item.url+'?width=350'} 
                           alt="slide" 
                           className={` max-w-full hover:brightness-105 rounded-md transition-all ${currentId === item.id ? 'border-4 border-amber-500/0 ' : ''}`}
                           onClick={()=>{
                             handleImageClick(index)
                           }}
                         />
-                        <div className='w-[94%] absolute top-2 -left-5 z-10 pointer-events-none'>
+                        <div className='w-[94%] absolute top-2 -left-5 z-10 pointer-events-none hidden'>
                           <img src={process.env.PUBLIC_URL+'/images/image_border.png'} alt="" className='max-w-full w-full ' />
 
                         </div>
@@ -258,7 +267,7 @@ function ModelSelect() {
                         }
                       </div>
 
-                      <div className=' absolute -bottom-5 -left-10 z-20 bg-gradient-to-r p-2 from-black/90 via-black/70 '>
+                      <div className=' absolute -bottom-2 -left-10 z-20 bg-gradient-to-r p-2 from-black/90 via-black/70 '>
                         <div className='text-2xl text-red-500'>{item.title}</div>
                         <div className='text-white/50'>{item.subtitle}</div>
                       </div>
