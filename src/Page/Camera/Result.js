@@ -31,29 +31,36 @@ function Result({open ,handleOpen,renderedResult,username}) {
               <img src={process.env.PUBLIC_URL+'/images/redline.svg'} alt="" className='  w-full md:-translate-y-20 translate-y-0 ' />
             </div>
              
-            <div className='md:w-1/3 flex md:flex-col md:gap-4'>
-              {Object.keys(renderedResult).length > 0 &&
-              <div 
-                className='p-5 bg-contain bg-no-repeat w-full mx-auto border border-red-500 relative'
-              >
-                <QRCode
-                  size={200}
-                  style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-                  value={renderedResult.generations[0].img}
-                  viewBox={`0 0 200 200`}
-                />
-               
-              </div> }
-              <div 
-                className='mt-8  bg-contain bg-center bg-no-repeat w-full px-10 py-6 text-sm text-center text-white font-normal'
-                style={{
-                  backgroundImage: `url(${process.env.PUBLIC_URL +'/images/scan_info.png'})`,
-                }}
-              >
-                掃描上方 QRCODE 即可下載屬於你的 AI 圖片！
-              </div>
+            <div className='md:w-1/3 flex md:flex-col md:gap-4 items-center justify-center'>
               <div className='flex flex-col w-1/2 md:w-full'>
-                <div className=" relative mt-6 w-3/4 mx-auto" onClick={handleOpen}>
+                {Object.keys(renderedResult).length > 0 &&
+                  <div 
+                    className='p-3 md:p-5 bg-contain bg-no-repeat md:w-full mx-auto border border-red-500 relative'
+                  >
+                    <QRCode
+                      size={200}
+                      style={{ height: "auto", maxWidth: "100%", width: "100%" }}
+                      value={renderedResult.generations[0].img}
+                      viewBox={`0 0 200 200`}
+                    />
+
+                  
+                  </div> }
+                <div 
+                  className='mt-4 md:mt-8  md:bg-contain bg-center bg-no-repeat w-full px-2 py-2 mx:px-10 md:py-6 text-sm text-center text-white font-normal'
+                  style={{
+                    backgroundImage: `url(${process.env.PUBLIC_URL +'/images/scan_info.png'})`,
+                  }}
+                >
+                  掃描上方 QRCODE 即可下載屬於你的 AI 圖片！
+                </div>
+              </div>
+
+
+
+              <div className='flex flex-col w-1/2 md:w-full'>
+
+                <div className=" relative md:mt-6 w-3/4 mx-auto" onClick={handleOpen}>
                   <div className='sample-heading-3 w-full h-full absolute top-0 z-10   opacity-0 hover:opacity-100 cursor-pointer  '></div>
                   <div className='text-white text-sm font-normal bg-gray-800/40 px-5 py-2 border  border-white/30 flex items-center justify-center text-center ' >選擇另一個模組</div>
                 </div>
