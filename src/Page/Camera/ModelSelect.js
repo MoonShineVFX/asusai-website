@@ -269,7 +269,7 @@ function ModelSelect() {
                         }
                       </div>
 
-                      <div className=' absolute -bottom-2 -left-10 z-20 bg-gradient-to-r p-2 from-black/90 via-black/70 '>
+                      <div className=' absolute -bottom-2 -left-10 z-20 bg-gradient-to-r p-2 from-black/90 via-black/70 hidden '>
                         <div className='text-2xl text-red-500'>{item.title}</div>
                         <div className='text-white/50'>{item.subtitle}</div>
                       </div>
