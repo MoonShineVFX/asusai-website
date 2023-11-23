@@ -26,6 +26,8 @@ const bannerData = [
   {url:"https://moonshine.b-cdn.net/msweb/asusaicamera/templates/6.jpg" ,title:'MODULE 6', subtitle:"Introduction to module six",id:'6'},
   {url:"https://moonshine.b-cdn.net/msweb/asusaicamera/templates/7.jpg" ,title:'MODULE 7', subtitle:"Introduction to module 7",id:'7'},
   {url:"https://moonshine.b-cdn.net/msweb/asusaicamera/templates/8.jpg" ,title:'MODULE 8', subtitle:"Introduction to module 8",id:'8'},
+  {url:"https://moonshine.b-cdn.net/msweb/asusaicamera/templates/9.jpg" ,title:'MODULE 9', subtitle:"Introduction to module 9",id:'9'},
+  {url:"https://moonshine.b-cdn.net/msweb/asusaicamera/templates/10.jpg" ,title:'MODULE 10', subtitle:"Introduction to module 10",id:'10'},
 
  ]
 
