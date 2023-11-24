@@ -29,45 +29,45 @@ function CameraLayout() {
         <img 
         src={process.env.PUBLIC_URL+'/images/bg_fui_left.png'} 
         alt="" 
-        className='max-w-full flex h-screen py-5 left-4 absolute '/>
+        className='max-w-full flex h-screen md:py-5 left-4 absolute z-0'/>
       
 
         <img 
           src={process.env.PUBLIC_URL+'/images/bg_fui_right.png'} 
           alt="" 
-          className='max-w-full flex h-screen py-5 right-3 absolute '/>
-        <div className='w-full md:aspect-[1413/672] flex flex-col h-full md:h-auto justify-between  px-10 md:px-32 pt-10 relative'>
-          <div className='flex justify-between md:h-14  items-start'>
+          className='max-w-full flex h-screen md:py-5 right-3 absolute z-0 '/>
+        <div className='w-full md:aspect-[1413/672] flex flex-col h-full md:h-auto justify-between  px-0 md:px-32 pt-4 md:pt-10 relative'>
+          <div className='flex justify-between md:h-14  items-start px-10 '>
 
-          {location.pathname === '/camera' ? 
-            <div className='w-1/2 md:w-1/4  mt-16 md:mt-0'>
-              <Link to='/' className=" " >
-                <Button variant="text" className="flex items-center gap-3 text-white p-0 mb-2 hover:text-red-500 text-base">
-                  <FaArrowLeft size={15} />
-                  Back 
-                </Button>
-              </Link>
-              <img src={process.env.PUBLIC_URL+'/images/step1.png'} alt="" className='max-w-full   '/> 
-            </div>
+            {location.pathname === '/camera' ? 
+              <div className='w-1/2 md:w-1/4  mt-14 md:mt-0'>
+                <Link to='/' className=" " >
+                  <Button variant="text" className="flex items-center gap-3 text-white p-0 mb-2 hover:text-red-500 text-base">
+                    <FaArrowLeft size={15} />
+                    Back 
+                  </Button>
+                </Link>
+                <img src={process.env.PUBLIC_URL+'/images/step1.png'} alt="" className='max-w-full   '/> 
+              </div>
+              
+              :
+              <img src={process.env.PUBLIC_URL+'/images/header_left.png'} alt="" className='max-w-screen md:h-full w-[47%] md:w-auto mt-14 md:mt-0'/>
+            }
             
-            :
-            <img src={process.env.PUBLIC_URL+'/images/header_left.png'} alt="" className='max-w-screen md:h-full w-1/2 md:w-auto mt-16 md:mt-0'/>
-          }
-            
-            <img src="https://moonshine.b-cdn.net/msweb/asusaicamera/images/header_right.gif" alt="" className='max-w-screen  md:h-full w-1/2 md:w-auto' />
+            <img src="https://moonshine.b-cdn.net/msweb/asusaicamera/images/header_right.gif" alt="" className='max-w-screen w-1/2 md:w-auto md:h-full ' />
           </div>
           <div 
-            className={`${isMobile ? "h-full ":  "framed" } flex flex-col w-full mx-auto  items-center md:mt-10 py-1 relative`}
+            className={`${isMobile ? "h-full ":  "framed" } flex flex-col w-full mx-auto  items-center md:mt-10 py-1 relative `}
           >
-            <div className=' w-1/2 md:w-auto absolute top-0 left-0 z-10'>
-              <img src="https://moonshine.b-cdn.net/msweb/asusaicamera/images/page_fui01_gif.gif" alt="p01" className='max-w-full  ' /> 
+            <div className=' w-full md:w-auto absolute top-0 left-0 z-10 right-0'>
+              <img src="https://moonshine.b-cdn.net/msweb/asusaicamera/images/page_fui01_gif.gif" alt="p01" className='max-w-full hidden md:block  ' /> 
               {
-                location.pathname === '/camera' && storedUsername && <div className="mt-4  text-white/70 text-xs">玩家名稱：{storedUsername}</div>
+                location.pathname === '/camera' && storedUsername && <div className="mt-4  text-white/70 text-xs text-center md:text-left">玩家名稱：{storedUsername}</div>
               }
             </div>
            
             
-            <img src="https://moonshine.b-cdn.net/msweb/asusaicamera/images/page_fui02_gif.gif" alt="p01" className='max-w-full w-1/2 md:w-auto absolute bottom-0 left-0  ' />
+            <img src="https://moonshine.b-cdn.net/msweb/asusaicamera/images/page_fui02_gif.gif" alt="p01" className='max-w-full w-[40%] md:w-auto absolute bottom-0 left-0 pl-10 md:pl-0  ' />
             <Outlet />
 
            

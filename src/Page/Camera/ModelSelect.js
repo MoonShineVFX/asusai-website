@@ -186,7 +186,7 @@ function ModelSelect() {
   }
   
   return (
-    <div className="flex flex-col justify-between items-center my-16 md:my-10 w-full h-full">
+    <div className="flex flex-col justify-between items-center my-6 md:my-10 w-full h-full">
       
 
       {beforeImage?

@@ -28,7 +28,7 @@ function FrontPage({handleClick}) {
 
 
   return (
-        <div className='flex flex-col justify-between items-center md:justify-center w-full  '>
+        <div className='flex flex-col justify-between items-center md:justify-center w-full px-8  '>
           {notification && (
             <CustomAlert message={notification} onClose={() => setNotification(null)} />
           )}

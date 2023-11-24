@@ -3,7 +3,7 @@ import {useImage} from '../../Helper/ImageContext'
 import { Link } from "react-router-dom";
 import {Camera} from "react-camera-pro";
 import styled from 'styled-components';
-import { FaArrowLeft,FaCameraRetro,FaCamera,FaUpload,FaArrowAltCircleRight,FaTimes,FaInfoCircle } from "react-icons/fa";
+import { FaArrowLeft,FaCameraRetro,FaCamera,FaUpload,FaArrowAltCircleRight,FaTimes,FaInfoCircle,FaTh,FaCheck } from "react-icons/fa";
 import { MdCameraswitch, MdPhotoCamera,MdMobileScreenShare, MdClose,MdDownload,MdRefresh,MdReply,MdEast,MdKeyboardReturn } from "react-icons/md";
 import { motion, AnimatePresence } from "framer-motion";
 import Resizer from "react-image-file-resizer";
@@ -73,6 +73,8 @@ function ReadyToTake({handleBackClick}) {
   const onFilechange = ( e ) => {
     /*Selected files data can be collected here.*/
     const file = e.target.files[0];
+    console.log(file)
+    if (!file) return
     if (!allowedImageTypes.includes(file.type)) {
       setNotification('Only JPEG, JPG, and PNG image files are allowed.');
       return;
@@ -381,13 +383,13 @@ function ReadyToTake({handleBackClick}) {
           </Alert>
 
           <div 
-            className=" relative w-full aspect-square  md:w-1/2 mx-auto md:aspect-[13/10] bg-gray-500 "
-            style={{clipPath: 'polygon(10% 0%, 90% 0%, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0% 90%, 0% 10%)'}}
+            className=" relative w-full aspect-[4/5]  md:w-1/2 mx-auto md:aspect-[13/10] bg-gray-500 "
+            style={{clipPath: 'polygon(5% 0%, 95% 0%, 100% 5%, 100% 95%, 95% 100%, 5% 100%, 0% 95%, 0% 5%)'}}
           >
 
             {!image &&
-              <div className="w-full h-full  top-0 z-10 absolute hidden md:block ">
-                <img src={process.env.PUBLIC_URL+'/images/headframe_white.png'} alt="" className=" object-cover" />
+              <div className="w-full h-full  top-0 z-10 absolute  ">
+                <img src={process.env.PUBLIC_URL+'/images/headframe_white.png'} alt="" className="w-full h-full object-cover " />
               </div>
             }
 
@@ -399,7 +401,6 @@ function ReadyToTake({handleBackClick}) {
                   backgroundImage: `url(${process.env.PUBLIC_URL +'/images/headframe_red.png'})`,
                 }}
               >  
-           
                 <motion.div 
                   initial={{ opacity: 0,y:-10 }} 
                   animate={{ opacity: 1,y:0}}
@@ -408,13 +409,11 @@ function ReadyToTake({handleBackClick}) {
                   <div className="pt-[80%] relative ">
                     <img src={image} alt="Selected"  className="absolute top-0 left-0 object-cover w-full h-full rounded-md border-0 border-white  " />
                   </div>
-                  <div className=" absolute -top-5 -right-5">
+                  <div className=" absolute top-1 right-1 z-20 ">
                     <IconButton size="sm" className="rounded-full bg-[#FF0050] "  onClick={()=>setImage(null)}>
                       <FaTimes size={16} />
                     </IconButton>
                   </div>     
-
-                  {/* 在这里可以进行图像上传或其他操作 */}
                 </motion.div>
    
               </div>
@@ -423,68 +422,122 @@ function ReadyToTake({handleBackClick}) {
             
            {isMobile ? <Camera ref={camera} facingMode= 'environment' /> :  <Camera ref={camera}   />} 
           </div>
-          <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 z-10 flex items-center  gap-3 ">
-            <button 
-              className="flex items-center  rounded-full bg-[#FF0050]   p-5 shadow-lg shadow-gray-300/40  "
-              onClick={() => {
-                if (camera.current.getNumberOfCameras() >0) {
-                  const photo = camera.current.takePhoto();
-                  handleClick(photo)
-                  // console.log(photo);
-                  // setImage(photo);
-                  // startCountdown()
-                }
-              }} 
-            > 
-              <MdPhotoCamera color="" size={24}/>  
-            </button>
-            {isMobile&&
+          {
+           isMobile ?
+            (<>{image ? 
+            <motion.div 
+              key='1'
+              initial={{ opacity: 0, x:  '-50%',y:-10 }}
+              animate={{ opacity: 1 , x: '-50%', y:0}}
+              exit={{ opacity: 0,x:'-50%' ,y:-10}}
+              transition={{ duration: 0.2 }}
+              className="absolute -bottom-24 md:-bottom-6 left-1/2 -translate-x-1/2 z-10 flex items-center  gap-10 ">
+              <button 
+                className="flex items-center  rounded-full bg-gray-800   p-5 shadow-lg shadow-gray-300/40  "
+                onClick={()=>setImage(null)}
+              > 
+                <FaArrowLeft color="" size={24}/>  
+              </button>
+              <Link 
+                to={'/templates'} 
+                className="flex items-center  rounded-full bg-[#FF0050]   p-5 shadow-lg shadow-gray-300/40  "
+              > 
+                <FaCheck color="" size={24}/>  
+              </Link>
+            </motion.div>
+            : 
+            <motion.div 
+              key='2'
+              initial={{ opacity: 0, x:  '-50%',y:-10 }}
+              animate={{ opacity: 1 , x: '-50%',y:-0}}
+              exit={{ opacity: 0,x:'-50%',y:-10 }}
+              transition={{ duration: 0.2 }}
+              className="absolute -bottom-24 md:-bottom-6 left-1/2 -translate-x-1/2 z-10 flex items-center  gap-3 ">
+              <button 
+                className="flex items-center  rounded-full bg-gray-800   p-5 shadow-lg shadow-gray-300/40  "
+                onClick={onBtnClick}
+              > 
+                <FaTh color="" size={24}/>  
+              </button>
+              <button 
+                className="flex items-center  rounded-full bg-[#FF0050]   p-5 shadow-lg shadow-gray-300/40  "
+                onClick={() => {
+                  if (camera.current.getNumberOfCameras() >0) {
+                    const photo = camera.current.takePhoto();
+                    handleClick(photo)
+                  }
+                }} 
+              > 
+                <MdPhotoCamera color="" size={24}/>  
+              </button>
               <button 
                 className="flex items-center  rounded-full bg-gray-800   p-5 shadow-lg shadow-gray-300/40  "
                 onClick={() => {
                   if (camera.current.getNumberOfCameras() >0) {
                     const photo = camera.current.switchCamera();
-                    // console.log(photo);
-                    // setImage(photo);
-                    // startCountdown()
+
                   }
                 }} 
               > 
                 <MdCameraswitch color="" size={24}/>  
               </button>
-            }
+                
+    
+              </motion.div>
+            }</>)
+           :
+            (
+              <motion.div className="absolute -bottom-24 md:-bottom-6 left-1/2 -translate-x-1/2 z-10 flex items-center  gap-3 ">
+                <button 
+                  className="flex items-center  rounded-full bg-[#FF0050]   p-5 shadow-lg shadow-gray-300/40  "
+                  onClick={() => {
+                    if (camera.current.getNumberOfCameras() >0) {
+                      const photo = camera.current.takePhoto();
+                      handleClick(photo)
+                      // console.log(photo);
+                      // setImage(photo);
+                      // startCountdown()
+                    }
+                  }} 
+                > 
+                  <MdPhotoCamera color="" size={24}/>  
+                </button>
+              </motion.div>
+            )
+          }
+          
+          
 
-          </div>
 
         </div>
       :
       <motion.div className=' relative w-full md:w-4/5 mx-auto flex  aspect-[4/4] md:aspect-[1413/580] mt-10 md:mt-0'>
-          <motion.img 
-            initial={{ opacity: 0, x:  0 }}
-            animate={{ opacity: 1 , x: 0}}
-            exit={{ opacity: 0,x:0 }}
-            transition={{ duration: 1.5 }}
+        <motion.img 
+          initial={{ opacity: 0, x:  0 }}
+          animate={{ opacity: 1 , x: 0}}
+          exit={{ opacity: 0,x:0 }}
+          transition={{ duration: 1.5 }}
 
-            src={process.env.PUBLIC_URL+'/images/person_left.png'} alt="p01" className='max-w-full w-1/2 md:w-[24vw] absolute top-0 left-[5%] md:left-[15%]  ' />
-          <motion.img
-            initial={{ opacity: 0, x:0 }}
-            animate={{ opacity: 1 , x:0}}
-            exit={{ opacity: 0,x:0 }} 
-            transition={{ duration: 1.5 }}
-            src={process.env.PUBLIC_URL+'/images/person_right.png'} alt="p01" className='max-w-full w-1/2 md:w-[24vw] absolute top-0  right-[5%] md:right-[15%]  ' />
-          {image && (
-            <Suspense fallback={<p>Loading</p>}>
-              <motion.div 
-                initial={{ opacity: 0,  y:-80,  x:'-50%'}}
-                animate={{ opacity: 1,y:40, x:'-50%' }}
-                exit={{ opacity: 0,y:-80,  x:'-50%' }}
-                className="w-[180px] aspect-video flex flex-col  absolute top-0 left-1/2 ">
-                  <img src={image} alt="Selected"  className="max-w-full w-full h-auto border-2 border-white rounded-md object-contain " />
-                  <div className="text-center text-xs text-white/70 mt-2">你的圖片</div>
+          src={process.env.PUBLIC_URL+'/images/person_left.png'} alt="p01" className='max-w-full w-1/2 md:w-[24vw] absolute top-0 left-[5%] md:left-[15%]  ' />
+        <motion.img
+          initial={{ opacity: 0, x:0 }}
+          animate={{ opacity: 1 , x:0}}
+          exit={{ opacity: 0,x:0 }} 
+          transition={{ duration: 1.5 }}
+          src={process.env.PUBLIC_URL+'/images/person_right.png'} alt="p01" className='max-w-full w-1/2 md:w-[24vw] absolute top-0  right-[5%] md:right-[15%]  ' />
+        {image && (
+          <Suspense fallback={<p>Loading</p>}>
+            <motion.div 
+              initial={{ opacity: 0,  y:-80,  x:'-50%'}}
+              animate={{ opacity: 1,y:40, x:'-50%' }}
+              exit={{ opacity: 0,y:-80,  x:'-50%' }}
+              className="w-[180px] aspect-video flex flex-col  absolute top-0 left-1/2 ">
+                <img src={image} alt="Selected"  className="max-w-full w-full h-auto border-2 border-white rounded-md object-contain " />
+                <div className="text-center text-xs text-white/70 mt-2">你的圖片</div>
 
-              </motion.div>
-            </Suspense>
-          )}
+            </motion.div>
+          </Suspense>
+        )}
         </motion.div>
       }
 
@@ -502,7 +555,7 @@ function ReadyToTake({handleBackClick}) {
               ref={inputFileRef}
 
             />
-            <div className=" relative" onClick={onBtnClick}>
+            <div className=" relative hidden md:block" onClick={onBtnClick}>
               <div className='sample-heading-3 w-full h-full absolute top-0 z-10   opacity-0 hover:opacity-100 cursor-pointer  '></div>
               <div className='bg-gradient-to-b from-[#444] to-[#111] px-10 py-2 border  border-white/30 flex justify-center items-center gap-2' ><FaUpload />Upload a picture</div>
             </div>
@@ -516,8 +569,8 @@ function ReadyToTake({handleBackClick}) {
                   initial={{ opacity: 0}}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
+                  className="hidden md:block"
                 >
-                  <div className="text-sm text-white/70 mb-1 text-center hidden">圖片已準備好</div>
                   <Link to={'/templates'} className=" relative">
                     <div className='sample-heading-3 w-full h-full absolute top-0 z-10   animate-[fadeIn_0.3s_ease-in-out_infinite] hover:animate-none cursor-pointer  '></div>
                     <div className='bg-gradient-to-b bg-[#FF0050] to-[#000] px-10 py-2 border  border-white/30 flex items-center gap-2' >下一步選擇主題 <FaArrowAltCircleRight /></div>
