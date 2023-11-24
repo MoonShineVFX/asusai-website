@@ -27,12 +27,12 @@ function Result({open ,handleOpen,renderedResult,username}) {
                 
               </div>
             )}
-            <div className='3/12'>
+            <div className='3/12 hidden md:block'>
               <img src={process.env.PUBLIC_URL+'/images/redline.svg'} alt="" className='  w-full md:-translate-y-20 translate-y-0 ' />
             </div>
              
-            <div className='md:w-1/3 flex md:flex-col md:gap-4 items-center justify-center'>
-              <div className='flex flex-col w-1/2 md:w-full'>
+            <div className='w-full md:w-1/3 flex md:flex-col md:gap-4 items-center justify-center'>
+              <div className='hidden md:flex flex-col w-1/2 md:w-full  '>
                 {Object.keys(renderedResult).length > 0 &&
                   <div 
                     className='p-3 md:p-5 bg-contain bg-no-repeat md:w-full mx-auto border border-red-500 relative'
@@ -58,7 +58,7 @@ function Result({open ,handleOpen,renderedResult,username}) {
 
 
 
-              <div className='flex flex-col w-1/2 md:w-full'>
+              <div className='flex flex-col w-full md:w-full gap-2 md:gap-0 mt-10 md:mt-0'>
 
                 <div className=" relative md:mt-6 w-3/4 mx-auto" onClick={handleOpen}>
                   <div className='sample-heading-3 w-full h-full absolute top-0 z-10   opacity-0 hover:opacity-100 cursor-pointer  '></div>
