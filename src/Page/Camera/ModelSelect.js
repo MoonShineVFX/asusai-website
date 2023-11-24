@@ -186,7 +186,7 @@ function ModelSelect() {
   }
   
   return (
-    <div className="flex flex-col justify-between items-center my-6 md:my-10 w-full h-full">
+    <div className="flex flex-col justify-between items-center my-3 md:my-10 w-full h-full">
       
 
       {beforeImage?
@@ -207,7 +207,7 @@ function ModelSelect() {
         :
         <div className="w-[160px] aspect-video flex flex-col mx-auto fixed top-5 right-5">Error</div>
       }
-        <div className='w-full md:w-[80%] mx-auto relative mt-16 md:mt-0'>
+        <div className='w-full md:w-[80%] mx-auto relative mt-5 md:mt-0'>
           <Swiper
             onSwiper={setSwiper}
             onSlideChange={() => {

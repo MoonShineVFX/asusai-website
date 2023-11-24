@@ -35,7 +35,7 @@ function RenderLayout() {
             </div>
             <img src="https://moonshine.b-cdn.net/msweb/asusaicamera/images/header_right.gif" alt="" className='max-w-screen   md:h-full w-1/2 md:w-auto' />
           </div>
-          <div className='mt-14 md:mt-6 relative md:my-10 px-0 md:mx-10'>
+          <div className='mt-10 md:mt-6 relative md:my-10 px-0 md:mx-10'>
             <div className=' w-full md:w-auto absolute top-0 left-0 z-10 right-0'>
               {
                 storedUsername && <div className="mt-4  text-white/70 text-xs text-center md:text-left">玩家名稱：{storedUsername}</div>

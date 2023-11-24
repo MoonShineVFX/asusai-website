@@ -40,7 +40,7 @@ function CameraLayout() {
           <div className='flex justify-between md:h-14  items-start px-10 '>
 
             {location.pathname === '/camera' ? 
-              <div className='w-1/2 md:w-1/4  mt-14 md:mt-0'>
+              <div className='w-1/2 md:w-1/4  mt-10 md:mt-0'>
                 <Link to='/' className=" " >
                   <Button variant="text" className="flex items-center gap-3 text-white p-0 mb-2 hover:text-red-500 text-base">
                     <FaArrowLeft size={15} />

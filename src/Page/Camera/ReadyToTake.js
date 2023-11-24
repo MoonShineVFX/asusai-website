@@ -366,7 +366,7 @@ function ReadyToTake({handleBackClick}) {
 
   const [src, { blur }] = useProgressiveImg(process.env.PUBLIC_URL+'/images/camera_page/tiny.jpeg', ResultImage);
   return (
-    <div className='flex flex-col w-full justify-between items-center gap-4  my-16 md:my-0'>
+    <div className='flex flex-col w-full justify-between items-center gap-4  my-10 md:my-0'>
 
       
       {notification && (
@@ -383,7 +383,7 @@ function ReadyToTake({handleBackClick}) {
           </Alert>
 
           <div 
-            className=" relative w-full aspect-[4/5]  md:w-1/2 mx-auto md:aspect-[13/10] bg-gray-500 "
+            className=" relative w-full aspect-[4/4.2]  md:w-1/2 mx-auto md:aspect-[13/10] bg-gray-500 "
             style={{clipPath: 'polygon(5% 0%, 95% 0%, 100% 5%, 100% 95%, 95% 100%, 5% 100%, 0% 95%, 0% 5%)'}}
           >
 
