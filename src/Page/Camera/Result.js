@@ -40,14 +40,18 @@ function Result({open ,handleOpen,renderedResult,username}) {
         </DialogHeader>
         <DialogBody>
           <div className='flex flex-col md:flex-row justify-center items-center gap-0'>
+            {
+              username && 
+              <div className="  text-center bg-black/30 p-3 rounded-md  text-white/70 text-xs my-2">玩家名稱：{username}</div>
+            }
             {Object.keys(renderedResult).length > 0 && (
               <div className='w-3/4 md:w-1/2 relative'>
                 <Suspense fallback={<Spinner/>}>
                   <img src={renderedResult.generations[0].img} alt=""  className='border border-red-500'/>
-                  {
-                    username && 
-                    <div className=" absolute text-center bottom-0 right-2  bg-black/30 p-3 rounded-md  text-white/70 text-xs my-2">玩家名稱：{username}</div>
-                  }
+           
+                  <a href={renderedResult.generations[0].img} download={true}
+                      className=" absolute text-center bottom-0 right-2  bg-black/30 p-3 rounded-md  text-white/70 text-xs my-2">下載</a>
+               
                 </Suspense>
                 
               </div>

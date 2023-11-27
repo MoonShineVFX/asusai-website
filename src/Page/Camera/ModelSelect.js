@@ -7,6 +7,7 @@ import { FaArrowLeft,FaCameraRetro,FaCheck } from "react-icons/fa";
 import { GiCheckMark } from "react-icons/gi";
 import { motion, AnimatePresence } from "framer-motion";
 import {getUsernameFromCookie} from '../../Helper/Helper'
+import Resizer from "react-image-file-resizer";
 // Import Swiper React components
 import { Swiper, SwiperSlide,useSwiper } from 'swiper/react';
 
@@ -59,7 +60,7 @@ function ModelSelect() {
   const handleImageClick = (index) =>{
     swiper.slideTo(index)
   }
-  const onBtnClick= ()=>{
+  const onBtnClick= async ()=>{
     if (!beforeImage) {
       setMsg('錯誤：必須先拍攝或上傳圖片。')
       return
@@ -72,13 +73,24 @@ function ModelSelect() {
       setMsg(null)
       setMsg('正在上傳圖片..')
       setIsRender(true)
+
+    
     // setStartRender(true)
     //fetch API 上傳運算
     //POST https://faceswap.rd-02f.workers.dev/images 上傳圖片
     //GET https://faceswap.rd-02f.workers.dev/images/<id> 取得圖片
     var file = dataURLtoFile(beforeImage,'image.jpg')
+    let compressFiles 
+    if(file.size  > 3 * 1024 * 1024) {
+      console.log('壓縮')
+      compressFiles = await resizeFile(file);
+      setMsg('正在壓縮圖片。')
+    }else{
+      compressFiles = file
+    }
+
     const formData = new FormData();
-    formData.append('source_image', file); 
+    formData.append('source_image', compressFiles); 
     formData.append("command_type", currentId);
     formData.append("username", storedUsername ? storedUsername : ' ');
 
@@ -173,6 +185,21 @@ function ModelSelect() {
       console.error(error);
     });
   }
+  const resizeFile = (file) => 
+    new Promise((resolve) => {
+      Resizer.imageFileResizer(
+        file,
+        1000, // 設置圖像的最大寬度
+        1000, // 設置圖像的最大高度
+        'JPEG', // 設置圖像的格式
+        70, // 設置圖像的質量
+        0, // 設置圖像的旋轉角度
+        (uri) => {
+          resolve(uri);
+        },
+        'file' // 設置返回的圖像格式
+      );
+    });
   function dataURLtoFile(dataurl, filename) {
     var arr = dataurl.split(','),
         mime = arr[0].match(/:(.*?);/)[1],

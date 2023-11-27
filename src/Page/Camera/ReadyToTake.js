@@ -101,8 +101,8 @@ function ReadyToTake({handleBackClick}) {
       setNotification('Only BMP, JPEG, JPG, and PNG image files are allowed.');
       return;
     }
-    if (file.size > 5120 * 1024) {
-      setNotification('File size should be less than 5MB.');
+    if (file.size > 13000 * 1024) {
+      setNotification('File size should be less than 12MB.');
       return;
     }
 
@@ -115,7 +115,7 @@ function ReadyToTake({handleBackClick}) {
         tempImage.onload = () => {
           // 检查图片尺寸
           if (tempImage.width > 4096 || tempImage.height > 4096) {
-            setNotification('Image dimensions should be 1920x1920 or smaller.');
+            setNotification('Image dimensions should be 4096x4096 or smaller.');
           } else {
             // 更新选中的图像
             setImage(reader.result);
