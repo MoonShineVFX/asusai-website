@@ -46,7 +46,7 @@ function ReadyToTake({handleBackClick}) {
   const [isLandscape, setIsLandscape] = useState(false);
   const { setBeforeImage } = useImage();
   const [notification, setNotification] = useState(null);
-  const allowedImageTypes = ['image/jpeg', 'image/jpg', 'image/png'];
+  const allowedImageTypes = ['image/jpeg', 'image/jpg', 'image/png','image/bmp'];
   const [ isCameraInfo,setIsCameraInfo] = useState(false)
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const handleResize = () => {
@@ -75,12 +75,14 @@ function ReadyToTake({handleBackClick}) {
     width: 520,
     height: 520 ,
     facingMode: "user",
+    mirrored:true
   };
   const [videoConstraints, setVideoConstraints] = useState(initialVideoConstraints);
   const swapCamera = ()=>{
     setVideoConstraints({
       ...videoConstraints,
       facingMode: videoConstraints.facingMode === 'user' ? 'environment' : 'user',
+      mirrored: videoConstraints.mirrored === true ? false : true
     });
   }
   //flow open camera
@@ -96,11 +98,11 @@ function ReadyToTake({handleBackClick}) {
     console.log(file)
     if (!file) return
     if (!allowedImageTypes.includes(file.type)) {
-      setNotification('Only JPEG, JPG, and PNG image files are allowed.');
+      setNotification('Only BMP, JPEG, JPG, and PNG image files are allowed.');
       return;
     }
-    if (file.size > 1024 * 1024) {
-      setNotification('File size should be less than 1MB.');
+    if (file.size > 5120 * 1024) {
+      setNotification('File size should be less than 5MB.');
       return;
     }
 
@@ -112,7 +114,7 @@ function ReadyToTake({handleBackClick}) {
         tempImage.src = reader.result;
         tempImage.onload = () => {
           // 检查图片尺寸
-          if (tempImage.width > 1920 || tempImage.height > 1920) {
+          if (tempImage.width > 4096 || tempImage.height > 4096) {
             setNotification('Image dimensions should be 1920x1920 or smaller.');
           } else {
             // 更新选中的图像
