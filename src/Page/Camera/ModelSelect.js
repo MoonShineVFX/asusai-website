@@ -255,7 +255,7 @@ function ModelSelect() {
                         <img 
                           src={item.url+'?width=350'} 
                           alt="slide" 
-                          className={` max-w-full hover:brightness-105 rounded-md transition-all ${currentId === item.id ? 'border-4 border-amber-500/0 ' : ''}`}
+                          className={` max-w-full hover:brightness-110 rounded-md transition-all ${currentId === item.id ? 'drop-shadow-[0px_10px_15px_rgba(255,255,255,0.55)] brightness-110 ' : ''}`}
                           onClick={()=>{
                             handleImageClick(index)
                           }}

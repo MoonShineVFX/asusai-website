@@ -1,7 +1,8 @@
-import React, { useState, useRef, useEffect, Suspense } from "react";
+import React, { useState, useRef, useEffect, Suspense,useCallback } from "react";
 import {useImage} from '../../Helper/ImageContext'
 import { Link } from "react-router-dom";
 import {Camera} from "react-camera-pro";
+import Webcam from "react-webcam";
 import styled from 'styled-components';
 import { FaArrowLeft,FaCameraRetro,FaCamera,FaUpload,FaArrowAltCircleRight,FaTimes,FaInfoCircle,FaTh,FaCheck } from "react-icons/fa";
 import { MdCameraswitch, MdPhotoCamera,MdMobileScreenShare, MdClose,MdDownload,MdRefresh,MdReply,MdEast,MdKeyboardReturn } from "react-icons/md";
@@ -61,8 +62,20 @@ function ReadyToTake({handleBackClick}) {
   const [testMsg, setTestMsg] = useState({
     getNumberOfCameras:""
   });
+
+  //webcamRef
+  const webcamRef = useRef(null);
+  const capture = useCallback(() => {
+    const imageSrc = webcamRef.current.getScreenshot();
+    // setImg(imageSrc);
+    handleClick(imageSrc)
+  }, [webcamRef]);
   
-  
+  const videoConstraints = {
+    width: 520,
+    height: 520 ,
+    facingMode: "user",
+  };
   //flow open camera
   const toggleCamera = () => {
     setCameraOpen(!isCameraOpen);
@@ -383,7 +396,7 @@ function ReadyToTake({handleBackClick}) {
           </Alert>
 
           <div 
-            className=" relative w-full aspect-[4/4.2]  md:w-1/2 mx-auto md:aspect-[13/10] bg-gray-500 "
+            className=" relative w-full  md:w-1/2 mx-auto  bg-gray-500 md:aspect-[16/9]"
             style={{clipPath: 'polygon(5% 0%, 95% 0%, 100% 5%, 100% 95%, 95% 100%, 5% 100%, 0% 95%, 0% 5%)'}}
           >
 
@@ -396,7 +409,7 @@ function ReadyToTake({handleBackClick}) {
            
             {image && (
               <div 
-                className="z-10 absolute bg-black/70 w-full h-full bg-cover bg-no-repeat bg-center flex justify-center items-center "
+                className="z-10 absolute bg-black/70 w-full h-full bg-cover bg-no-repeat bg-center flex justify-center items-center  "
                 style={{
                   backgroundImage: `url(${process.env.PUBLIC_URL +'/images/headframe_red.png'})`,
                 }}
@@ -406,8 +419,8 @@ function ReadyToTake({handleBackClick}) {
                   animate={{ opacity: 1,y:0}}
                   exit={{ opacity: 0,y:0 }}
                   className="w-[250px] relative">
-                  <div className="pt-[80%] relative ">
-                    <img src={image} alt="Selected"  className="absolute top-0 left-0 object-cover w-full h-full rounded-md border-0 border-white  " />
+                  <div className="pt-[80%]  aspect-[4/4.2] md:aspect-[13/10] relative ">
+                    <img src={image} alt="Selected"  className="absolute top-0 left-0 object-cover w-full h-full rounded-md border-0 border-white   " />
                   </div>
                   <div className=" absolute top-1 right-1 z-20 ">
                     <IconButton size="sm" className="rounded-full bg-[#FF0050] "  onClick={()=>setImage(null)}>
@@ -420,7 +433,7 @@ function ReadyToTake({handleBackClick}) {
             )}
 
             
-           {isMobile ? <Camera ref={camera} facingMode= 'environment' /> :  <Camera ref={camera}   />} 
+           {isMobile ? <Webcam ref={webcamRef} facingMode= 'user' mirrored={true} videoConstraints={videoConstraints} /> :  <Webcam ref={webcamRef} mirrored={true} width={1000}    />} 
           </div>
           {
            isMobile ?
@@ -461,12 +474,7 @@ function ReadyToTake({handleBackClick}) {
               </button>
               <button 
                 className="flex items-center  rounded-full bg-[#FF0050]   p-5 shadow-lg shadow-gray-300/40  "
-                onClick={() => {
-                  if (camera.current.getNumberOfCameras() >0) {
-                    const photo = camera.current.takePhoto();
-                    handleClick(photo)
-                  }
-                }} 
+                onClick={capture} 
               > 
                 <MdPhotoCamera color="" size={24}/>  
               </button>
@@ -490,15 +498,7 @@ function ReadyToTake({handleBackClick}) {
               <motion.div className="absolute -bottom-24 md:-bottom-6 left-1/2 -translate-x-1/2 z-10 flex items-center  gap-3 ">
                 <button 
                   className="flex items-center  rounded-full bg-[#FF0050]   p-5 shadow-lg shadow-gray-300/40  "
-                  onClick={() => {
-                    if (camera.current.getNumberOfCameras() >0) {
-                      const photo = camera.current.takePhoto();
-                      handleClick(photo)
-                      // console.log(photo);
-                      // setImage(photo);
-                      // startCountdown()
-                    }
-                  }} 
+                  onClick={capture} 
                 > 
                   <MdPhotoCamera color="" size={24}/>  
                 </button>
