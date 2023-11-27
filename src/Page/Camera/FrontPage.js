@@ -28,27 +28,21 @@ function FrontPage({handleClick}) {
 
 
   return (
-        <div className='flex flex-col justify-between items-center md:justify-center w-full px-8  '>
+        <div className='flex flex-col justify-between items-center md:justify-center w-full px-0  '>
           {notification && (
             <CustomAlert message={notification} onClose={() => setNotification(null)} />
           )}
           <motion.div 
-            className=' relative w-full md:w-4/5 mx-auto flex aspect-[4/3] md:aspect-[1413/580] mt-20 md:mt-0 '
+            className=' relative w-full md:w-4/5 mx-auto flex  my-14 md:my-10 '
            
           >
             <motion.img 
-              initial={{ opacity: 0, x:  180 }}
-              animate={{ opacity: 1 , x:isHovered ? 40:0}}
-              exit={{ opacity: 0,x:180 }}
+              initial={{ opacity: 0, y:  40 }}
+              animate={{ opacity: 1 , y:isHovered ? 10:0}}
+              exit={{ opacity: 0,y:40 }}
               transition={{ duration: 1.5 }}
+              src="https://moonshine.b-cdn.net/msweb/asusaicamera/images/cover.png" alt="p01" className='max-w-full w-full img_ref ' />
 
-              src={process.env.PUBLIC_URL+'/images/person_left.png'} alt="p01" className='max-w-full w-[45vw] md:w-[24vw] absolute top-0 left-[3%] md:left-[15%] ' />
-            <motion.img
-              initial={{ opacity: 0, x:-180 }}
-              animate={{ opacity: 1 , x:isHovered ? -40:0}}
-              exit={{ opacity: 0,x:-180 }} 
-              transition={{ duration: 1.5 }}
-              src={process.env.PUBLIC_URL+'/images/person_right.png'} alt="p01" className='max-w-full w-[45vw] md:w-[24vw] absolute top-0  right-[4%] md:right-[15%] ' />
           </motion.div>
           <div className='mt-auto flex flex-col justify-center items-center'>
 
