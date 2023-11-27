@@ -71,13 +71,17 @@ function ReadyToTake({handleBackClick}) {
     handleClick(imageSrc)
   }, [webcamRef]);
   
-  const videoConstraints = {
+  const initialVideoConstraints = {
     width: 520,
     height: 520 ,
     facingMode: "user",
   };
+  const [videoConstraints, setVideoConstraints] = useState(initialVideoConstraints);
   const swapCamera = ()=>{
-    videoConstraints.facingMode = videoConstraints.facingMode === 'user' ? 'environment' : 'user';
+    setVideoConstraints({
+      ...videoConstraints,
+      facingMode: videoConstraints.facingMode === 'user' ? 'environment' : 'user',
+    });
   }
   //flow open camera
   const toggleCamera = () => {
