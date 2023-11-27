@@ -11,6 +11,31 @@ import {
 } from "@material-tailwind/react";
 import QRCode from "react-qr-code";
 function Result({open ,handleOpen,renderedResult,username}) {
+
+  const downloadImage = (imgurl) => {
+    const imageUrl = imgurl
+    const link = document.createElement('a');
+    link.href = imageUrl;
+    link.download = 'downloaded-image.jpg';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+  const downloadImageBlob = (imgurl) => {
+    const imageUrl = imgurl;
+  
+    fetch(imageUrl)
+      .then((response) => response.blob())
+      .then((blob) => {
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'downloaded-image.jpg';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      })
+      .catch((error) => console.error('下載失敗：', error));
+  };
   return (
     <div>
       <Dialog open={open} size="lg"  className='bg-black/80 py-5'>
@@ -42,15 +67,15 @@ function Result({open ,handleOpen,renderedResult,username}) {
           <div className='flex flex-col md:flex-row justify-center items-center gap-0'>
             {
               username && 
-              <div className="  text-center bg-black/30 p-3 rounded-md  text-white/70 text-xs my-2">玩家名稱：{username}</div>
+              <div className="  text-center bg-black/30 p-3 rounded-md  text-white/70 text-xs my-2 cursor-pointer">玩家名稱：{username}</div>
             }
             {Object.keys(renderedResult).length > 0 && (
               <div className='w-3/4 md:w-1/2 relative'>
                 <Suspense fallback={<Spinner/>}>
                   <img src={renderedResult.generations[0].img} alt=""  className='border border-red-500'/>
            
-                  <a href={renderedResult.generations[0].img} download={true}
-                      className=" absolute text-center bottom-0 right-2  bg-black/30 p-3 rounded-md  text-white/70 text-xs my-2">下載</a>
+                  <div onClick={()=>downloadImageBlob(renderedResult.generations[0].img)}
+                      className=" absolute text-center bottom-0 right-2  bg-black/30 p-3 rounded-md  text-white/70 text-xs my-2">下載</div>
                
                 </Suspense>
                 

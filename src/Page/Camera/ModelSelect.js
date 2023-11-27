@@ -81,7 +81,7 @@ function ModelSelect() {
     //GET https://faceswap.rd-02f.workers.dev/images/<id> 取得圖片
     var file = dataURLtoFile(beforeImage,'image.jpg')
     let compressFiles 
-    if(file.size  > 3 * 1024 * 1024) {
+    if(file.size  > 2 * 1024 * 1024) {
       console.log('壓縮')
       compressFiles = await resizeFile(file);
       setMsg('正在壓縮圖片。')
@@ -232,7 +232,7 @@ function ModelSelect() {
           </motion.div>
         </Suspense>
         :
-        <div className="w-[160px] aspect-video flex flex-col mx-auto fixed top-5 right-5">Error</div>
+        <div className="w-[160px] aspect-video flex flex-col mx-auto fixed top-5 right-5 text-xs">請記得上傳照片才可以換臉</div>
       }
         <div className='w-full md:w-[80%] mx-auto relative mt-5 md:mt-0'>
           <Swiper
