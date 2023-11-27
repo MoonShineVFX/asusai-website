@@ -25,6 +25,17 @@ function FrontPage({handleClick}) {
       setNotification('Please enter a name.');
     }
   }
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const handleResize = () => {
+    setIsMobile(window.innerWidth < 768);
+  };
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
 
   return (
@@ -33,15 +44,24 @@ function FrontPage({handleClick}) {
             <CustomAlert message={notification} onClose={() => setNotification(null)} />
           )}
           <motion.div 
-            className=' relative w-full md:w-4/5 mx-auto flex  my-14 md:my-10 '
-           
+            className=' relative w-full md:w-4/5 mx-auto flex  my-6 md:my-10 '
           >
+            {isMobile ? 
             <motion.img 
               initial={{ opacity: 0, y:  40 }}
               animate={{ opacity: 1 , y:isHovered ? 10:0}}
               exit={{ opacity: 0,y:40 }}
               transition={{ duration: 1.5 }}
-              src="https://moonshine.b-cdn.net/msweb/asusaicamera/images/cover.png" alt="p01" className='max-w-full w-full img_ref ' />
+              src="https://moonshine.b-cdn.net/msweb/asusaicamera/images/cover_mb.png?width=400" alt="p01" className='max-w-full w-full img_ref ' />
+              :
+            <motion.img 
+              initial={{ opacity: 0, y:  40 }}
+              animate={{ opacity: 1 , y:isHovered ? 10:0}}
+              exit={{ opacity: 0,y:40 }}
+              transition={{ duration: 1.5 }}
+              src="https://moonshine.b-cdn.net/msweb/asusaicamera/images/cover.png?width=800" alt="p01" className='max-w-full w-full img_ref ' />
+            }
+            
 
           </motion.div>
           <div className='mt-auto flex flex-col justify-center items-center'>

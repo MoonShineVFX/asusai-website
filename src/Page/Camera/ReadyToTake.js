@@ -101,7 +101,7 @@ function ReadyToTake({handleBackClick}) {
       setNotification('Only BMP, JPEG, JPG, and PNG image files are allowed.');
       return;
     }
-    if (file.size > 13000 * 1024) {
+    if (file.size > 12 * 1024 * 1024) {
       setNotification('File size should be less than 12MB.');
       return;
     }
