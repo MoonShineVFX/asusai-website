@@ -76,6 +76,9 @@ function ReadyToTake({handleBackClick}) {
     height: 520 ,
     facingMode: "user",
   };
+  const swapCamera = ()=>{
+    videoConstraints.facingMode = videoConstraints.facingMode === 'user' ? 'environment' : 'user';
+  }
   //flow open camera
   const toggleCamera = () => {
     setCameraOpen(!isCameraOpen);
@@ -480,12 +483,7 @@ function ReadyToTake({handleBackClick}) {
               </button>
               <button 
                 className="flex items-center  rounded-full bg-gray-800   p-5 shadow-lg shadow-gray-300/40  "
-                onClick={() => {
-                  if (camera.current.getNumberOfCameras() >0) {
-                    const photo = camera.current.switchCamera();
-
-                  }
-                }} 
+                onClick={swapCamera} 
               > 
                 <MdCameraswitch color="" size={24}/>  
               </button>
