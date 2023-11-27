@@ -47,7 +47,7 @@ function Result({open ,handleOpen,renderedResult,username}) {
                   
                   </div> }
                 <div 
-                  className='mt-4 md:mt-8  md:bg-contain bg-center bg-no-repeat w-full px-2 py-2 mx:px-10 md:py-6 text-sm text-center text-white font-normal'
+                  className='mt-4 md:mt-8  md:bg-contain bg-center bg-no-repeat w-full px-2 py-2 md:px-10 md:py-6 text-sm text-center text-white font-normal'
                   style={{
                     backgroundImage: `url(${process.env.PUBLIC_URL +'/images/scan_info.png'})`,
                   }}
