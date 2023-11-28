@@ -114,13 +114,15 @@ function ReadyToTake({handleBackClick}) {
         tempImage.src = reader.result;
         tempImage.onload = () => {
           // 检查图片尺寸
-          if (tempImage.width > 4096 || tempImage.height > 4096) {
-            setNotification('Image dimensions should be 4096x4096 or smaller.');
-          } else {
-            // 更新选中的图像
-            setImage(reader.result);
-            setBeforeImage(reader.result);
-          }
+          // if (tempImage.width > 10000 || tempImage.height > 4096) {
+          //   setNotification('Image dimensions should be 4096x4096 or smaller.');
+          // } else {
+          //   // 更新选中的图像
+          //   setImage(reader.result);
+          //   setBeforeImage(reader.result);
+          // }
+          setImage(reader.result);
+          setBeforeImage(reader.result);
         };
       };
       reader.readAsDataURL(file);
