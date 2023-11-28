@@ -12,8 +12,11 @@ module.exports = withMT({
           '100%': { opacity: '1' },
         }
       },
-
+      fontFamily: {
+        'roboto': ['Roboto', 'sans-serif'],
+      }
     },
+
   },
   plugins: [],
 })

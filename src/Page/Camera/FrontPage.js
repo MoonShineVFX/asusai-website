@@ -67,7 +67,7 @@ function FrontPage({handleClick}) {
           <div className='mt-auto flex flex-col justify-center items-center'>
 
             <motion.div 
-              className='text-xl md:text-2xl font-bold md:my-2 text-gray-200 '
+              className='text-xl md:text-2xl font-bold md:my-2 text-gray-200  '
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -76,7 +76,7 @@ function FrontPage({handleClick}) {
 
             <div className='flex my-8 md:my-6 flex-col gap-2 md:flex-row md:gap-0  w-4/5 md:w-full    '>
               <div className="w-full md:w-72">
-                <Input type="text" color="white" label="Player Name" className=' rounded-none' onChange={onChange} />
+                <Input type="text" color="white" label="Player Name" className=' rounded-none font-roboto' onChange={onChange} />
                 
               </div>
               <div 
@@ -86,7 +86,7 @@ function FrontPage({handleClick}) {
                 onMouseLeave={() => setHovered(false)}
               >
                 <div className='sample-heading-3 w-full h-full absolute top-0 z-10 animate-[fadeIn_0.3s_ease-in-out_infinite] hover:animate-none  '></div>
-                <div className='bg-gradient-to-b bg-[#FF0050] to-black text-center px-10 py-2 font-bold  border-white/30 ' >START</div>
+                <div className='bg-gradient-to-b bg-[#FF0050] to-black text-center px-10 py-2 font-bold  border-white/30 font-roboto ' >START</div>
               </div>
 
             </div>

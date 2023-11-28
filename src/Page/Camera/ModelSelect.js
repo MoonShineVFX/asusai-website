@@ -349,7 +349,7 @@ function ModelSelect() {
         {beforeImage? 
           <div className=" relative mt-4 cursor-pointer" onClick={onBtnClick}>
             <div className='sample-heading-3 w-full h-full absolute top-0 z-10   animate-[fadeIn_0.3s_ease-in-out_infinite] hover:animate-none   '></div>
-            <div className='bg-gradient-to-b bg-[#FF0050] to-[#000] px-10 py-2 border  border-white/30 flex items-center gap-2 ' >開始演算</div>
+            <div className='bg-gradient-to-b bg-[#FF0050] to-[#000] px-10 py-2 border  border-white/30 flex items-center gap-2 font-roboto' >開始演算</div>
           </div>
           :
           <div className=" relative mt-4 cursor-default" onClick={onBtnClick}>
@@ -393,7 +393,7 @@ function ModelSelect() {
                       <div  className='mt-4 p-2 bg-[#FF0050]/70 flex flex-col items-center'>
                         <div className='text-white '>{msg}</div>
                         <div className='text-xs text-white/90 mt-2'>可能是不支援的格式或不清楚的圖</div>
-                        <Link to='/camera' className=' px-3  py-2 text-xs rounded-lg border-white/50 my-3 bg-black/20 hover:bg-black/40 '>回到上一步驟</Link> 
+                        <Link to='/camera' className=' px-3  py-2 text-xs rounded-lg border-white/50 my-3 bg-black/20 hover:bg-black/40 font-roboto '>回到上一步驟</Link> 
                       </div>
                   }
 

@@ -31,16 +31,15 @@ function CameraLayout() {
         alt="" 
         className='max-w-full flex h-screen md:py-5 left-4 absolute z-0'/>
       
-
         <img 
           src={process.env.PUBLIC_URL+'/images/bg_fui_right.png'} 
           alt="" 
           className='max-w-full flex h-screen md:py-5 right-3 absolute z-0 '/>
         <div className='w-full md:aspect-[1413/672] flex flex-col h-full md:h-auto justify-between  px-0 md:px-32 pt-4 md:pt-10 relative'>
           <div className='flex justify-between md:h-14  items-start px-10 '>
-
+            <div className='w-1/2 md:w-1/4  mt-10 md:mt-0'>
             {location.pathname === '/camera' ? 
-              <div className='w-1/2 md:w-1/4  mt-10 md:mt-0'>
+              <>
                 <Link to='/' className=" " >
                   <Button variant="text" className="flex items-center gap-3 text-white p-0 mb-2 hover:text-red-500 text-base">
                     <FaArrowLeft size={15} />
@@ -48,11 +47,11 @@ function CameraLayout() {
                   </Button>
                 </Link>
                 <img src={process.env.PUBLIC_URL+'/images/step1.png'} alt="" className='max-w-full   '/> 
-              </div>
-              
+              </>
               :
-              <img src={process.env.PUBLIC_URL+'/images/header_left.png'} alt="" className='max-w-screen md:h-full w-[47%] md:w-auto mt-14 md:mt-0'/>
+              <img src={process.env.PUBLIC_URL+'/images/header_left.png'} alt="" className=' max-w-full '/>
             }
+            </div>
             
             <img src="https://moonshine.b-cdn.net/msweb/asusaicamera/images/header_right.gif" alt="" className='max-w-screen w-1/2 md:w-auto md:h-full ' />
           </div>

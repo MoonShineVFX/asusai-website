@@ -22,7 +22,7 @@ function RenderLayout() {
           className='max-w-full flex h-screen py-5 right-4 absolute z-0 '/>
           
         <div className='w-full  px-0 md:px-32 pt-10 flex flex-col '>
-          <div className='flex justify-between items-start h-10 px-10'>
+          <div className='flex justify-between items-start md:h-10 px-10'>
             <div className='w-1/2 md:w-1/3 mt-8 md:mt-0'>
               <Link to='/camera' className=" " >
                 <Button variant="text" className="flex items-center gap-3 text-white text-base p-0 mb-2 hover:text-red-500">
@@ -30,7 +30,7 @@ function RenderLayout() {
                   Back 
                 </Button>
               </Link>
-              <img src={process.env.PUBLIC_URL+'/images/step2.png'} alt="" className='max-w-full h-full '/> 
+              <img src={process.env.PUBLIC_URL+'/images/step2.png'} alt="" className='max-w-full w-3/4 '/> 
 
             </div>
             <img src="https://moonshine.b-cdn.net/msweb/asusaicamera/images/header_right.gif" alt="" className='max-w-screen   md:h-full w-1/2 md:w-auto' />
