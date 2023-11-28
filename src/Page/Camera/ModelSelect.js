@@ -55,12 +55,32 @@ function ModelSelect() {
   const [renderedData, setRenderedData] = useState({})
   const [renderedResult, setRenderedResult] = useState({})
   const [showRender , setShowRender] = useState(false)
-
+  
   const handleOpen = () => setShowRender(!showRender);
   const handleImageClick = (index) =>{
     swiper.slideTo(index)
   }
+  const needsCompression = (file, maxSize, maxDimension) => {
+    return file.size > maxSize || (file.width > maxDimension || file.height > maxDimension);
+  }
+  const getImageDimensions = (file) => {
+    return new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const img = new Image();
+        img.onload = function () {
+          resolve({
+            width: this.width,
+            height: this.height,
+          });
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    });
+  }
   const onBtnClick= async ()=>{
+    
     if (!beforeImage) {
       setMsg('錯誤：必須先拍攝或上傳圖片。')
       return
@@ -80,9 +100,15 @@ function ModelSelect() {
     //POST https://faceswap.rd-02f.workers.dev/images 上傳圖片
     //GET https://faceswap.rd-02f.workers.dev/images/<id> 取得圖片
     var file = dataURLtoFile(beforeImage,'image.jpg')
-    let compressFiles 
-    if(file.size  > 2 * 1024 * 1024) {
-      console.log('壓縮')
+    const { width, height } = await getImageDimensions(file);
+    console.log(width, height)
+    let compressFiles
+    
+    //容量 尺寸
+   
+    if(needsCompression(file, 2 * 1024 * 1024, 3072)) {
+
+      console.log('需要壓縮')
       compressFiles = await resizeFile(file);
       setMsg('正在壓縮圖片。')
     }else{
