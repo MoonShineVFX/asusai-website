@@ -111,7 +111,6 @@ function Result({open ,handleOpen,renderedResult,username}) {
               </div>
 
 
-
               <div className='flex flex-col w-full md:w-full gap-2 md:gap-0 mt-10 md:mt-0'>
 
                 <div className=" relative md:mt-6 w-3/4 mx-auto" onClick={handleOpen}>

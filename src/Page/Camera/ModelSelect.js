@@ -106,7 +106,7 @@ function ModelSelect() {
     
     //容量 尺寸
    
-    if(needsCompression(file, 2 * 1024 * 1024, 3072)) {
+    if(needsCompression(file, 2 * 1024 * 1024, 2000)) {
 
       console.log('需要壓縮')
       compressFiles = await resizeFile(file);
