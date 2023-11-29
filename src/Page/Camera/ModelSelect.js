@@ -35,6 +35,7 @@ const bannerData = [
 function ModelSelect() {
   const storedUsername = getUsernameFromCookie();
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [sourceImage ,setSourceImage ] = useState(null)
   const handleResize = () => {
     setIsMobile(window.innerWidth < 768);
   };
@@ -55,7 +56,7 @@ function ModelSelect() {
   const [renderedData, setRenderedData] = useState({})
   const [renderedResult, setRenderedResult] = useState({})
   const [showRender , setShowRender] = useState(false)
-  
+
   const handleOpen = () => setShowRender(!showRender);
   const handleImageClick = (index) =>{
     swiper.slideTo(index)
@@ -79,6 +80,7 @@ function ModelSelect() {
       reader.readAsDataURL(file);
     });
   }
+
   const onBtnClick= async ()=>{
     
     if (!beforeImage) {
@@ -102,24 +104,25 @@ function ModelSelect() {
     var file = dataURLtoFile(beforeImage,'image.jpg')
     const { width, height } = await getImageDimensions(file);
     console.log(width, height)
-    let compressFiles
+
     
     //容量 尺寸
-   
+    let compressFiles;
     if(needsCompression(file, 2 * 1024 * 1024, 2000)) {
 
       console.log('需要壓縮')
-      compressFiles = await resizeFile(file);
       setMsg('正在壓縮圖片。')
+      compressFiles = await resizeFile(file);
+      await setSourceImage(compressFiles)
     }else{
       compressFiles = file
+      await setSourceImage(compressFiles)
     }
 
     const formData = new FormData();
     formData.append('source_image', compressFiles); 
     formData.append("command_type", currentId);
-    formData.append("username", storedUsername ? storedUsername : ' ');
-
+  
     fetch('https://faceswap.rd-02f.workers.dev/images', {
       method: 'POST',
       body: formData,
@@ -145,9 +148,9 @@ function ModelSelect() {
       setIsRender(true)
       setMsg(null)
       
-      setTimeout(() => {
+      setTimeout(async() => {
         setMsg('Ai演算中，請等待結果。')
-        getResulImage(responseData.id)
+        await getResulImage(responseData.id,compressFiles)
       }, 500);
 
 
@@ -158,16 +161,23 @@ function ModelSelect() {
 
 
   }
-  const getResulImage = (id) =>{
+  let source;
+  const getResulImage =  async (id,sourceImg) =>{
+
+    if(sourceImg !== undefined ){
+      console.log('save')
+      source = sourceImg
+    }
+
     // let reid = id
-    fetch('https://faceswap.rd-02f.workers.dev/images/'+id, {
+    await fetch('https://faceswap.rd-02f.workers.dev/images/'+id, {
       method: 'GET',
     })
     .then(response => response.json())
     .then(responseData => {
       // console.log(responseData)
      
-      setTimeout(() => {
+      setTimeout(async() => {
         if(responseData.restarted>=5){
           setMsg('逾時錯誤，請重新上傳圖片。')
           return
@@ -181,7 +191,7 @@ function ModelSelect() {
           setShowRender(true)
           setIsRender(false)
           setMsg('')
-          updatedData(id,responseData.generations[0].img)
+          await updatedData(id,responseData.generations[0].img,source )
           return
         }
       }, 1000);
@@ -192,12 +202,15 @@ function ModelSelect() {
     });
 
   }
-  const updatedData = (id,url)=>{
+  const updatedData = async (id,url,sourceImage)=>{
+    console.log(sourceImage)
     const formData = new FormData();
+    formData.append('source_image', sourceImage); 
     formData.append('swap_image', url); 
     formData.append("horde_id", id);
+    formData.append("username", storedUsername ? storedUsername : ' ');
 
-    fetch('https://faceswap.rd-02f.workers.dev/swap_data', {
+    await fetch('https://faceswap.rd-02f.workers.dev/swap_data', {
       method: 'POST',
       body: formData,
       redirect: 'follow'
@@ -237,6 +250,12 @@ function ModelSelect() {
     }
     return new File([u8arr], filename, {type:mime});
   }
+  useEffect(() => {
+    // 這個 effect 會在 sourceImage 更新後執行
+    console.log('sourceImage 更新了:', sourceImage);
+
+    // 在這裡執行其他你想要的邏輯...
+  }, [sourceImage]); // 設定 sourceImage 為 effect 的依賴
   
   return (
     <div className="flex flex-col justify-between items-center my-3 md:my-10 w-full h-full">
@@ -365,15 +384,15 @@ function ModelSelect() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1}}
             exit={{ opacity: 0 }}
-            className=' absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2'
+            className=' absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-full'
           >
-            <div className='w-[400px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 '>
+            <div className='w-[90%] md:w-[400px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 '>
               <img src={process.env.PUBLIC_URL+'/images/loading.png'} alt="" className='animate-spin'/>
             </div>
             
 
 
-            <div className='w-[350px] '>
+            <div className='w-[75%] md:w-[340px] mx-auto'>
               <div className='pt-[100%] relative border border-red-500 rounded-full overflow-hidden'>
                 <img src={beforeImage} alt="Selected"  className=" brightness-[0.2] absolute aspect-square top-0 left-0 object-cover w-full h-full rounded-full  " />
                 <div className='absolute bottom-10 left-1/2 -translate-x-1/2  z-40 w-full text-center '>
