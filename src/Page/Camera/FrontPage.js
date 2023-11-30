@@ -54,12 +54,26 @@ function FrontPage({handleClick}) {
               transition={{ duration: 1.5 }}
               src="https://moonshine.b-cdn.net/msweb/asusaicamera/images/cover_mb.png?width=400" alt="p01" className='max-w-full w-full img_ref ' />
               :
-            <motion.img 
-              initial={{ opacity: 0, y:  40 }}
-              animate={{ opacity: 1 , y:isHovered ? 10:0}}
-              exit={{ opacity: 0,y:40 }}
-              transition={{ duration: 1.5 }}
-              src="https://moonshine.b-cdn.net/msweb/asusaicamera/images/cover.png?format=webp&width=900" alt="p01" className='max-w-full w-full img_ref ' />
+              <motion.picture
+                initial={{ opacity: 0, y:  40 }}
+                animate={{ opacity: 1 , y:isHovered ? 10:0}}
+                exit={{ opacity: 0,y:40 }}
+                transition={{ duration: 1.5 }}
+              >
+              <source
+                src='https://moonshine.b-cdn.net/msweb/asusaicamera/images/cover.png?format=webp&width=1280'
+                alt="card-image"
+                className='max-w-full w-full img_ref'
+                type='image/webp'
+              />
+              <img
+
+                src='https://moonshine.b-cdn.net/msweb/asusaicamera/images/cover.png?width=1280'
+                alt="card-image"
+                className='max-w-full w-full img_ref'
+              />
+            </motion.picture>
+
             }
             
 

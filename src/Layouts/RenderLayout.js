@@ -30,7 +30,10 @@ function RenderLayout() {
                   Back 
                 </Button>
               </Link>
-              <img src={process.env.PUBLIC_URL+'/images/step2.png'} alt="" className='max-w-full w-3/4 '/> 
+              <div className='flex items-center gap-2'>
+                <img src={process.env.PUBLIC_URL+'/images/title_slash.svg'} alt="" className='max-w-full   '/> 
+                <div className='text-[#FF0050] text-base font-bold'>STEP2 : Choose a module </div>
+              </div>
 
             </div>
             <img src="https://moonshine.b-cdn.net/msweb/asusaicamera/images/header_right.gif" alt="" className='max-w-screen   md:h-full w-1/2 md:w-auto' />

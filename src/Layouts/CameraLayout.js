@@ -36,8 +36,8 @@ function CameraLayout() {
           alt="" 
           className='max-w-full flex h-screen md:py-5 right-3 absolute z-0 '/>
         <div className='w-full md:aspect-[1413/672] flex flex-col h-full md:h-auto justify-between  px-0 md:px-32 pt-4 md:pt-10 relative'>
-          <div className='flex justify-between md:h-14  items-start px-10 '>
-            <div className='w-1/2 md:w-1/4  mt-10 md:mt-0'>
+          <div className='flex justify-between md:h-14  items-start px-0 '>
+            <div className='w-1/2 md:w-1/4  mt-10 md:mt-0 h-full'>
             {location.pathname === '/camera' ? 
               <>
                 <Link to='/' className=" " >
@@ -46,10 +46,14 @@ function CameraLayout() {
                     Back 
                   </Button>
                 </Link>
-                <img src={process.env.PUBLIC_URL+'/images/step1.png'} alt="" className='max-w-full   '/> 
+                <div className='flex items-center gap-2'>
+                  <img src={process.env.PUBLIC_URL+'/images/title_slash.svg'} alt="" className='max-w-full   '/> 
+                  <div className='text-[#FF0050] text-base font-bold'>STEP1 : Take Photo </div>
+                </div>
+
               </>
               :
-              <img src={process.env.PUBLIC_URL+'/images/header_left.png'} alt="" className=' max-w-full '/>
+              <img src={process.env.PUBLIC_URL+'/images/header_left.png'} alt="" className=' max-w-full md:h-full'/>
             }
             </div>
             
