@@ -93,7 +93,7 @@ function ModelSelect() {
       return
     }
       setMsg(null)
-      setMsg('正在上傳圖片..')
+      setMsg('Picture uploading…..')
       setIsRender(true)
 
     
@@ -149,7 +149,7 @@ function ModelSelect() {
       setMsg(null)
       
       setTimeout(async() => {
-        setMsg('Ai演算中，請等待結果。')
+        setMsg('Please wait for the result')
         await getResulImage(responseData.id,compressFiles)
       }, 500);
 
@@ -368,7 +368,7 @@ function ModelSelect() {
         {beforeImage? 
           <div className=" relative mt-4 cursor-pointer" onClick={onBtnClick}>
             <div className='sample-heading-3 w-full h-full absolute top-0 z-10   animate-[fadeIn_0.3s_ease-in-out_infinite] hover:animate-none   '></div>
-            <div className='bg-gradient-to-b bg-[#FF0050] to-[#000] px-10 py-2 border  border-white/30 flex items-center gap-2 font-roboto' >開始演算</div>
+            <div className='bg-gradient-to-b bg-[#FF0050] to-[#000] px-10 py-2 border  border-white/30 flex items-center gap-2 font-roboto' >Start creating</div>
           </div>
           :
           <div className=" relative mt-4 cursor-default" onClick={onBtnClick}>

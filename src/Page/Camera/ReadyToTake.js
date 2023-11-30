@@ -399,17 +399,22 @@ function ReadyToTake({handleBackClick}) {
       {isCameraOpen ? 
         <div className="flex  items-center gap-4 relative w-full">
             
-          <Alert open={isCameraInfo} className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10 w-10/12  md:w-auto   ">
-            <div className="flex items-center gap-2 w-full">
-              <FaInfoCircle /> <div>請拿下眼鏡、帽子等配件，並將臉部對準參考線。</div>
-            </div>
-            
-          </Alert>
+
 
           <div 
             className=" relative w-full  md:w-1/2 mx-auto  bg-gray-500 md:aspect-[16/9]"
             style={{clipPath: 'polygon(5% 0%, 95% 0%, 100% 5%, 100% 95%, 95% 100%, 5% 100%, 0% 95%, 0% 5%)'}}
           >
+            <Alert 
+              open={true} 
+              className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10 w-10/12  md:w-10/12 mx-auto bg-black p-3 rounded-md  [&>*]:mr-0  " 
+
+            >
+              <div className="flex items-center gap-2 w-full text-sm">
+                <FaInfoCircle size={32} /> <div>Please remove accessories such as glasses and hats, and align your face with the reference line</div>
+              </div>
+              
+            </Alert>
 
             {!image &&
               <div className="w-full h-full  top-0 z-10 absolute  ">
@@ -579,7 +584,7 @@ function ReadyToTake({handleBackClick}) {
                 >
                   <Link to={'/templates'} className=" relative">
                     <div className='sample-heading-3 w-full h-full absolute top-0 z-10   animate-[fadeIn_0.3s_ease-in-out_infinite] hover:animate-none cursor-pointer  '></div>
-                    <div className='bg-gradient-to-b bg-[#FF0050] to-[#000] px-10 py-2 border  border-white/30 flex items-center gap-2 font-roboto' >下一步選擇主題 <FaArrowAltCircleRight /></div>
+                    <div className='bg-gradient-to-b bg-[#FF0050] to-[#000] px-10 py-2 border  border-white/30 flex items-center gap-2 font-roboto' >NEXT <FaArrowAltCircleRight /></div>
                   </Link>
                 </motion.div>
               </Suspense>

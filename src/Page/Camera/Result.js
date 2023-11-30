@@ -106,7 +106,7 @@ function Result({open ,handleOpen,renderedResult,username}) {
                     backgroundImage: `url(${process.env.PUBLIC_URL +'/images/scan_info.png'})`,
                   }}
                 >
-                  掃描上方 QRCODE 即可下載屬於你的 AI 圖片！
+                  Scan QRCODE to download your own AI picture！
                 </div>
               </div>
 
@@ -115,15 +115,15 @@ function Result({open ,handleOpen,renderedResult,username}) {
 
                 <div className=" relative md:mt-6 w-3/4 mx-auto" onClick={handleOpen}>
                   <div className='sample-heading-3 w-full h-full absolute top-0 z-10   opacity-0 hover:opacity-100 cursor-pointer  '></div>
-                  <div className='text-white text-sm font-normal bg-gray-800/40 px-5 py-2 border  border-white/30 flex items-center justify-center text-center font-roboto' >選擇另一個模組</div>
+                  <div className='text-white text-sm font-normal bg-gray-800/40 px-5 py-2 border  border-white/30 flex items-center justify-center text-center font-roboto' >Choose another module</div>
                 </div>
                 <Link to='/camera' className=" relative mt-2 w-3/4 mx-auto" onClick={handleOpen}>
                   <div className='sample-heading-3 w-full h-full absolute top-0 z-10   opacity-0 hover:opacity-100 cursor-pointer  '></div>
-                  <div className='text-white text-sm font-normal bg-gray-800/40 px-5 py-2 border  border-white/30 flex items-center justify-center text-center font-roboto' >重新拍照</div>
+                  <div className='text-white text-sm font-normal bg-gray-800/40 px-5 py-2 border  border-white/30 flex items-center justify-center text-center font-roboto' >Reshoot</div>
                 </Link>
                 <Link to='/' className=" relative mt-2 w-3/4 mx-auto" onClick={handleOpen}>
                   <div className='sample-heading-3 w-full h-full absolute top-0 z-10   opacity-0 hover:opacity-100 cursor-pointer  '></div>
-                  <div className='text-white text-sm font-normal bg-[#FF0050] px-5 py-2 border  border-white/30 flex items-center justify-center text-center font-roboto' >回到首頁</div>
+                  <div className='text-white text-sm font-normal bg-[#FF0050] px-5 py-2 border  border-white/30 flex items-center justify-center text-center font-roboto' >Home</div>
                 </Link>
               </div>
 

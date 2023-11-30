@@ -22,7 +22,7 @@ function FrontPage({handleClick}) {
       },800)
     } else {
       // 如果 username 是空白，可以在這裡處理錯誤或提醒使用者輸入有效的 username
-      setNotification('Please enter a name.');
+      setNotification('Please enter your name.');
     }
   }
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
@@ -44,7 +44,7 @@ function FrontPage({handleClick}) {
             <CustomAlert message={notification} onClose={() => setNotification(null)} />
           )}
           <motion.div 
-            className=' relative w-full md:w-4/5 mx-auto flex  my-6 md:my-10 '
+            className=' relative w-full md:w-4/5 mx-auto flex  my-6 md:my-10 text-center'
           >
             {isMobile ? 
             <motion.img 
@@ -59,20 +59,21 @@ function FrontPage({handleClick}) {
                 animate={{ opacity: 1 , y:isHovered ? 10:0}}
                 exit={{ opacity: 0,y:40 }}
                 transition={{ duration: 1.5 }}
+                className='mx-auto'
               >
-              <source
-                src='https://moonshine.b-cdn.net/msweb/asusaicamera/images/cover.png?format=webp&width=1280'
-                alt="card-image"
-                className='max-w-full w-full img_ref'
-                type='image/webp'
-              />
-              <img
+                <source
+                  src='https://moonshine.b-cdn.net/msweb/asusaicamera/images/cover.png?format=webp&width=1280'
+                  alt="card-image"
+                  className='max-w-full w-full img_ref '
+                  type='image/webp'
+                />
+                <img
 
-                src='https://moonshine.b-cdn.net/msweb/asusaicamera/images/cover.png?width=1280'
-                alt="card-image"
-                className='max-w-full w-full img_ref'
-              />
-            </motion.picture>
+                  src='https://moonshine.b-cdn.net/msweb/asusaicamera/images/cover.png?width=1280'
+                  alt="card-image"
+                  className='max-w-full w-full img_ref '
+                />
+              </motion.picture>
 
             }
             
