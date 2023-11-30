@@ -29,15 +29,15 @@ function CameraLayout() {
         <img 
         src={process.env.PUBLIC_URL+'/images/bg_fui_left.png'} 
         alt="" 
-        className='max-w-full flex h-screen md:py-5 left-4 absolute z-0'/>
+        className='max-w-full flex h-screen md:py-5 left-2 absolute z-0'/>
       
         <img 
           src={process.env.PUBLIC_URL+'/images/bg_fui_right.png'} 
           alt="" 
-          className='max-w-full flex h-screen md:py-5 right-3 absolute z-0 '/>
+          className='max-w-full flex h-screen md:py-5 right-2 absolute z-0 '/>
         <div className='w-full md:aspect-[1413/672] flex flex-col h-full md:h-auto justify-between  px-0 md:px-32 pt-4 md:pt-10 relative'>
-          <div className='flex justify-between md:h-14  items-start px-0 '>
-            <div className='w-1/2 md:w-1/4  mt-10 md:mt-0 h-full'>
+          <div className='flex justify-between md:h-14  items-start px-10 md:px-0 flex-col md:flex-row '>
+            <div className='w-full md:w-1/4  mt-0 md:mt-0 h-full order-2 md:order-1'>
             {location.pathname === '/camera' ? 
               <>
                 <Link to='/' className=" " >
@@ -53,11 +53,11 @@ function CameraLayout() {
 
               </>
               :
-              <img src={process.env.PUBLIC_URL+'/images/header_left.png'} alt="" className=' max-w-full md:h-full'/>
+              <img src={process.env.PUBLIC_URL+'/images/header_left.png'} alt="" className=' max-w-full md:h-full w-1/2 md:w-auto'/>
             }
             </div>
             
-            <img src="https://moonshine.b-cdn.net/msweb/asusaicamera/images/header_right.gif" alt="" className='max-w-screen w-1/2 md:w-auto md:h-full ' />
+            <img src="https://moonshine.b-cdn.net/msweb/asusaicamera/images/header_right.gif" alt="" className='max-w-screen w-1/2 md:w-auto md:h-full ml-auto order-1 md:order-2 ' />
           </div>
           <div 
             className={`${isMobile ? "h-full ":  "framed" } flex flex-col w-full mx-auto  items-center md:mt-10 py-1 relative `}
