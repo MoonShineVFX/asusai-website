@@ -68,12 +68,13 @@ function Result({open ,handleOpen,renderedResult,username}) {
             {Object.keys(renderedResult).length > 0 && (
               <div className='w-3/4 md:w-1/2 relative'>
                 <Suspense fallback={<Spinner/>}>
+                  <div className='md:hidden text-center  mb-2 text-[#FF0050] font-cachet'>Press and hold to save photo↓</div>
+                  <img src={renderedResult.generations[0].img} alt=""  className='border border-[#FF0050]'/>
                   {
                     username && 
-                    <div className="  text-center bg-black/30 p-3 rounded-md  text-white/70 text-xs my- cursor-pointer">Player name：{username}</div>
+                    <div className="  text-center mt-4 rounded-md  text-[#FF0050] font-cachet text-sm">Player name：{username}</div>
                   }
-                  <img src={renderedResult.generations[0].img} alt=""  className='border border-red-500'/>
-                  <div className='md:hidden text-center text-white/70'>Press and hold to save photo</div>
+
                   <div onClick={()=>downloadImageBlob(renderedResult.generations[0].img)}
                       className=" absolute text-center bottom-0 right-2  bg-black/30 p-3 rounded-md  text-white/70 text-xs my-2 hidden font-roboto">下載</div>
                
@@ -89,7 +90,7 @@ function Result({open ,handleOpen,renderedResult,username}) {
               <div className='hidden md:flex flex-col w-1/2 md:w-full  '>
                 {Object.keys(renderedResult).length > 0 &&
                   <div 
-                    className='p-3 md:p-5 bg-contain bg-no-repeat md:w-full mx-auto border border-red-500 relative'
+                    className='p-3 md:p-5 bg-contain bg-no-repeat md:w-full mx-auto border border-[#FF0050] relative'
                   >
                     <QRCode
                       size={200}

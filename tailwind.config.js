@@ -14,6 +14,7 @@ module.exports = withMT({
       },
       fontFamily: {
         'roboto': ['Roboto', 'sans-serif'],
+        'cachet': ['Cachet-W05', 'sans-serif'],
       }
     },
 
