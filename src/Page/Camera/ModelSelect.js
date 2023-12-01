@@ -84,12 +84,12 @@ function ModelSelect() {
   const onBtnClick= async ()=>{
     
     if (!beforeImage) {
-      setMsg('錯誤：必須先拍攝或上傳圖片。')
+      setMsg('Error: Image must be taken or uploaded first.')
       return
     }
     if(!currentId){
       // console.log('no')
-      setMsg('錯誤：必須選擇一個模組。')
+      setMsg('Error: A mod must be selected.')
       return
     }
       setMsg(null)
@@ -110,8 +110,8 @@ function ModelSelect() {
     let compressFiles;
     if(needsCompression(file, 2 * 1024 * 1024, 2000)) {
 
-      console.log('需要壓縮')
-      setMsg('正在壓縮圖片。')
+      // console.log('需要壓縮')
+      setMsg('Compressing image.')
       compressFiles = await resizeFile(file);
       await setSourceImage(compressFiles)
     }else{
@@ -134,14 +134,14 @@ function ModelSelect() {
 
         return response.json()
       }else{
-        setMsg('發生錯誤，請重新上傳圖片。')
+        setMsg('Error:please upload the image again.')
       }
      
     })
     .then(responseData => {
       // console.log(responseData)
       if(responseData.message){
-        setMsg('發生錯誤，請重新上傳圖片。')
+        setMsg('Error:please upload the image again.')
         return
       }
       setRenderedData(responseData)
@@ -179,7 +179,7 @@ function ModelSelect() {
      
       setTimeout(async() => {
         if(responseData.restarted>=5){
-          setMsg('逾時錯誤，請重新上傳圖片。')
+          setMsg('Timeout error, please upload the image again.')
           return
         }
         if(responseData.finished === 0){
@@ -277,7 +277,7 @@ function ModelSelect() {
           </motion.div>
         </Suspense>
         :
-        <div className="w-[160px] aspect-video flex flex-col mx-auto fixed top-5 right-5 text-xs">請記得上傳照片才可以換臉</div>
+        <div className="w-[160px] aspect-video flex flex-col mx-auto fixed top-5 right-5 text-xs">Remember to upload a photo</div>
       }
         <div className='w-full md:w-[80%] mx-auto relative mt-5 md:mt-0'>
           <Swiper
@@ -325,7 +325,7 @@ function ModelSelect() {
                     <div className=' relative '>
                       <div className=' relative w-full'>
                         <img 
-                          src={item.url+'?width=350'} 
+                          src={item.url+'?width=400'} 
                           alt="slide" 
                           className={` max-w-full hover:brightness-110 rounded-md transition-all ${currentId === item.id ? 'drop-shadow-[0px_10px_15px_rgba(255,255,255,0.55)] brightness-110 ' : ''}`}
                           onClick={()=>{
@@ -372,8 +372,8 @@ function ModelSelect() {
           </div>
           :
           <div className=" relative mt-4 cursor-default" onClick={onBtnClick}>
-            <div className='bg-gradient-to-b bg-[#888] to-[#000] px-10 py-2 border  border-white/30 flex items-center gap-2 ' >未找到可運算的圖片</div>
-            <div className='text-sm font-normal text-white/60 text-center mt-3'>請重新拍照或上傳圖片。</div>
+            <div className='bg-gradient-to-b bg-[#888] to-[#000] px-10 py-2 border  border-white/30 flex items-center gap-2 ' >No images found for operation.</div>
+            <div className='text-sm font-normal text-white/60 text-center mt-3'>Please take a new photo or upload the image.</div>
           </div>
         }
 
@@ -411,8 +411,8 @@ function ModelSelect() {
                     msg && msg.includes('錯誤') &&
                       <div  className='mt-4 p-2 bg-[#FF0050]/70 flex flex-col items-center'>
                         <div className='text-white '>{msg}</div>
-                        <div className='text-xs text-white/90 mt-2'>可能是不支援的格式或不清楚的圖</div>
-                        <Link to='/camera' className=' px-3  py-2 text-xs rounded-lg border-white/50 my-3 bg-black/20 hover:bg-black/40 font-roboto '>回到上一步驟</Link> 
+                        <div className='text-xs text-white/90 mt-2'>Unsupported format or unclear image.</div>
+                        <Link to='/camera' className=' px-3  py-2 text-xs rounded-lg border-white/50 my-3 bg-black/20 hover:bg-black/40 font-roboto '>Back</Link> 
                       </div>
                   }
 
