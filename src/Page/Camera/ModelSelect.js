@@ -373,7 +373,7 @@ function ModelSelect() {
           </div>
           :
           <div className=" relative mt-8 md:mt-4 cursor-default" onClick={onBtnClick}>
-            <div className='bg-gradient-to-b bg-[#888] to-[#000] px-10 py-2 border  border-white/30 flex items-center gap-2 ' >No images found for operation.</div>
+            <div className='bg-gradient-to-b bg-[#888] to-[#000] px-10 py-2 border  border-white/30 flex items-center gap-2  font-roboto' >No images found for operation.</div>
             <div className='text-sm font-normal text-white/60 text-center mt-3'>Please take a new photo or upload the image.</div>
           </div>
         }

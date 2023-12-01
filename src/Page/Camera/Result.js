@@ -68,11 +68,11 @@ function Result({open ,handleOpen,renderedResult,username}) {
             {Object.keys(renderedResult).length > 0 && (
               <div className='w-3/4 md:w-1/2 relative'>
                 <Suspense fallback={<Spinner/>}>
-                  <div className='md:hidden text-center  mb-2 text-[#FF0050] font-cachet'>Press and hold to save photo↓</div>
+                  <div className='md:hidden text-center  mb-2 text-[#FF0050] font-cachet font-bold'>Press and hold to save photo↓</div>
                   <img src={renderedResult.generations[0].img} alt=""  className='border border-[#FF0050]'/>
                   {
                     username && 
-                    <div className="  text-center mt-4 rounded-md  text-[#FF0050] font-cachet text-sm">Player name：{username}</div>
+                    <div className="  text-center mt-4 rounded-md  text-[#FF0050] font-cachet text-sm font-bold">Player name：{username}</div>
                   }
 
                   <div onClick={()=>downloadImageBlob(renderedResult.generations[0].img)}
