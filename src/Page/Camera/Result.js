@@ -38,8 +38,8 @@ function Result({open ,handleOpen,renderedResult,username}) {
   };
   return (
     <div>
-      <Dialog open={open} size="lg"  className='bg-black/80 py-1'>
-      <DialogHeader className="justify-end mb-0 pb-0 pt-0">
+      <Dialog open={open} size="lg"  className='bg-black/80 pt-0 -mt-20 md:mt-0 '>
+      <DialogHeader className="justify-end mb-0 md:mb-1 pb-0 pt-0">
           <IconButton
             color="white"
             size="sm"
@@ -111,7 +111,7 @@ function Result({open ,handleOpen,renderedResult,username}) {
               </div>
 
 
-              <div className='flex flex-col w-full md:w-full gap-2 md:gap-0 mt-10 md:mt-0'>
+              <div className='flex flex-col w-full md:w-full gap-2 md:gap-0 mt-4 md:mt-0'>
 
                 <div className=" relative md:mt-6 w-3/4 mx-auto" onClick={handleOpen}>
                   <div className='sample-heading-3 w-full h-full absolute top-0 z-10   opacity-0 hover:opacity-100 cursor-pointer  '></div>

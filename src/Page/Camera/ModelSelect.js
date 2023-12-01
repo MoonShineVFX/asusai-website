@@ -210,6 +210,7 @@ function ModelSelect() {
     formData.append("horde_id", id);
     formData.append("username", storedUsername ? storedUsername : ' ');
     formData.append("command_type", currentId);
+
     await fetch('https://faceswap.rd-02f.workers.dev/swap_data', {
       method: 'POST',
       body: formData,
@@ -258,7 +259,7 @@ function ModelSelect() {
   }, [sourceImage]); // 設定 sourceImage 為 effect 的依賴
   
   return (
-    <div className="flex flex-col justify-between items-center my-3 md:my-10 w-full h-full">
+    <div className="flex flex-col justify-between items-center my-1 md:my-10 w-full h-full">
       
 
       {beforeImage?
@@ -325,7 +326,7 @@ function ModelSelect() {
                     <div className=' relative '>
                       <div className=' relative w-full'>
                         <img 
-                          src={item.url+'?width=400'} 
+                          src={item.url+'?width=410'} 
                           alt="slide" 
                           className={` max-w-full hover:brightness-110 rounded-md transition-all ${currentId === item.id ? 'drop-shadow-[0px_10px_15px_rgba(255,255,255,0.55)] brightness-110 ' : ''}`}
                           onClick={()=>{
@@ -405,7 +406,7 @@ function ModelSelect() {
                   )}
                   {
                     storedUsername && msg && !msg.includes('錯誤') &&
-                    <div className="  text-white/70 text-xs z-10">Player name：{storedUsername}</div>
+                    <div className="  text-white/70 text-xs z-10 ">Player name：{storedUsername}</div>
                   }
                   {
                     msg && msg.includes('錯誤') &&
