@@ -15,13 +15,13 @@ function RenderLayout() {
         <img 
           src={process.env.PUBLIC_URL+'/images/bg_fui_left.png'} 
           alt="" 
-          className='max-w-full flex h-screen py-5 left-2 absolute  z-0'/>
+          className='max-w-full flex h-screen md:py-5 left-2 absolute  z-0'/>
         <img 
           src={process.env.PUBLIC_URL+'/images/bg_fui_right.png'} 
           alt="" 
-          className='max-w-full flex h-screen py-5 right-2 absolute z-0 '/>
+          className='max-w-full flex h-screen md:py-5 right-2 absolute z-0 '/>
           
-        <div className='w-full  px-0 md:px-32 pt-10 flex flex-col '>
+        <div className='w-full  px-0 md:px-32 pt-4 md:pt-10 flex flex-col '>
           <div className='flex justify-between items-start md:h-10 px-10 md:px-0 flex-col md:flex-row'>
             <div className='w-full md:w-1/3 mt-0 md:mt-0  order-2 md:order-1'>
               <Link to='/camera' className=" " >
@@ -38,7 +38,7 @@ function RenderLayout() {
             </div>
             <img src="https://moonshine.b-cdn.net/msweb/asusaicamera/images/header_right.gif" alt="" className='max-w-screen   md:h-full w-1/2 md:w-auto  ml-auto order-1 md:order-2 ' />
           </div>
-          <div className='mt-10 md:mt-6 relative md:my-10 px-0 md:mx-10'>
+          <div className='mt-7 md:mt-6 relative md:my-10 px-0 md:mx-10'>
             <div className=' w-full md:w-auto  top-0 left-0 z-10 right-0'>
               {
                 storedUsername && <div className="mt-1   text-white/70 text-xs text-center md:text-left">Player name：{storedUsername}</div>
