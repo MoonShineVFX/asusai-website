@@ -52,7 +52,7 @@ function FrontPage({handleClick}) {
               animate={{ opacity: 1 , y:isHovered ? 10:0}}
               exit={{ opacity: 0,y:40 }}
               transition={{ duration: 1.5 }}
-              src="https://moonshine.b-cdn.net/msweb/asusaicamera/images/cover_mb.png?width=400" alt="p01" className='max-w-full w-full img_ref my-12 ' />
+              src="https://moonshine.b-cdn.net/msweb/asusaicamera/images/cover_mb.png?width=400" alt="p01" className='max-w-full w-full img_ref mt-14 mb-6 ' />
               :
               <motion.picture
                 initial={{ opacity: 0, y:  40 }}
