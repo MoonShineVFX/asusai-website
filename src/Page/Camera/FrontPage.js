@@ -91,7 +91,7 @@ function FrontPage({handleClick}) {
 
             <div className='flex my-8 md:my-6 flex-col gap-2 md:flex-row md:gap-0  w-4/5 md:w-full    '>
               <div className="w-full md:w-72">
-                <Input type="text" color="white" label="Player Name" className=' rounded-none font-roboto' onChange={onChange} />
+                <Input type="text" color="white" label="Please enter your name." className=' rounded-none font-roboto' onChange={onChange} />
                 
               </div>
               <div 

@@ -65,7 +65,7 @@ function CameraLayout() {
             <div className=' w-full md:w-auto absolute top-0 left-0 z-10 right-0'>
               <img src="https://moonshine.b-cdn.net/msweb/asusaicamera/images/page_fui01_gif.gif" alt="p01" className='max-w-full hidden md:block  ' /> 
               {
-                location.pathname === '/camera' && storedUsername && <div className="mt-4  text-white/70 text-xs text-center md:text-left">玩家名稱：{storedUsername}</div>
+                location.pathname === '/camera' && storedUsername && <div className="mt-4  text-white/70 text-xs text-center md:text-left">Player name：{storedUsername}</div>
               }
             </div>
            

@@ -67,7 +67,7 @@ function Result({open ,handleOpen,renderedResult,username}) {
           <div className='flex flex-col md:flex-row justify-center items-center gap-0'>
             {
               username && 
-              <div className="  text-center bg-black/30 p-3 rounded-md  text-white/70 text-xs my-2 cursor-pointer">玩家名稱：{username}</div>
+              <div className="  text-center bg-black/30 p-3 rounded-md  text-white/70 text-xs my-2 cursor-pointer">Player name{username}</div>
             }
             {Object.keys(renderedResult).length > 0 && (
               <div className='w-3/4 md:w-1/2 relative'>
