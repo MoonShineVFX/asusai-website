@@ -406,9 +406,8 @@ function ReadyToTake({handleBackClick}) {
             style={{clipPath: 'polygon(5% 0%, 95% 0%, 100% 5%, 100% 95%, 95% 100%, 5% 100%, 0% 95%, 0% 5%)'}}
           >
             <Alert 
-              open={true} 
-              className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10 w-10/12  md:w-10/12 mx-auto bg-black p-3 rounded-md  [&>*]:mr-0  " 
-
+              open={isCameraInfo} 
+              className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 w-10/12  md:w-10/12 mx-auto bg-black p-3 rounded-md  [&>*]:mr-0  " 
             >
               <div className="flex items-center gap-2 w-full text-sm">
                 <FaInfoCircle size={32} /> <div>Please remove accessories such as glasses and hats, and align your face with the reference line</div>

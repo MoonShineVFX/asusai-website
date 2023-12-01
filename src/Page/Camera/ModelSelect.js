@@ -405,7 +405,7 @@ function ModelSelect() {
                   )}
                   {
                     storedUsername && msg && !msg.includes('錯誤') &&
-                    <div className="  text-white/70 text-xs z-10">玩家名稱：{storedUsername}</div>
+                    <div className="  text-white/70 text-xs z-10">Player name：{storedUsername}</div>
                   }
                   {
                     msg && msg.includes('錯誤') &&

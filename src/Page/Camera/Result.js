@@ -38,9 +38,8 @@ function Result({open ,handleOpen,renderedResult,username}) {
   };
   return (
     <div>
-      <Dialog open={open} size="lg"  className='bg-black/80 py-5'>
-      <DialogHeader className="justify-end">
-
+      <Dialog open={open} size="lg"  className='bg-black/80 py-1'>
+      <DialogHeader className="justify-end mb-0 pb-0 pt-0">
           <IconButton
             color="white"
             size="sm"
@@ -63,17 +62,18 @@ function Result({open ,handleOpen,renderedResult,username}) {
             </svg>
           </IconButton>
         </DialogHeader>
-        <DialogBody>
-          <div className='flex flex-col md:flex-row justify-center items-center gap-0'>
-            {
-              username && 
-              <div className="  text-center bg-black/30 p-3 rounded-md  text-white/70 text-xs my-2 cursor-pointer">Player name{username}</div>
-            }
+        <DialogBody className='p-0 m-0'>
+          <div className='flex flex-col md:flex-row justify-center items-center gap-0 '>
+
             {Object.keys(renderedResult).length > 0 && (
               <div className='w-3/4 md:w-1/2 relative'>
                 <Suspense fallback={<Spinner/>}>
+                  {
+                    username && 
+                    <div className="  text-center bg-black/30 p-3 rounded-md  text-white/70 text-xs my- cursor-pointer">Player name：{username}</div>
+                  }
                   <img src={renderedResult.generations[0].img} alt=""  className='border border-red-500'/>
-           
+                  <div className='md:hidden text-center text-white/70'>Press and hold to save photo</div>
                   <div onClick={()=>downloadImageBlob(renderedResult.generations[0].img)}
                       className=" absolute text-center bottom-0 right-2  bg-black/30 p-3 rounded-md  text-white/70 text-xs my-2 hidden font-roboto">下載</div>
                
