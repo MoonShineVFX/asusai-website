@@ -209,7 +209,7 @@ function ModelSelect() {
     formData.append('swap_image', url); 
     formData.append("horde_id", id);
     formData.append("username", storedUsername ? storedUsername : ' ');
-
+    formData.append("command_type", currentId);
     await fetch('https://faceswap.rd-02f.workers.dev/swap_data', {
       method: 'POST',
       body: formData,
