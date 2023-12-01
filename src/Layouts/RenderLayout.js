@@ -50,7 +50,7 @@ function RenderLayout() {
 
 
           
-          <div className='mt-auto'>
+          <div className='mt-auto hidden md:block'>
             <img src={process.env.PUBLIC_URL+'/images/page_bottom.png'} alt="p01" className='max-w-full w-full mt-auto ' />
           </div>
 
