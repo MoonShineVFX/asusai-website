@@ -82,7 +82,7 @@ function ReadyToTake({handleBackClick}) {
     setVideoConstraints({
       ...videoConstraints,
       facingMode: videoConstraints.facingMode === 'user' ? 'environment' : 'user',
-      mirrored: videoConstraints.mirrored === true ? true : true
+      mirrored: videoConstraints.mirrored === true ? false : true
     });
   }
   //flow open camera
@@ -448,7 +448,7 @@ function ReadyToTake({handleBackClick}) {
             )}
 
             
-           {isMobile ? <Webcam ref={webcamRef} facingMode= 'user' mirrored={true} videoConstraints={videoConstraints} /> :  <Webcam ref={webcamRef} mirrored={true} width={1000}    />} 
+           {isMobile ? <Webcam ref={webcamRef} facingMode= 'user' mirrored={videoConstraints.facingMode === 'user' ? true: false} videoConstraints={videoConstraints} /> :  <Webcam ref={webcamRef} mirrored={true} width={1000}    />} 
           </div>
           {
            isMobile ?
