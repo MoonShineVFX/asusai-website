@@ -82,7 +82,7 @@ function ReadyToTake({handleBackClick}) {
     setVideoConstraints({
       ...videoConstraints,
       facingMode: videoConstraints.facingMode === 'user' ? 'environment' : 'user',
-      mirrored: videoConstraints.mirrored === true ? false : true
+      mirrored: videoConstraints.mirrored === true ? true : true
     });
   }
   //flow open camera
