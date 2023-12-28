@@ -108,7 +108,7 @@ function ModelSelect() {
     
     //容量 尺寸
     let compressFiles;
-    if(needsCompression(file, 2 * 1024 * 1024, 2000)) {
+    if(needsCompression(file, 1 * 1024 * 1024, 1200)) {
 
       // console.log('需要壓縮')
       setMsg('Compressing image.')
@@ -175,10 +175,10 @@ function ModelSelect() {
     })
     .then(response => response.json())
     .then(responseData => {
-      // console.log(responseData)
+      console.log(responseData)
      
       setTimeout(async() => {
-        if(responseData.restarted>=5){
+        if(responseData.restarted>=2){
           setMsg('Timeout error, please upload the image again.')
           return
         }
