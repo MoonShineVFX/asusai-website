@@ -57,20 +57,20 @@ function CameraLayout() {
             }
             </div>
             
-            <img src="https://moonshine.b-cdn.net/msweb/asusaicamera/images/header_right.gif" alt="" className='max-w-screen w-1/2 md:w-auto md:h-full ml-auto order-1 md:order-2 ' />
+            <img src="https://r2.web.moonshine.tw/msweb/asusaicamera/images/header_right.gif" alt="" className='max-w-screen w-1/2 md:w-auto md:h-full ml-auto order-1 md:order-2 ' />
           </div>
           <div 
             className={`${isMobile ? "h-full ":  "framed" } flex flex-col w-full mx-auto  items-center md:mt-10 py-1 relative `}
           >
             <div className=' w-full md:w-auto absolute top-0 left-0 z-10 right-0'>
-              <img src="https://moonshine.b-cdn.net/msweb/asusaicamera/images/page_fui01_gif.gif" alt="p01" className='max-w-full hidden md:block  ' /> 
+              <img src="https://r2.web.moonshine.tw/msweb/asusaicamera/images/page_fui01_gif.gif" alt="p01" className='max-w-full hidden md:block  ' /> 
               {
                 location.pathname === '/camera' && storedUsername && <div className="mt-4  text-white/70 text-xs text-center md:text-left">Player name：{storedUsername}</div>
               }
             </div>
            
             
-            <img src="https://moonshine.b-cdn.net/msweb/asusaicamera/images/page_fui02_gif.gif" alt="p01" className='max-w-full w-[40%] md:w-auto absolute bottom-0 left-0 pl-10 md:pl-0  ' />
+            <img src="https://r2.web.moonshine.tw/msweb/asusaicamera/images/page_fui02_gif.gif" alt="p01" className='max-w-full w-[40%] md:w-auto absolute bottom-0 left-0 pl-10 md:pl-0  ' />
             <Outlet />
 
            

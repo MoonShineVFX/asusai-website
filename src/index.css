@@ -8,8 +8,8 @@
 @layer base {
   @font-face {
     font-family: 'Cachet W05';
-    src: url('https://moonshine.b-cdn.net/msweb/asusaicamera/fonts/TradeGothicLTW05-Bold.woff2') format('woff2'),
-         url('https://moonshine.b-cdn.net/msweb/asusaicamera/fonts/TradeGothicLTW05-Bold.woff') format('woff');
+    src: url('https://r2.web.moonshine.tw/msweb/asusaicamera/fonts/TradeGothicLTW05-Bold.woff2') format('woff2'),
+         url('https://r2.web.moonshine.tw/msweb/asusaicamera/fonts/TradeGothicLTW05-Bold.woff') format('woff');
  }
   html {
     /* font-family: Montserrat, sans-serif; */
@@ -19,7 +19,7 @@
 
 
 .framed {
-  border-image-source: url("https://moonshine.b-cdn.net/msweb/asusaicamera/images/page_border14.png");
+  border-image-source: url("https://r2.web.moonshine.tw/msweb/asusaicamera/images/page_border14.png");
   border-image-slice: 93 92 87 92;
   border-image-repeat: stretch;
 

@@ -36,7 +36,7 @@ function RenderLayout() {
               </div>
 
             </div>
-            <img src="https://moonshine.b-cdn.net/msweb/asusaicamera/images/header_right.gif" alt="" className='max-w-screen   md:h-full w-1/2 md:w-auto  ml-auto order-1 md:order-2 ' />
+            <img src="https://r2.web.moonshine.tw/msweb/asusaicamera/images/header_right.gif" alt="" className='max-w-screen   md:h-full w-1/2 md:w-auto  ml-auto order-1 md:order-2 ' />
           </div>
           <div className='mt-7 md:mt-6 relative md:my-10 px-0 md:mx-10'>
             <div className=' w-full md:w-auto  top-0 left-0 z-10 right-0'>
