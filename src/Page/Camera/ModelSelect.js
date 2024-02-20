@@ -19,16 +19,16 @@ import 'swiper/css/navigation';
 // import required modules
 import { EffectCoverflow, Pagination,Navigation } from 'swiper/modules';
 const bannerData = [
-  {url:"https://r2.web.moonshine.tw/msweb/asusaicamera/templates/1.jpg" ,title:'MODULE 1', subtitle:"Introduction to module one",id:'1'},
-  {url:"https://r2.web.moonshine.tw/msweb/asusaicamera/templates/2.jpg" ,title:'MODULE 2', subtitle:"Introduction to module two",id:'2'},
-  {url:"https://r2.web.moonshine.tw/msweb/asusaicamera/templates/3.jpg" ,title:'MODULE 3', subtitle:"Introduction to module three",id:'3'},
-  {url:"https://r2.web.moonshine.tw/msweb/asusaicamera/templates/4.jpg" ,title:'MODULE 4', subtitle:"Introduction to module four",id:'4'},
-  {url:"https://r2.web.moonshine.tw/msweb/asusaicamera/templates/5.jpg" ,title:'MODULE 5', subtitle:"Introduction to module five",id:'5'},
-  {url:"https://r2.web.moonshine.tw/msweb/asusaicamera/templates/6.jpg" ,title:'MODULE 6', subtitle:"Introduction to module six",id:'6'},
-  {url:"https://r2.web.moonshine.tw/msweb/asusaicamera/templates/7.jpg" ,title:'MODULE 7', subtitle:"Introduction to module 7",id:'7'},
-  {url:"https://r2.web.moonshine.tw/msweb/asusaicamera/templates/8.jpg" ,title:'MODULE 8', subtitle:"Introduction to module 8",id:'8'},
-  {url:"https://r2.web.moonshine.tw/msweb/asusaicamera/templates/9.jpg" ,title:'MODULE 9', subtitle:"Introduction to module 9",id:'9'},
-  {url:"https://r2.web.moonshine.tw/msweb/asusaicamera/templates/10.jpg" ,title:'MODULE 10', subtitle:"Introduction to module 10",id:'10'},
+  {url:"https://r2.web.moonshine.tw/opt/lg/msweb/asusaicamera/templates/1.jpg" ,title:'MODULE 1', subtitle:"Introduction to module one",id:'1'},
+  {url:"https://r2.web.moonshine.tw/opt/lg/msweb/asusaicamera/templates/2.jpg" ,title:'MODULE 2', subtitle:"Introduction to module two",id:'2'},
+  {url:"https://r2.web.moonshine.tw/opt/lg/msweb/asusaicamera/templates/3.jpg" ,title:'MODULE 3', subtitle:"Introduction to module three",id:'3'},
+  {url:"https://r2.web.moonshine.tw/opt/lg/msweb/asusaicamera/templates/4.jpg" ,title:'MODULE 4', subtitle:"Introduction to module four",id:'4'},
+  {url:"https://r2.web.moonshine.tw/opt/lg/msweb/asusaicamera/templates/5.jpg" ,title:'MODULE 5', subtitle:"Introduction to module five",id:'5'},
+  {url:"https://r2.web.moonshine.tw/opt/lg/msweb/asusaicamera/templates/6.jpg" ,title:'MODULE 6', subtitle:"Introduction to module six",id:'6'},
+  {url:"https://r2.web.moonshine.tw/opt/lg/msweb/asusaicamera/templates/7.jpg" ,title:'MODULE 7', subtitle:"Introduction to module 7",id:'7'},
+  {url:"https://r2.web.moonshine.tw/opt/lg/msweb/asusaicamera/templates/8.jpg" ,title:'MODULE 8', subtitle:"Introduction to module 8",id:'8'},
+  {url:"https://r2.web.moonshine.tw/opt/lg/msweb/asusaicamera/templates/9.jpg" ,title:'MODULE 9', subtitle:"Introduction to module 9",id:'9'},
+  {url:"https://r2.web.moonshine.tw/opt/lg/msweb/asusaicamera/templates/10.jpg" ,title:'MODULE 10', subtitle:"Introduction to module 10",id:'10'},
 
  ]
 let apiurl1 = 'https://faceswap.rd-02f.workers.dev/images'
@@ -125,7 +125,7 @@ function ModelSelect() {
     const formData = new FormData();
     formData.append('source_image', compressFiles); 
     formData.append('swap_image_url', 'https://r2.web.moonshine.tw/msweb/asusaicamera/templates/10.jpg'); 
-    // formData.append("command_type", currentId);
+    formData.append("command_type", currentId);
   
     fetch('https://faceswap.rd-02f.workers.dev/images', {
       method: 'POST',
@@ -330,7 +330,7 @@ function ModelSelect() {
                     <div className=' relative '>
                       <div className=' relative w-full'>
                         <img 
-                          src={item.url+'?width=410'} 
+                          src={item.url} 
                           alt="slide" 
                           className={` max-w-full hover:brightness-110 rounded-md transition-all ${currentId === item.id ? 'drop-shadow-[0px_10px_15px_rgba(255,255,255,0.55)] brightness-110 ' : ''}`}
                           onClick={()=>{
